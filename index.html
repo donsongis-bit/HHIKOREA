@@ -2,7 +2,9 @@
 <html lang="ko" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="H&H Investment — Global real estate development and investment.">
+    <meta name="theme-color" content="#07111f">
     <title>H&H Investment Official Website</title>
     <!-- STREAMING_CHUNK:Loading Tailwind CSS framework... -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,9 +25,171 @@
     <!-- STREAMING_CHUNK:Configuring Google Fonts and global glassmorphism styles... -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Noto Sans KR', 'Inter', sans-serif; word-break: keep-all; overflow-x: hidden; }
-        .glass-nav { background: rgba(2, 6, 23, 0.88); backdrop-filter: blur(16px); }
-        .glass-card { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        :root { --ink: #07111f; --gold: #d9a441; --gold-light: #f6cf79; --line: rgba(226, 232, 240, .12); }
+        body { font-family: 'Noto Sans KR', 'Inter', sans-serif; word-break: keep-all; overflow-x: hidden; background: var(--ink); }
+        ::selection { background: var(--gold); color: var(--ink); }
+        .glass-nav { background: rgba(7, 17, 31, .76); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: background .3s ease, border-color .3s ease; }
+        .glass-nav.is-scrolled { background: rgba(7, 17, 31, .94); border-color: rgba(217, 164, 65, .22); }
+        .glass-card { background: linear-gradient(145deg, rgba(23, 37, 58, .78), rgba(9, 18, 32, .7)); backdrop-filter: blur(16px); border: 1px solid var(--line); }
+        .page-section { animation: page-in .45s cubic-bezier(.2,.8,.2,1) both; }
+        .hero-overlay { background: linear-gradient(90deg, rgba(7,17,31,.91) 0%, rgba(7,17,31,.55) 48%, rgba(7,17,31,.28) 100%), linear-gradient(0deg, rgba(7,17,31,.88), transparent 48%); }
+        .eyebrow-line::before { content: ''; display: inline-block; width: 2.5rem; height: 1px; margin-right: .75rem; background: var(--gold); vertical-align: middle; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; height: 1px; bottom: -8px; left: 0; right: 0; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+        .nav-link:hover::after, .nav-link.is-active::after { transform: scaleX(1); }
+        .nav-link.is-active { color: var(--gold-light); }
+        .project-card { transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
+        .project-card:hover { transform: translateY(-6px); border-color: rgba(217,164,65,.5); box-shadow: 0 24px 48px rgba(0,0,0,.25); }
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .skip-link { position: fixed; top: .75rem; left: .75rem; z-index: 80; transform: translateY(-160%); transition: transform .2s ease; }
+        .skip-link:focus { transform: translateY(0); }
+        #backToTop { opacity: 0; visibility: hidden; transform: translateY(12px); transition: .25s ease; }
+        #backToTop.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        :focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+        @keyframes page-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
+
+        /* Swiss grid system: the video is background-only; the visual system stays editorial. */
+        :root { --swiss-paper:#f7f7f5; --swiss-ink:#111; --swiss-red:#e12b22; --swiss-line:rgba(17,17,17,.18); }
+        body, body.bg-slate-950 { background:var(--swiss-paper) !important; color:var(--swiss-ink) !important; font-family:'Inter','Helvetica Neue',Arial,sans-serif; }
+        body::before { content:''; position:fixed; inset:0; z-index:80; pointer-events:none; opacity:.18; background-image:linear-gradient(to right,transparent calc(25% - .5px),var(--swiss-line) 25%,transparent calc(25% + .5px),transparent calc(50% - .5px),var(--swiss-line) 50%,transparent calc(50% + .5px),transparent calc(75% - .5px),var(--swiss-line) 75%,transparent calc(75% + .5px)); }
+        .glass-nav { background:rgba(247,247,245,.96) !important; border-bottom:1px solid var(--swiss-ink) !important; box-shadow:none !important; backdrop-filter:none; }
+        .glass-nav .text-slate-300,.glass-nav .text-slate-200 { color:var(--swiss-ink) !important; }
+        .nav-link:hover,.nav-link.is-active { color:var(--swiss-red) !important; }
+        #langToggleBtn { background:transparent !important; border:1px solid var(--swiss-ink) !important; color:var(--swiss-ink) !important; border-radius:0 !important; }
+        #txt-navBtnProjects { background:var(--swiss-red) !important; color:#fff !important; border-radius:0 !important; box-shadow:none !important; }
+        main { background:var(--swiss-paper) !important; }
+        #home { min-height:calc(100vh - 5.5rem); background:var(--swiss-paper) !important; border-bottom:1px solid var(--swiss-ink); }
+        #hero-bg-video { opacity:.22 !important; filter:grayscale(1) contrast(1.15); mix-blend-mode:multiply; z-index:0 !important; }
+        #home .hero-overlay { background:linear-gradient(90deg,rgba(247,247,245,.96),rgba(247,247,245,.7) 55%,rgba(247,247,245,.2)) !important; }
+        #home > .relative { z-index:2 !important; }
+        #home h1 { font-size:clamp(3.8rem,8vw,9.5rem) !important; line-height:.88 !important; letter-spacing:-.075em !important; }
+        #txt-heroTitle1,#txt-heroTitleSub { color:var(--swiss-ink) !important; text-shadow:none !important; }
+        #txt-heroTitle2 { color:var(--swiss-red) !important; text-shadow:none !important; }
+        #txt-heroDesc { color:#3e3e3e !important; border-left:1px solid var(--swiss-red); padding-left:1.25rem; text-shadow:none !important; }
+        #txt-heroBadge,#home .text-amber-400,#home .text-amber-500 { color:var(--swiss-red) !important; text-shadow:none !important; }
+        #home .bg-amber-500 { background:var(--swiss-red) !important; border-radius:0 !important; box-shadow:none !important; }
+        #home .bg-slate-900\/80 { background:transparent !important; color:var(--swiss-ink) !important; border-color:var(--swiss-ink) !important; border-radius:0 !important; }
+        section:not(#home) .text-white { color:var(--swiss-ink) !important; }
+        section:not(#home) .text-slate-300 { color:#454545 !important; }
+        section:not(#home) .text-amber-400,section:not(#home) .text-amber-500 { color:var(--swiss-red) !important; }
+        section:not(#home) .glass-card,section:not(#home) .bg-slate-900,section:not(#home) .bg-slate-950 { background:transparent !important; border:1px solid var(--swiss-ink) !important; border-radius:0 !important; box-shadow:none !important; }
+        section:not(#home) .bg-amber-500 { background:var(--swiss-red) !important; color:#fff !important; border-radius:0 !important; box-shadow:none !important; }
+        footer { background:var(--swiss-ink) !important; border-top:1px solid var(--swiss-ink) !important; }
+        @media(max-width:800px) { body::before{opacity:.1;} #home h1{font-size:clamp(3.1rem,16vw,5.4rem) !important;} }
+
+        /* Apply the Swiss system consistently to every internal page. */
+        #company, #business, #wondangPage, #cheolsanPage, #vision, #pressPage, #contact { background:var(--swiss-paper) !important; }
+        #company h2, #business h2, #wondangPage h2, #cheolsanPage h2, #vision h2, #pressPage h2, #contact h2 { font-size:clamp(2.25rem,5vw,5rem) !important; line-height:.95 !important; }
+        #company h3, #business h3, #wondangPage h3, #cheolsanPage h3, #vision h3, #pressPage h3, #contact h3 { letter-spacing:-.045em; }
+        #company .bg-slate-900, #business .bg-slate-900, #wondangPage .bg-slate-900, #cheolsanPage .bg-slate-900, #vision .bg-slate-900, #pressPage .bg-slate-900, #contact .bg-slate-900,
+        #company .bg-slate-950, #business .bg-slate-950, #wondangPage .bg-slate-950, #cheolsanPage .bg-slate-950, #vision .bg-slate-950, #pressPage .bg-slate-950, #contact .bg-slate-950 { background:#fff !important; }
+        #company .border-slate-800, #business .border-slate-800, #wondangPage .border-slate-800, #cheolsanPage .border-slate-800, #vision .border-slate-800, #pressPage .border-slate-800, #contact .border-slate-800 { border-color:var(--swiss-line) !important; }
+        #company img, #business img, #wondangPage img, #cheolsanPage img, #vision img, #pressPage img { border-radius:0 !important; }
+        #company button, #business button, #wondangPage button, #cheolsanPage button, #vision button, #pressPage button, #contact button { border-radius:0 !important; }
+        #company .text-amber-400, #business .text-amber-400, #wondangPage .text-amber-400, #cheolsanPage .text-amber-400, #vision .text-amber-400, #pressPage .text-amber-400, #contact .text-amber-400 { color:var(--swiss-red) !important; }
+        #projectModal > div, #imageLightbox > div, #dongjakReportModal > div, #yuseongReportModal > div, #anmyeondoReportModal > div, #dmcReportModal > div { border-radius:0 !important; border-color:var(--swiss-ink) !important; }
+        #projectModal, #imageLightbox, #dongjakReportModal, #yuseongReportModal, #anmyeondoReportModal, #dmcReportModal { background:rgba(17,17,17,.72) !important; }
+        /* Only this element is a hero background video. */
+        #home > .absolute #hero-bg-video { position:absolute; inset:0; }
+        /* Hero readability: video leads visually, copy remains legible at every width. */
+        #home > .absolute { z-index:0 !important; }
+        #home > .absolute #hero-bg-video { opacity:.82 !important; filter:grayscale(.12) contrast(1.06) brightness(.72); mix-blend-mode:normal; }
+        #home > .absolute .hero-overlay { z-index:1 !important; background:linear-gradient(90deg,rgba(7,17,31,.88) 0%,rgba(7,17,31,.54) 52%,rgba(7,17,31,.18) 100%),linear-gradient(0deg,rgba(7,17,31,.78),transparent 62%) !important; }
+        #home > .relative { position:relative; z-index:2 !important; min-width:0; }
+        #home h1, #home h1 span, #txt-heroTitleSub, #txt-heroDesc { max-width:100%; overflow-wrap:anywhere; word-break:normal; hyphens:none; }
+        #home h1 { font-size:clamp(2.35rem,7.5vw,7.5rem) !important; line-height:.96 !important; }
+        #txt-heroTitleSub { display:inline-block; font-size:clamp(1rem,2.2vw,1.8rem) !important; line-height:1.3 !important; letter-spacing:-.025em !important; }
+        #txt-heroDesc { width:min(100%,48rem); font-size:clamp(.86rem,1.35vw,1.05rem) !important; line-height:1.75 !important; }
+        @media (max-width:640px) { #home { min-height:100svh !important; padding-top:7.5rem !important; padding-bottom:4rem !important; } #home h1 { font-size:clamp(2.15rem,11.5vw,4.2rem) !important; } #txt-heroTitleSub { margin-top:1.1rem !important; } #txt-heroDesc { line-height:1.65 !important; } }
+        /* Detail-page type contrast */
+        #company, #business, #wondangPage, #cheolsanPage, #vision, #pressPage, #contact { color:#2a2a2a !important; }
+        #company p, #business p, #wondangPage p, #cheolsanPage p, #vision p, #pressPage p, #contact p,
+        #company li, #business li, #wondangPage li, #cheolsanPage li, #vision li, #pressPage li, #contact li { color:#3f3f3f !important; line-height:1.75; }
+        #company .text-slate-100, #business .text-slate-100, #wondangPage .text-slate-100, #cheolsanPage .text-slate-100, #vision .text-slate-100, #pressPage .text-slate-100, #contact .text-slate-100,
+        #company .text-slate-200, #business .text-slate-200, #wondangPage .text-slate-200, #cheolsanPage .text-slate-200, #vision .text-slate-200, #pressPage .text-slate-200, #contact .text-slate-200,
+        #company .text-slate-300, #business .text-slate-300, #wondangPage .text-slate-300, #cheolsanPage .text-slate-300, #vision .text-slate-300, #pressPage .text-slate-300, #contact .text-slate-300,
+        #company .text-slate-400, #business .text-slate-400, #wondangPage .text-slate-400, #cheolsanPage .text-slate-400, #vision .text-slate-400, #pressPage .text-slate-400, #contact .text-slate-400 { color:#4a4a4a !important; }
+        #company h2, #company h3, #company h4, #business h2, #business h3, #business h4, #wondangPage h2, #wondangPage h3, #wondangPage h4, #cheolsanPage h2, #cheolsanPage h3, #cheolsanPage h4, #vision h2, #vision h3, #pressPage h2, #pressPage h3, #contact h2, #contact h3 { color:#111 !important; }
+        #company .bg-slate-800, #business .bg-slate-800, #wondangPage .bg-slate-800, #cheolsanPage .bg-slate-800, #vision .bg-slate-800, #pressPage .bg-slate-800, #contact .bg-slate-800 { background:#111 !important; color:#fff !important; }
+        #business button, #wondangPage button, #cheolsanPage button { min-height:2.75rem; font-weight:700; letter-spacing:-.015em; }
+        #business .bg-slate-800, #wondangPage .bg-slate-800, #cheolsanPage .bg-slate-800 { color:#fff !important; }
+        #business .text-amber-400, #wondangPage .text-amber-400, #cheolsanPage .text-amber-400, #contact .text-amber-400 { color:var(--swiss-red) !important; }
+        /* White detail-page typography on deep editorial surfaces. */
+        #company, #business, #wondangPage, #cheolsanPage, #vision, #pressPage, #contact { background:#111 !important; color:#fff !important; }
+        #company p, #business p, #wondangPage p, #cheolsanPage p, #vision p, #pressPage p, #contact p,
+        #company li, #business li, #wondangPage li, #cheolsanPage li, #vision li, #pressPage li, #contact li,
+        #company .text-slate-100, #business .text-slate-100, #wondangPage .text-slate-100, #cheolsanPage .text-slate-100, #vision .text-slate-100, #pressPage .text-slate-100, #contact .text-slate-100,
+        #company .text-slate-200, #business .text-slate-200, #wondangPage .text-slate-200, #cheolsanPage .text-slate-200, #vision .text-slate-200, #pressPage .text-slate-200, #contact .text-slate-200,
+        #company .text-slate-300, #business .text-slate-300, #wondangPage .text-slate-300, #cheolsanPage .text-slate-300, #vision .text-slate-300, #pressPage .text-slate-300, #contact .text-slate-300 { color:#f5f5f5 !important; }
+        #company .text-slate-400, #business .text-slate-400, #wondangPage .text-slate-400, #cheolsanPage .text-slate-400, #vision .text-slate-400, #pressPage .text-slate-400, #contact .text-slate-400 { color:#c9c9c9 !important; }
+        #company h2, #company h3, #company h4, #business h2, #business h3, #business h4, #wondangPage h2, #wondangPage h3, #wondangPage h4, #cheolsanPage h2, #cheolsanPage h3, #cheolsanPage h4, #vision h2, #vision h3, #pressPage h2, #pressPage h3, #contact h2, #contact h3 { color:#fff !important; }
+        #company .glass-card, #business .glass-card, #wondangPage .glass-card, #cheolsanPage .glass-card, #vision .glass-card, #pressPage .glass-card, #contact .glass-card,
+        #company .bg-slate-900, #business .bg-slate-900, #wondangPage .bg-slate-900, #cheolsanPage .bg-slate-900, #vision .bg-slate-900, #pressPage .bg-slate-900, #contact .bg-slate-900 { background:#1b1b1b !important; border-color:rgba(255,255,255,.2) !important; }
+        #company .bg-slate-950, #business .bg-slate-950, #wondangPage .bg-slate-950, #cheolsanPage .bg-slate-950, #vision .bg-slate-950, #pressPage .bg-slate-950, #contact .bg-slate-950 { background:#0b0b0b !important; }
+        #home > .absolute #hero-bg-video { z-index:1 !important; opacity:.98 !important; filter:grayscale(0) contrast(1.08) brightness(.78) !important; }
+        #home > .absolute .hero-overlay { z-index:2 !important; background:linear-gradient(90deg,rgba(7,17,31,.64),rgba(7,17,31,.22) 58%,rgba(7,17,31,.05)) !important; }
+        #home > .relative { z-index:3 !important; }
+        /* Internal pages: restore the light Swiss paper / ink / red palette. */
+        #company, #business, #wondangPage, #cheolsanPage, #vision, #pressPage, #contact { background:var(--swiss-paper) !important; color:var(--swiss-ink) !important; }
+        #company p, #business p, #wondangPage p, #cheolsanPage p, #vision p, #pressPage p, #contact p,
+        #company li, #business li, #wondangPage li, #cheolsanPage li, #vision li, #pressPage li, #contact li { color:#3f3f3f !important; }
+        #company h2, #company h3, #company h4, #business h2, #business h3, #business h4, #wondangPage h2, #wondangPage h3, #wondangPage h4, #cheolsanPage h2, #cheolsanPage h3, #cheolsanPage h4, #vision h2, #vision h3, #pressPage h2, #pressPage h3, #contact h2, #contact h3 { color:var(--swiss-ink) !important; }
+        #company .text-slate-100, #business .text-slate-100, #wondangPage .text-slate-100, #cheolsanPage .text-slate-100, #vision .text-slate-100, #pressPage .text-slate-100, #contact .text-slate-100,
+        #company .text-slate-200, #business .text-slate-200, #wondangPage .text-slate-200, #cheolsanPage .text-slate-200, #vision .text-slate-200, #pressPage .text-slate-200, #contact .text-slate-200,
+        #company .text-slate-300, #business .text-slate-300, #wondangPage .text-slate-300, #cheolsanPage .text-slate-300, #vision .text-slate-300, #pressPage .text-slate-300, #contact .text-slate-300 { color:#3f3f3f !important; }
+        #company .text-slate-400, #business .text-slate-400, #wondangPage .text-slate-400, #cheolsanPage .text-slate-400, #vision .text-slate-400, #pressPage .text-slate-400, #contact .text-slate-400 { color:#666 !important; }
+        #company .glass-card, #business .glass-card, #wondangPage .glass-card, #cheolsanPage .glass-card, #vision .glass-card, #pressPage .glass-card, #contact .glass-card,
+        #company .bg-slate-900, #business .bg-slate-900, #wondangPage .bg-slate-900, #cheolsanPage .bg-slate-900, #vision .bg-slate-900, #pressPage .bg-slate-900, #contact .bg-slate-900 { background:#fff !important; border-color:var(--swiss-ink) !important; }
+        #company .bg-slate-950, #business .bg-slate-950, #wondangPage .bg-slate-950, #cheolsanPage .bg-slate-950, #vision .bg-slate-950, #pressPage .bg-slate-950, #contact .bg-slate-950 { background:#f0f0ee !important; }
+        #company .text-amber-400, #business .text-amber-400, #wondangPage .text-amber-400, #cheolsanPage .text-amber-400, #vision .text-amber-400, #pressPage .text-amber-400, #contact .text-amber-400 { color:var(--swiss-red) !important; }
+        #company .bg-amber-500, #business .bg-amber-500, #wondangPage .bg-amber-500, #cheolsanPage .bg-amber-500, #vision .bg-amber-500, #pressPage .bg-amber-500, #contact .bg-amber-500 { background:var(--swiss-red) !important; color:#fff !important; border-radius:0 !important; }
+        /* Safe bilingual wrapping across every page; home keeps its own hero scale. */
+        #company *, #business *, #wondangPage *, #cheolsanPage *, #vision *, #pressPage *, #contact * { overflow-wrap:anywhere; word-break:break-word; hyphens:none; }
+        #company h2, #company h3, #company h4, #business h2, #business h3, #business h4, #wondangPage h2, #wondangPage h3, #wondangPage h4, #cheolsanPage h2, #cheolsanPage h3, #cheolsanPage h4, #vision h2, #vision h3, #pressPage h2, #pressPage h3, #contact h2, #contact h3 { max-width:100%; line-height:1.12 !important; }
+        #company button, #business button, #wondangPage button, #cheolsanPage button, #vision button, #pressPage button, #contact button { white-space:normal; min-width:0; }
+        /* Business Area: only the project detail tabs use the white Swiss treatment. */
+        #business button[id$="Btn1"] { background:#fff !important; color:#111 !important; border:1px solid #111 !important; box-shadow:none !important; }
+        #business button[id$="Btn1"]:hover { background:#f0f0ee !important; color:var(--swiss-red) !important; border-color:var(--swiss-red) !important; }
+        #vision { background:#fff !important; color:#111 !important; }
+        #vision figure { background:#fff !important; border-color:#111 !important; }
+        #vision figcaption { color:#111 !important; background:#fff !important; }
+        main:has(#vision:not(.hidden)) { background:#fff !important; }
+        #vision { padding-bottom:clamp(5rem,10vw,10rem) !important; }
+        /* Compact public-institution strip under the hero for one-screen viewing. */
+        #home > .relative > .grid { padding-top:1.25rem !important; gap:.7rem !important; }
+        #home > .relative > .grid > div { padding:.15rem .45rem !important; }
+        #home > .relative > div:last-child { padding-top:.7rem !important; }
+        #home > .relative > div:last-child > .flex { flex-wrap:nowrap !important; gap:.55rem !important; justify-content:flex-start; }
+        /* Restore institution marks to their original size while tightening the hero rhythm. */
+        #home { padding-top:6rem !important; padding-bottom:1.25rem !important; }
+        #home > .relative { row-gap:0 !important; }
+        #home h1 { margin-top:.25rem !important; margin-bottom:.5rem !important; }
+        #home > .relative > .grid { padding-top:1rem !important; gap:.55rem !important; }
+        #home > .relative > .grid > div { padding:.1rem .35rem !important; }
+        #home > .relative > div:last-child { padding-top:.45rem !important; }
+        #home > .relative > div:last-child img { height:3rem !important; max-width:none; padding:.25rem !important; }
+        @media (max-width:640px) { #home { padding-top:6.25rem !important; padding-bottom:.75rem !important; } #home > .relative > .grid { padding-top:.7rem !important; gap:.25rem !important; } #home > .relative > .grid > div { padding-left:.12rem !important; } #home > .relative > div:last-child img { height:2.5rem !important; } #home > .relative > div:last-child > .flex { gap:.2rem !important; } }
+        /* Pull the footer into the first viewport without clipping hero content. */
+        @media (min-width:641px) { #home { min-height:calc(100svh - 11rem) !important; padding-top:5.25rem !important; padding-bottom:.75rem !important; } #home > .relative > .space-y-8 { gap:0 !important; } }
+        /* Let the footer meet the end of the hero video with no paper-colored gap. */
+        main { padding-bottom:0 !important; margin-bottom:0 !important; }
+        #home { margin-bottom:0 !important; }
+        footer { margin-top:0 !important; border-top:0 !important; background:#111 !important; }
+        #home { padding-top:4.75rem !important; padding-bottom:.25rem !important; }
+        #home > .relative > .grid { padding-top:.65rem !important; }
+        #home > .relative > div:last-child { padding-top:.25rem !important; }
+        footer { padding-top:1.5rem !important; padding-bottom:1.5rem !important; }
+        @media (max-width:640px) { #home { padding-top:5.5rem !important; padding-bottom:.35rem !important; } footer { padding-top:1.25rem !important; padding-bottom:1.25rem !important; } }
+        /* Seal the hero/footer seam so no paper-colored strip appears around the video. */
+        body { background:#111 !important; }
+        main { background:#111 !important; }
+        #home { background:#111 !important; margin:0 !important; overflow:hidden; }
+        #home + section { margin-top:0 !important; }
+        footer { background:#111 !important; margin:0 !important; }
+        #txt-heroDesc { color:#f8f8f8 !important; text-shadow:0 1px 12px rgba(0,0,0,.65) !important; }
+        #txt-heroDesc { width:100% !important; max-width:48rem !important; word-break:keep-all !important; overflow-wrap:normal !important; white-space:normal !important; line-break:strict; }
     </style>
     <!-- STREAMING_CHUNK:Initializing global JavaScript, multilingual state, and routing... -->
     <script>
@@ -68,13 +232,32 @@
             const target = document.getElementById(pageId);
             if (target) {
                 target.classList.remove('hidden');
+                target.classList.remove('page-section');
+                void target.offsetWidth;
+                target.classList.add('page-section');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
             const mobileMenu = document.getElementById('mobileMenu');
             if (mobileMenu && !mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); }
+            const mobileButton = document.getElementById('mobileMenuButton');
+            if (mobileButton) mobileButton.setAttribute('aria-expanded', 'false');
+            document.querySelectorAll('[data-page]').forEach(function(button) {
+                const isCurrent = button.dataset.page === pageId;
+                button.classList.toggle('is-active', isCurrent);
+                button.setAttribute('aria-current', isCurrent ? 'page' : 'false');
+            });
+            const pageNames = { home: 'Home', company: 'About Us', business: 'Business Area', wondangPage: 'Wondang Project', cheolsanPage: 'Cheolsan Project', vision: 'Philosophy', pressPage: 'Press', contact: 'Contact Us' };
+            document.title = 'H&H Investment | ' + (pageNames[pageId] || 'Official Website');
         }
 
-        function toggleMobileMenu() { const mobileMenu = document.getElementById('mobileMenu'); if (mobileMenu) { mobileMenu.classList.toggle('hidden'); } }
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileButton = document.getElementById('mobileMenuButton');
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileButton) mobileButton.setAttribute('aria-expanded', String(!mobileMenu.classList.contains('hidden')));
+            }
+        }
 
         let currentLang = 'KOR';
         const i18n = {
@@ -182,6 +365,7 @@
     </script>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950">
+    <a class="skip-link bg-amber-400 text-slate-950 px-4 py-2 rounded-lg font-bold text-sm" href="#main-content">본문으로 바로가기</a>
 
     <!-- HEADER & NAVIGATION -->
     <header class="fixed top-0 left-0 right-0 z-40 glass-nav border-b border-slate-800/80">
@@ -190,13 +374,13 @@
                 <img src="HHI.png" alt="H&H Investment Logo" class="h-8 sm:h-10 w-auto object-contain" onerror="handleLogoError(this)">
             </div>
             
-            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-slate-300">
-                <button type="button" onclick="showPage('home')" id="txt-navHome" class="hover:text-amber-400 transition cursor-pointer">Home</button>
-                <button type="button" onclick="showPage('company')" id="txt-navAbout" class="hover:text-amber-400 transition cursor-pointer">About Us</button>
-                <button type="button" onclick="showPage('business')" id="txt-navBusiness" class="hover:text-amber-400 transition cursor-pointer">Business Area</button>
-                <button type="button" onclick="showPage('vision')" id="txt-navPhilosophy" class="hover:text-amber-400 transition cursor-pointer">Philosophy</button>
-                <button type="button" onclick="showPage('pressPage')" id="txt-navPress" class="hover:text-amber-400 transition cursor-pointer">Press</button>
-                <button type="button" onclick="showPage('contact')" id="txt-navContact" class="hover:text-amber-400 transition cursor-pointer">Contact Us</button>
+            <nav aria-label="Main navigation" class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-slate-300">
+                <button type="button" onclick="showPage('home')" data-page="home" id="txt-navHome" class="nav-link is-active hover:text-amber-400 transition cursor-pointer">Home</button>
+                <button type="button" onclick="showPage('company')" data-page="company" id="txt-navAbout" class="nav-link hover:text-amber-400 transition cursor-pointer">About Us</button>
+                <button type="button" onclick="showPage('business')" data-page="business" id="txt-navBusiness" class="nav-link hover:text-amber-400 transition cursor-pointer">Business Area</button>
+                <button type="button" onclick="showPage('vision')" data-page="vision" id="txt-navPhilosophy" class="nav-link hover:text-amber-400 transition cursor-pointer">Philosophy</button>
+                <button type="button" onclick="showPage('pressPage')" data-page="pressPage" id="txt-navPress" class="nav-link hover:text-amber-400 transition cursor-pointer">Press</button>
+                <button type="button" onclick="showPage('contact')" data-page="contact" id="txt-navContact" class="nav-link hover:text-amber-400 transition cursor-pointer">Contact Us</button>
             </nav>
 
             <div class="flex items-center gap-2 sm:gap-3">
@@ -206,7 +390,7 @@
                 <button type="button" onclick="showPage('business')" id="txt-navBtnProjects" class="hidden sm:inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs shadow-lg transition transform hover:scale-105 cursor-pointer">
                     프로젝트 보기
                 </button>
-                <button type="button" onclick="toggleMobileMenu()" class="md:hidden text-amber-400 p-2 focus:outline-none text-xl">
+                <button type="button" onclick="toggleMobileMenu()" aria-controls="mobileMenu" aria-expanded="false" aria-label="메뉴 열기" id="mobileMenuButton" class="md:hidden text-amber-400 p-2 focus:outline-none text-xl">
                     ☰
                 </button>
             </div>
@@ -224,13 +408,14 @@
         </div>
     </header>
 
-    <main class="flex-grow pt-20">
+    <main id="main-content" class="flex-grow pt-20" tabindex="-1">
         <!-- PAGE 1: HOME PAGE -->
         <section id="home" class="relative min-h-[90vh] sm:min-h-screen flex flex-col justify-center px-4 sm:px-6 py-16 sm:py-24">
             <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <video id="hero-bg-video" autoplay muted loop playsinline class="w-full h-full object-cover pointer-events-none opacity-100" oncanplay="this.muted=true; this.play();" onerror="this.style.display='none';">
                     <source src="newyork-skyline.mp4" type="video/mp4">
                 </video>
+                <div class="hero-overlay absolute inset-0"></div>
             </div>
             <div class="relative z-10 max-w-5xl mx-auto w-full space-y-8 sm:space-y-10 text-left">
                 <div class="space-y-4 sm:space-y-6">
@@ -239,11 +424,11 @@
                         <span id="txt-heroBadge" class="text-[10px] sm:text-xs font-bold text-amber-400 uppercase tracking-widest drop-shadow-md">Global Real Estate Developer & Investment</span>
                     </div>
                     <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight text-left">
-                        <span id="txt-heroTitle1" class="inline-block text-[#0f2342] font-black drop-shadow-md">Shaping tomorrow</span><br>
+                        <span id="txt-heroTitle1" class="inline-block text-white font-black drop-shadow-md">Shaping tomorrow</span><br>
                         <span id="txt-heroTitle2" class="inline-block text-amber-500 drop-shadow-lg mt-1">with vision and action.</span><br>
-                        <span id="txt-heroTitleSub" class="inline-block text-base sm:text-2xl lg:text-3xl font-bold text-[#0f2342] mt-3 drop-shadow-md">도시의 미래 가치를 창조하는 글로벌 디벨로퍼, H&H Investment</span>
+                        <span id="txt-heroTitleSub" class="inline-block text-base sm:text-2xl lg:text-3xl font-bold text-slate-100 mt-3 drop-shadow-md">도시의 미래 가치를 창조하는 글로벌 디벨로퍼, H&H Investment</span>
                     </h1>
-                    <p id="txt-heroDesc" class="text-[#0f2342] text-xs sm:text-base max-w-2xl leading-relaxed text-left font-extrabold drop-shadow-sm">
+                    <p id="txt-heroDesc" class="text-slate-200 text-xs sm:text-base max-w-2xl leading-relaxed text-left font-medium drop-shadow-sm">
                         H&H Investment는 서울 및 수도권 핵심 요충지의 대규모 복합단지 개발, 도시정비사업, 그리고 혁신적인 금융 구조화를 선도하는 대한민국 대표 종합 부동산 디벨로퍼입니다.
                     </p>
                 </div>
@@ -368,9 +553,9 @@
         </section>
 
         <!-- PAGE 4: PHILOSOPHY -->
-        <section id="vision" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 flex flex-col items-center">
-            <div class="w-full max-w-6xl rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900">
-                <img id="philoVisionImg" src="philosophyvisionkor.jpg" alt="Philosophy & Vision" class="w-full h-auto object-contain block">
+        <section id="vision" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 flex flex-col items-center bg-white">
+            <div class="w-full max-w-6xl bg-white border border-slate-200 overflow-hidden">
+                <img id="philoVisionImg" src="philosophyvisionkor.jpg" alt="철학과 비전" class="w-full h-auto object-contain block">
             </div>
         </section>
 
@@ -684,5 +869,47 @@
         </div>
     </div>
 
+    <button id="backToTop" type="button" aria-label="맨 위로 이동" class="fixed bottom-6 right-6 z-30 w-11 h-11 rounded-full bg-amber-400 text-slate-950 font-black shadow-xl hover:bg-amber-300">↑</button>
+
+    <script>
+        (function () {
+            const header = document.querySelector('header');
+            const backToTop = document.getElementById('backToTop');
+            const revealTargets = document.querySelectorAll('.glass-card, section > div');
+
+            function updateScrollState() {
+                const hasScrolled = window.scrollY > 12;
+                if (header) header.classList.toggle('is-scrolled', hasScrolled);
+                if (backToTop) backToTop.classList.toggle('is-visible', window.scrollY > 500);
+            }
+
+            window.addEventListener('scroll', updateScrollState, { passive: true });
+            updateScrollState();
+            if (backToTop) backToTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+            if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                const observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+                    });
+                }, { threshold: .08 });
+                revealTargets.forEach(function (item) { item.classList.add('reveal'); observer.observe(item); });
+            }
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key !== 'Escape') return;
+                ['projectModal', 'imageLightbox', 'dongjakReportModal', 'yuseongReportModal', 'anmyeondoReportModal', 'dmcReportModal'].forEach(function (id) {
+                    const modal = document.getElementById(id);
+                    if (modal) modal.classList.add('hidden');
+                });
+            });
+
+            document.querySelectorAll('img').forEach(function (image) {
+                image.loading = 'lazy';
+                image.decoding = 'async';
+            });
+        }());
+    </script>
 </body>
+</html>
 </html>
