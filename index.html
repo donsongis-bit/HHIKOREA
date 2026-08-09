@@ -239,6 +239,14 @@
                 cheolsanPdfHeader: "📄 철산 사업계획서 원본 문서 (PDF)",
                 cheolsanPdfSub: "광명 철산동 261 주거복합 개발사업의 상세 수지 분석 및 건축계획을 PDF 뷰어로 확인하실 수 있습니다.",
                 cheolsanPdfOpenBtn: "새 창에서 전체 PDF 열기 ↗",
+                philoTag: "Philosophy & Vision",
+                philoTitle: "도시와 사람을 잇는 지속가능한 가치",
+                philoCard1Title: "창조적 공간 기획",
+                philoCard1Desc: "획일적인 도시 개발을 지양하고, 지역 고유의 문화와 미래 지향적 인프라가 유기적으로 결합된 차별화된 랜드마크를 창조합니다.",
+                philoCard2Title: "투명한 파트너십",
+                philoCard2Desc: "공공기관, 국내외 최정상 금융사, 1군 시공사와의 투명하고 견고한 협력 체계를 통해 프로젝트 성공률을 극대화합니다.",
+                philoCard3Title: "사회적 책임 경영",
+                philoCard3Desc: "지역 주민을 위한 문화·체육 공공기여 시설 확충 및 고용 촉진을 통해 지역 사회와 함께 성장하는 상생 경영을 실천합니다.",
                 contactTag: "Contact Us",
                 contactTitle: "글로벌 디벨로퍼의 새로운 파트너가 되어주세요",
                 contactDesc: "H&H Investment는 부동산 개발 및 투자 제휴에 관한 모든 문의를 환영합니다. 혁신적인 아이디어와 비전을 가진 파트너들의 연락을 기다립니다.",
@@ -393,6 +401,14 @@
                 cheolsanPdfHeader: "📄 Cheolsan Business Plan Official Document (PDF)",
                 cheolsanPdfSub: "View financial balance analysis and architectural plans via the PDF viewer below.",
                 cheolsanPdfOpenBtn: "Open Full PDF in New Window ↗",
+                philoTag: "Philosophy & Vision",
+                philoTitle: "Sustainable Value Connecting Cities and People",
+                philoCard1Title: "Creative Spatial Planning",
+                philoCard1Desc: "Rejecting conventional developments to craft distinctive landmarks uniting local culture with future-forward infrastructure.",
+                philoCard2Title: "Transparent Partnerships",
+                philoCard2Desc: "Maximizing project execution success through transparent cooperation with municipalities, top-tier financial institutions, and Tier-1 contractors.",
+                philoCard3Title: "Socially Responsible Management",
+                philoCard3Desc: "Practicing shared growth by expanding public amenities and promoting regional employment.",
                 contactTag: "Contact Us",
                 contactTitle: "Partner with a Premier Global Developer",
                 contactDesc: "H&H Investment welcomes all inquiries regarding real estate development and investment partnerships. We look forward to connecting with visionary partners.",
@@ -602,7 +618,6 @@
 
     <main class="flex-grow pt-20">
 
-        <!-- STREAMING_CHUNK:Rendering Home Hero Page with Clean Navy Text (No Background Box)... -->
         <!-- PAGE 1: HOME PAGE -->
         <section id="home" class="relative min-h-[90vh] sm:min-h-screen flex flex-col justify-center px-4 sm:px-6 py-16 sm:py-24">
             <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -658,21 +673,20 @@
                     </div>
                 </div>
 
-                <!-- Public Sector Logos (Equal Heights and Proportions) -->
+                <!-- Public Sector Logos -->
                 <div class="pt-4 sm:pt-6">
                     <div class="flex flex-wrap items-center gap-3 sm:gap-6">
                         <img src="seoulcity.png" alt="Seoul Metropolitan Government" onclick="openDmcReportModal()" title="상암 DMC 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform bg-white/10 p-2 rounded-xl backdrop-blur-md cursor-pointer" onerror="handleImageError(this, 'Seoul Govt')">
-                        <img src="daejeonmetro.png" alt="Daejeon Metropolitan City" onclick="openYuseongReportModal()" title="대전 유성복합터미널 요약보고서 보기" class="h-8 sm:h-10 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform bg-white/10 p-2 rounded-xl backdrop-blur-md cursor-pointer" onerror="handleImageError(this, 'Daejeon City')">
-                        <img src="dcco.png" alt="Daejeon Urban Development Corp." onclick="openYuseongReportModal()" title="대전 유성복합터미널 요약보고서 보기" class="h-8 sm:h-10 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform bg-white/10 p-2 rounded-xl backdrop-blur-md cursor-pointer" onerror="handleImageError(this, 'Daejeon DCCO')">
-                        <img src="chungcheongnam.png" alt="Chungcheongnam-do Government" onclick="openAnmyeongdoReportModal()" title="안면도 관광지 개발사업 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform bg-white/10 p-2 rounded-xl backdrop-blur-md cursor-pointer" onerror="handleImageError(this, 'Chungnam Govt')">
-                        <img src="dongjak.png" alt="Dongjak-gu Office" onclick="openDongjakReportModal()" title="동작구청 공모사업 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform bg-white/10 p-2 rounded-xl backdrop-blur-md cursor-pointer" onerror="handleImageError(this, 'Dongjak')">
+                        <img src="daejeonmetro.png" alt="대전유성구" onclick="openYuseongReportModal()" title="대전 유성복합터미널 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform bg-white/10 p-2 rounded-xl backdrop-blur-md cursor-pointer" onerror="handleImageError(this, '대전유성')">
+                        <img src="dcco.png" alt="대전도시공사" onclick="openYuseongReportModal()" title="대전 유성복합터미널 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform bg-white/10 p-2 rounded-xl backdrop-blur-md cursor-pointer" onerror="handleImageError(this, '대전도시공사')">
+                        <img src="chungcheongnam.png" alt="충청남도" onclick="openAnmyeongdoReportModal()" title="안면도 관광지 개발사업 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform bg-white/10 p-2 rounded-xl backdrop-blur-md cursor-pointer" onerror="handleImageError(this, '충청남도')">
+                        <img src="dongjak.png" alt="동작구청" onclick="openDongjakReportModal()" title="동작구청 공모사업 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform bg-white/10 p-2 rounded-xl backdrop-blur-md cursor-pointer" onerror="handleImageError(this, '동작구청')">
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- STREAMING_CHUNK:Rendering Multilingual Company Overview Page... -->
         <!-- PAGE 2: COMPANY INTRO (About Us) -->
         <section id="company" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 space-y-12 sm:space-y-16">
             <div class="border-b border-slate-800 pb-6 sm:pb-8 text-left">
@@ -772,7 +786,6 @@
             </div>
         </section>
 
-        <!-- STREAMING_CHUNK:Rendering Multilingual Business Area Page... -->
         <!-- PAGE 3: BUSINESS AREA -->
         <section id="business" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 space-y-12 sm:space-y-16">
             <div class="border-b border-slate-800 pb-6 sm:pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 text-left">
@@ -790,7 +803,6 @@
                 </div>
             </div>
 
-            <!-- Detailed Business Divisions -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 text-left">
                 <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-3 sm:space-y-4">
                     <span id="txt-div1Tag" class="text-xs font-bold text-amber-400 uppercase tracking-wider">Division 01</span>
@@ -1141,9 +1153,9 @@
             </div>
         </section>
 
-        <!-- STREAMING_CHUNK:Rendering Multilingual Philosophy Page with Single Image Dynamic Toggle... -->
+        <!-- STREAMING_CHUNK:Rendering Multilingual Philosophy Page with Full Translation Binding Support... -->
         <!-- PAGE 4: PHILOSOPHY -->
-        <section id="vision" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col items-center">
+        <section id="vision" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 flex flex-col items-center">
             <div class="w-full max-w-6xl rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900">
                 <img id="philoVisionImg" src="philosophyvisionkor.png" alt="Philosophy & Vision" class="w-full h-auto object-contain block" onerror="handleImageError(this, 'Philosophy & Vision')">
             </div>
