@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko" class="dark scroll-smooth">
+<html lang="ko" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="H&H Investment — Global real estate development and investment.">
-    <meta name="theme-color" content="#07111f">
+    <meta name="theme-color" content="#f7f7f5">
     <title>H&H Investment Official Website</title>
     <!-- STREAMING_CHUNK:Loading Tailwind CSS framework... -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,197 +14,91 @@
             theme: {
                 extend: {
                     colors: {
-                        amber: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
-                        slate: { 950: '#020617', 900: '#0f172a', 800: '#1e293b' },
-                        navy: { 900: '#1e293b', 950: '#0f172a', custom: '#0f2342' }
+                        swiss: { paper: '#f7f7f5', ink: '#111111', red: '#e12b22' }
                     }
                 }
             }
         }
     </script>
-    <!-- STREAMING_CHUNK:Configuring Google Fonts and global glassmorphism styles... -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --ink: #07111f; --gold: #d9a441; --gold-light: #f6cf79; --line: rgba(226, 232, 240, .12); }
-        body { font-family: 'Noto Sans KR', 'Inter', sans-serif; word-break: keep-all; overflow-x: hidden; background: var(--ink); }
-        ::selection { background: var(--gold); color: var(--ink); }
-        .glass-nav { background: rgba(7, 17, 31, .76); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: background .3s ease, border-color .3s ease; }
-        .glass-nav.is-scrolled { background: rgba(7, 17, 31, .94); border-color: rgba(217, 164, 65, .22); }
-        .glass-card { background: linear-gradient(145deg, rgba(23, 37, 58, .78), rgba(9, 18, 32, .7)); backdrop-filter: blur(16px); border: 1px solid var(--line); }
-        .page-section { animation: page-in .45s cubic-bezier(.2,.8,.2,1) both; }
-        .hero-overlay { background: linear-gradient(90deg, rgba(7,17,31,.91) 0%, rgba(7,17,31,.55) 48%, rgba(7,17,31,.28) 100%), linear-gradient(0deg, rgba(7,17,31,.88), transparent 48%); }
-        .eyebrow-line::before { content: ''; display: inline-block; width: 2.5rem; height: 1px; margin-right: .75rem; background: var(--gold); vertical-align: middle; }
-        .nav-link { position: relative; }
-        .nav-link::after { content: ''; position: absolute; height: 1px; bottom: -8px; left: 0; right: 0; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
-        .nav-link:hover::after, .nav-link.is-active::after { transform: scaleX(1); }
-        .nav-link.is-active { color: var(--gold-light); }
-        .project-card { transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
-        .project-card:hover { transform: translateY(-6px); border-color: rgba(217,164,65,.5); box-shadow: 0 24px 48px rgba(0,0,0,.25); }
-        .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-        .reveal.is-visible { opacity: 1; transform: translateY(0); }
-        .skip-link { position: fixed; top: .75rem; left: .75rem; z-index: 80; transform: translateY(-160%); transition: transform .2s ease; }
-        .skip-link:focus { transform: translateY(0); }
-        #backToTop { opacity: 0; visibility: hidden; transform: translateY(12px); transition: .25s ease; }
-        #backToTop.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
-        :focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
-        @keyframes page-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
-
-        /* Swiss grid system: the video is background-only; the visual system stays editorial. */
-        :root { --swiss-paper:#f7f7f5; --swiss-ink:#111; --swiss-red:#e12b22; --swiss-line:rgba(17,17,17,.18); }
-        body, body.bg-slate-950 { background:var(--swiss-paper) !important; color:var(--swiss-ink) !important; font-family:'Inter','Helvetica Neue',Arial,sans-serif; }
+        :root { --swiss-paper: #f7f7f5; --swiss-ink: #111; --swiss-red: #e12b22; --swiss-line: rgba(17,17,17,.18); }
+        body { font-family: 'Noto Sans KR', 'Inter', sans-serif; word-break: keep-all; overflow-x: hidden; background: var(--swiss-paper); color: var(--swiss-ink); }
+        ::selection { background: var(--swiss-red); color: #fff; }
+        
         body::before { content:''; position:fixed; inset:0; z-index:80; pointer-events:none; opacity:.18; background-image:linear-gradient(to right,transparent calc(25% - .5px),var(--swiss-line) 25%,transparent calc(25% + .5px),transparent calc(50% - .5px),var(--swiss-line) 50%,transparent calc(50% + .5px),transparent calc(75% - .5px),var(--swiss-line) 75%,transparent calc(75% + .5px)); }
-        .glass-nav { background:rgba(247,247,245,.96) !important; border-bottom:1px solid var(--swiss-ink) !important; box-shadow:none !important; backdrop-filter:none; }
-        .glass-nav .text-slate-300,.glass-nav .text-slate-200 { color:var(--swiss-ink) !important; }
-        .nav-link:hover,.nav-link.is-active { color:var(--swiss-red) !important; }
-        #langToggleBtn { background:transparent !important; border:1px solid var(--swiss-ink) !important; color:var(--swiss-ink) !important; border-radius:0 !important; }
-        #txt-navBtnProjects { background:var(--swiss-red) !important; color:#fff !important; border-radius:0 !important; box-shadow:none !important; }
-        main { background:var(--swiss-paper) !important; }
-        #home { min-height:calc(100vh - 5.5rem); background:var(--swiss-paper) !important; border-bottom:1px solid var(--swiss-ink); }
-        #hero-bg-video { opacity:.22 !important; filter:grayscale(1) contrast(1.15); mix-blend-mode:multiply; z-index:0 !important; }
-        #home .hero-overlay { background:linear-gradient(90deg,rgba(247,247,245,.96),rgba(247,247,245,.7) 55%,rgba(247,247,245,.2)) !important; }
-        #home > .relative { z-index:2 !important; }
-        #home h1 { font-size:clamp(3.8rem,8vw,9.5rem) !important; line-height:.88 !important; letter-spacing:-.075em !important; }
-        #txt-heroTitle1,#txt-heroTitleSub { color:var(--swiss-ink) !important; text-shadow:none !important; }
-        #txt-heroTitle2 { color:var(--swiss-red) !important; text-shadow:none !important; }
-        #txt-heroDesc { color:#3e3e3e !important; border-left:1px solid var(--swiss-red); padding-left:1.25rem; text-shadow:none !important; }
-        #txt-heroBadge,#home .text-amber-400,#home .text-amber-500 { color:var(--swiss-red) !important; text-shadow:none !important; }
-        #home .bg-amber-500 { background:var(--swiss-red) !important; border-radius:0 !important; box-shadow:none !important; }
-        #home .bg-slate-900\/80 { background:transparent !important; color:var(--swiss-ink) !important; border-color:var(--swiss-ink) !important; border-radius:0 !important; }
-        section:not(#home) .text-white { color:var(--swiss-ink) !important; }
-        section:not(#home) .text-slate-300 { color:#454545 !important; }
-        section:not(#home) .text-amber-400,section:not(#home) .text-amber-500 { color:var(--swiss-red) !important; }
-        section:not(#home) .glass-card,section:not(#home) .bg-slate-900,section:not(#home) .bg-slate-950 { background:transparent !important; border:1px solid var(--swiss-ink) !important; border-radius:0 !important; box-shadow:none !important; }
-        section:not(#home) .bg-amber-500 { background:var(--swiss-red) !important; color:#fff !important; border-radius:0 !important; box-shadow:none !important; }
-        footer { background:var(--swiss-ink) !important; border-top:1px solid var(--swiss-ink) !important; }
-        @media(max-width:800px) { body::before{opacity:.1;} #home h1{font-size:clamp(3.1rem,16vw,5.4rem) !important;} }
+        
+        .glass-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(247,247,245,.96); border-bottom: 1px solid var(--swiss-ink); backdrop-filter: blur(10px); transition: background .3s ease; }
+        .glass-nav.is-scrolled { background: rgba(247,247,245,.99); box-shadow: 0 4px 20px rgba(0,0,0,.05); }
+        .swiss-card { background: #fff; border: 1px solid var(--swiss-ink); }
+        
+        .page-section { animation: page-in .45s cubic-bezier(.2,.8,.2,1) both; }
+        @keyframes page-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Apply the Swiss system consistently to every internal page. */
-        #company, #business, #wondangPage, #cheolsanPage, #vision, #pressPage, #contact { background:var(--swiss-paper) !important; }
-        #company h2, #business h2, #wondangPage h2, #cheolsanPage h2, #vision h2, #pressPage h2, #contact h2 { font-size:clamp(2.25rem,5vw,5rem) !important; line-height:.95 !important; }
-        #company h3, #business h3, #wondangPage h3, #cheolsanPage h3, #vision h3, #pressPage h3, #contact h3 { letter-spacing:-.045em; }
-        #company .bg-slate-900, #business .bg-slate-900, #wondangPage .bg-slate-900, #cheolsanPage .bg-slate-900, #vision .bg-slate-900, #pressPage .bg-slate-900, #contact .bg-slate-900,
-        #company .bg-slate-950, #business .bg-slate-950, #wondangPage .bg-slate-950, #cheolsanPage .bg-slate-950, #vision .bg-slate-950, #pressPage .bg-slate-950, #contact .bg-slate-950 { background:#fff !important; }
-        #company .border-slate-800, #business .border-slate-800, #wondangPage .border-slate-800, #cheolsanPage .border-slate-800, #vision .border-slate-800, #pressPage .border-slate-800, #contact .border-slate-800 { border-color:var(--swiss-line) !important; }
-        #company img, #business img, #wondangPage img, #cheolsanPage img, #vision img, #pressPage img { border-radius:0 !important; }
-        #company button, #business button, #wondangPage button, #cheolsanPage button, #vision button, #pressPage button, #contact button { border-radius:0 !important; }
-        #company .text-amber-400, #business .text-amber-400, #wondangPage .text-amber-400, #cheolsanPage .text-amber-400, #vision .text-amber-400, #pressPage .text-amber-400, #contact .text-amber-400 { color:var(--swiss-red) !important; }
-        #projectModal > div, #imageLightbox > div, #dongjakReportModal > div, #yuseongReportModal > div, #anmyeondoReportModal > div, #dmcReportModal > div { border-radius:0 !important; border-color:var(--swiss-ink) !important; }
-        #projectModal, #imageLightbox, #dongjakReportModal, #yuseongReportModal, #anmyeondoReportModal, #dmcReportModal { background:rgba(17,17,17,.72) !important; }
-        /* Only this element is a hero background video. */
-        #home > .absolute #hero-bg-video { position:absolute; inset:0; }
-        /* Hero readability: video leads visually, copy remains legible at every width. */
-        #home > .absolute { z-index:0 !important; }
-        #home > .absolute #hero-bg-video { opacity:.82 !important; filter:grayscale(.12) contrast(1.06) brightness(.72); mix-blend-mode:normal; }
-        #home > .absolute .hero-overlay { z-index:1 !important; background:linear-gradient(90deg,rgba(7,17,31,.88) 0%,rgba(7,17,31,.54) 52%,rgba(7,17,31,.18) 100%),linear-gradient(0deg,rgba(7,17,31,.78),transparent 62%) !important; }
-        #home > .relative { position:relative; z-index:2 !important; min-width:0; }
-        #home h1, #home h1 span, #txt-heroTitleSub, #txt-heroDesc { max-width:100%; overflow-wrap:anywhere; word-break:normal; hyphens:none; }
-        #home h1 { font-size:clamp(2.35rem,7.5vw,7.5rem) !important; line-height:.96 !important; }
-        #txt-heroTitleSub { display:inline-block; font-size:clamp(1rem,2.2vw,1.8rem) !important; line-height:1.3 !important; letter-spacing:-.025em !important; }
-        #txt-heroDesc { width:min(100%,48rem); font-size:clamp(.86rem,1.35vw,1.05rem) !important; line-height:1.75 !important; }
-        @media (max-width:640px) { #home { min-height:100svh !important; padding-top:7.5rem !important; padding-bottom:4rem !important; } #home h1 { font-size:clamp(2.15rem,11.5vw,4.2rem) !important; } #txt-heroTitleSub { margin-top:1.1rem !important; } #txt-heroDesc { line-height:1.65 !important; } }
-        /* Detail-page type contrast */
-        #company, #business, #wondangPage, #cheolsanPage, #vision, #pressPage, #contact { color:#2a2a2a !important; }
-        #company p, #business p, #wondangPage p, #cheolsanPage p, #vision p, #pressPage p, #contact p,
-        #company li, #business li, #wondangPage li, #cheolsanPage li, #vision li, #pressPage li, #contact li { color:#3f3f3f !important; line-height:1.75; }
-        #company .text-slate-100, #business .text-slate-100, #wondangPage .text-slate-100, #cheolsanPage .text-slate-100, #vision .text-slate-100, #pressPage .text-slate-100, #contact .text-slate-100,
-        #company .text-slate-200, #business .text-slate-200, #wondangPage .text-slate-200, #cheolsanPage .text-slate-200, #vision .text-slate-200, #pressPage .text-slate-200, #contact .text-slate-200,
-        #company .text-slate-300, #business .text-slate-300, #wondangPage .text-slate-300, #cheolsanPage .text-slate-300, #vision .text-slate-300, #pressPage .text-slate-300, #contact .text-slate-300,
-        #company .text-slate-400, #business .text-slate-400, #wondangPage .text-slate-400, #cheolsanPage .text-slate-400, #vision .text-slate-400, #pressPage .text-slate-400, #contact .text-slate-400 { color:#4a4a4a !important; }
-        #company h2, #company h3, #company h4, #business h2, #business h3, #business h4, #wondangPage h2, #wondangPage h3, #wondangPage h4, #cheolsanPage h2, #cheolsanPage h3, #cheolsanPage h4, #vision h2, #vision h3, #pressPage h2, #pressPage h3, #contact h2, #contact h3 { color:#111 !important; }
-        #company .bg-slate-800, #business .bg-slate-800, #wondangPage .bg-slate-800, #cheolsanPage .bg-slate-800, #vision .bg-slate-800, #pressPage .bg-slate-800, #contact .bg-slate-800 { background:#111 !important; color:#fff !important; }
-        #business button, #wondangPage button, #cheolsanPage button { min-height:2.75rem; font-weight:700; letter-spacing:-.015em; }
-        #business .bg-slate-800, #wondangPage .bg-slate-800, #cheolsanPage .bg-slate-800 { color:#fff !important; }
-        #business .text-amber-400, #wondangPage .text-amber-400, #cheolsanPage .text-amber-400, #contact .text-amber-400 { color:var(--swiss-red) !important; }
-        /* White detail-page typography on deep editorial surfaces. */
-        #company, #business, #wondangPage, #cheolsanPage, #vision, #pressPage, #contact { background:#111 !important; color:#fff !important; }
-        #company p, #business p, #wondangPage p, #cheolsanPage p, #vision p, #pressPage p, #contact p,
-        #company li, #business li, #wondangPage li, #cheolsanPage li, #vision li, #pressPage li, #contact li,
-        #company .text-slate-100, #business .text-slate-100, #wondangPage .text-slate-100, #cheolsanPage .text-slate-100, #vision .text-slate-100, #pressPage .text-slate-100, #contact .text-slate-100,
-        #company .text-slate-200, #business .text-slate-200, #wondangPage .text-slate-200, #cheolsanPage .text-slate-200, #vision .text-slate-200, #pressPage .text-slate-200, #contact .text-slate-200,
-        #company .text-slate-300, #business .text-slate-300, #wondangPage .text-slate-300, #cheolsanPage .text-slate-300, #vision .text-slate-300, #pressPage .text-slate-300, #contact .text-slate-300 { color:#f5f5f5 !important; }
-        #company .text-slate-400, #business .text-slate-400, #wondangPage .text-slate-400, #cheolsanPage .text-slate-400, #vision .text-slate-400, #pressPage .text-slate-400, #contact .text-slate-400 { color:#c9c9c9 !important; }
-        #company h2, #company h3, #company h4, #business h2, #business h3, #business h4, #wondangPage h2, #wondangPage h3, #wondangPage h4, #cheolsanPage h2, #cheolsanPage h3, #cheolsanPage h4, #vision h2, #vision h3, #pressPage h2, #pressPage h3, #contact h2, #contact h3 { color:#fff !important; }
-        #company .glass-card, #business .glass-card, #wondangPage .glass-card, #cheolsanPage .glass-card, #vision .glass-card, #pressPage .glass-card, #contact .glass-card,
-        #company .bg-slate-900, #business .bg-slate-900, #wondangPage .bg-slate-900, #cheolsanPage .bg-slate-900, #vision .bg-slate-900, #pressPage .bg-slate-900, #contact .bg-slate-900 { background:#1b1b1b !important; border-color:rgba(255,255,255,.2) !important; }
-        #company .bg-slate-950, #business .bg-slate-950, #wondangPage .bg-slate-950, #cheolsanPage .bg-slate-950, #vision .bg-slate-950, #pressPage .bg-slate-950, #contact .bg-slate-950 { background:#0b0b0b !important; }
-        #home > .absolute #hero-bg-video { z-index:1 !important; opacity:.98 !important; filter:grayscale(0) contrast(1.08) brightness(.78) !important; }
-        #home > .absolute .hero-overlay { z-index:2 !important; background:linear-gradient(90deg,rgba(7,17,31,.64),rgba(7,17,31,.22) 58%,rgba(7,17,31,.05)) !important; }
-        #home > .relative { z-index:3 !important; }
-        /* Internal pages: restore the light Swiss paper / ink / red palette. */
-        #company, #business, #wondangPage, #cheolsanPage, #vision, #pressPage, #contact { background:var(--swiss-paper) !important; color:var(--swiss-ink) !important; }
-        #company p, #business p, #wondangPage p, #cheolsanPage p, #vision p, #pressPage p, #contact p,
-        #company li, #business li, #wondangPage li, #cheolsanPage li, #vision li, #pressPage li, #contact li { color:#3f3f3f !important; }
-        #company h2, #company h3, #company h4, #business h2, #business h3, #business h4, #wondangPage h2, #wondangPage h3, #wondangPage h4, #cheolsanPage h2, #cheolsanPage h3, #cheolsanPage h4, #vision h2, #vision h3, #pressPage h2, #pressPage h3, #contact h2, #contact h3 { color:var(--swiss-ink) !important; }
-        #company .text-slate-100, #business .text-slate-100, #wondangPage .text-slate-100, #cheolsanPage .text-slate-100, #vision .text-slate-100, #pressPage .text-slate-100, #contact .text-slate-100,
-        #company .text-slate-200, #business .text-slate-200, #wondangPage .text-slate-200, #cheolsanPage .text-slate-200, #vision .text-slate-200, #pressPage .text-slate-200, #contact .text-slate-200,
-        #company .text-slate-300, #business .text-slate-300, #wondangPage .text-slate-300, #cheolsanPage .text-slate-300, #vision .text-slate-300, #pressPage .text-slate-300, #contact .text-slate-300 { color:#3f3f3f !important; }
-        #company .text-slate-400, #business .text-slate-400, #wondangPage .text-slate-400, #cheolsanPage .text-slate-400, #vision .text-slate-400, #pressPage .text-slate-400, #contact .text-slate-400 { color:#666 !important; }
-        #company .glass-card, #business .glass-card, #wondangPage .glass-card, #cheolsanPage .glass-card, #vision .glass-card, #pressPage .glass-card, #contact .glass-card,
-        #company .bg-slate-900, #business .bg-slate-900, #wondangPage .bg-slate-900, #cheolsanPage .bg-slate-900, #vision .bg-slate-900, #pressPage .bg-slate-900, #contact .bg-slate-900 { background:#fff !important; border-color:var(--swiss-ink) !important; }
-        #company .bg-slate-950, #business .bg-slate-950, #wondangPage .bg-slate-950, #cheolsanPage .bg-slate-950, #vision .bg-slate-950, #pressPage .bg-slate-950, #contact .bg-slate-950 { background:#f0f0ee !important; }
-        #company .text-amber-400, #business .text-amber-400, #wondangPage .text-amber-400, #cheolsanPage .text-amber-400, #vision .text-amber-400, #pressPage .text-amber-400, #contact .text-amber-400 { color:var(--swiss-red) !important; }
-        #company .bg-amber-500, #business .bg-amber-500, #wondangPage .bg-amber-500, #cheolsanPage .bg-amber-500, #vision .bg-amber-500, #pressPage .bg-amber-500, #contact .bg-amber-500 { background:var(--swiss-red) !important; color:#fff !important; border-radius:0 !important; }
-        /* Safe bilingual wrapping across every page; home keeps its own hero scale. */
-        #company *, #business *, #wondangPage *, #cheolsanPage *, #vision *, #pressPage *, #contact * { overflow-wrap:anywhere; word-break:break-word; hyphens:none; }
-        #company h2, #company h3, #company h4, #business h2, #business h3, #business h4, #wondangPage h2, #wondangPage h3, #wondangPage h4, #cheolsanPage h2, #cheolsanPage h3, #cheolsanPage h4, #vision h2, #vision h3, #pressPage h2, #pressPage h3, #contact h2, #contact h3 { max-width:100%; line-height:1.12 !important; }
-        #company button, #business button, #wondangPage button, #cheolsanPage button, #vision button, #pressPage button, #contact button { white-space:normal; min-width:0; }
-        /* Business Area: only the project detail tabs use the white Swiss treatment. */
-        #business button[id$="Btn1"] { background:#fff !important; color:#111 !important; border:1px solid #111 !important; box-shadow:none !important; }
-        #business button[id$="Btn1"]:hover { background:#f0f0ee !important; color:var(--swiss-red) !important; border-color:var(--swiss-red) !important; }
-        #vision { background:#fff !important; color:#111 !important; }
-        #vision figure { background:#fff !important; border-color:#111 !important; }
-        #vision figcaption { color:#111 !important; background:#fff !important; }
-        main:has(#vision:not(.hidden)) { background:#fff !important; }
-        #vision { padding-bottom:clamp(5rem,10vw,10rem) !important; }
-        /* Compact public-institution strip under the hero for one-screen viewing. */
-        #home > .relative > .grid { padding-top:1.25rem !important; gap:.7rem !important; }
-        #home > .relative > .grid > div { padding:.15rem .45rem !important; }
-        #home > .relative > div:last-child { padding-top:.7rem !important; }
-        #home > .relative > div:last-child > .flex { flex-wrap:nowrap !important; gap:.55rem !important; justify-content:flex-start; }
-        /* Restore institution marks to their original size while tightening the hero rhythm. */
-        #home { padding-top:6rem !important; padding-bottom:1.25rem !important; }
-        #home > .relative { row-gap:0 !important; }
-        #home h1 { margin-top:.25rem !important; margin-bottom:.5rem !important; }
-        #home > .relative > .grid { padding-top:1rem !important; gap:.55rem !important; }
-        #home > .relative > .grid > div { padding:.1rem .35rem !important; }
-        #home > .relative > div:last-child { padding-top:.45rem !important; }
-        #home > .relative > div:last-child img { height:3rem !important; max-width:none; padding:.25rem !important; }
-        @media (max-width:640px) { #home { padding-top:6.25rem !important; padding-bottom:.75rem !important; } #home > .relative > .grid { padding-top:.7rem !important; gap:.25rem !important; } #home > .relative > .grid > div { padding-left:.12rem !important; } #home > .relative > div:last-child img { height:2.5rem !important; } #home > .relative > div:last-child > .flex { gap:.2rem !important; } }
-        /* Pull the footer into the first viewport without clipping hero content. */
-        @media (min-width:641px) { #home { min-height:calc(100svh - 11rem) !important; padding-top:5.25rem !important; padding-bottom:.75rem !important; } #home > .relative > .space-y-8 { gap:0 !important; } }
-        /* Let the footer meet the end of the hero video with no paper-colored gap. */
-        main { padding-bottom:0 !important; margin-bottom:0 !important; }
-        #home { margin-bottom:0 !important; }
-        footer { margin-top:0 !important; border-top:0 !important; background:#111 !important; }
-        #home { padding-top:4.75rem !important; padding-bottom:.25rem !important; }
-        #home > .relative > .grid { padding-top:.65rem !important; }
-        #home > .relative > div:last-child { padding-top:.25rem !important; }
-        footer { padding-top:1.5rem !important; padding-bottom:1.5rem !important; }
-        @media (max-width:640px) { #home { padding-top:5.5rem !important; padding-bottom:.35rem !important; } footer { padding-top:1.25rem !important; padding-bottom:1.25rem !important; } }
-        /* Seal the hero/footer seam so no paper-colored strip appears around the video. */
-        body { background:#111 !important; }
-        main { background:#111 !important; }
-        #home { background:#111 !important; margin:0 !important; overflow:hidden; }
-        #home + section { margin-top:0 !important; }
-        footer { background:#111 !important; margin:0 !important; }
-        #txt-heroDesc { color:#f8f8f8 !important; text-shadow:0 1px 12px rgba(0,0,0,.65) !important; }
-        #txt-heroDesc { width:100% !important; max-width:48rem !important; word-break:keep-all !important; overflow-wrap:normal !important; white-space:normal !important; line-break:strict; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; height: 1px; bottom: -8px; left: 0; right: 0; background: var(--swiss-red); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+        .nav-link:hover::after, .nav-link.is-active::after { transform: scaleX(1); }
+        .nav-link.is-active { color: var(--swiss-red); }
+
+        .skip-link { position: fixed; top: .75rem; left: .75rem; z-index: 90; transform: translateY(-160%); transition: transform .2s ease; }
+        .skip-link:focus { transform: translateY(0); }
+        #backToTop { opacity: 0; visibility: hidden; transform: translateY(12px); transition: .25s ease; z-index: 90; }
+        #backToTop.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        :focus-visible { outline: 2px solid var(--swiss-red); outline-offset: 3px; }
+
+        /* --- 완벽하게 작동하는 JS + CSS 반복형 타입라이터 효과 --- */
+        .typewriter-cursor::after {
+            content: '|';
+            display: inline-block;
+            color: var(--swiss-red);
+            font-weight: 800;
+            animation: blink-caret 0.7s infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink-caret {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes infiniteSlide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-infinite-slide { display: flex; width: max-content; animation: infiniteSlide 25s linear infinite; }
+        .animate-infinite-slide:hover { animation-play-state: paused; }
+
+        #home { min-height: calc(100vh - 5.5rem); background: #07111f; border-bottom: 1px solid var(--swiss-ink); position: relative; overflow: hidden; padding-top: 6rem; color: #fff; }
+        
+        #hero-bg-video { position: absolute; inset: 0; opacity: .75 !important; filter: contrast(1.1) brightness(.9); mix-blend-mode: normal; z-index: 0 !important; width: 100%; height: 100%; object-fit: cover; }
+        .hero-overlay { position: absolute; inset: 0; z-index: 1 !important; background: linear-gradient(90deg, rgba(7,17,31,.85) 0%, rgba(7,17,31,.5) 50%, rgba(7,17,31,.2) 100%), linear-gradient(0deg, rgba(7,17,31,.6), transparent 50%) !important; }
+        #home > .relative { z-index: 2 !important; }
+        
+        #home h1 { font-size: clamp(2.5rem, 6vw, 6.5rem) !important; line-height: 1.15 !important; letter-spacing: -.05em !important; color: #fff; }
+        
+        .swiss-typewriter-text { color: var(--swiss-red) !important; font-weight: 800; }
+        #txt-heroTitleSub { color: #f1f5f9 !important; }
+        #txt-heroDesc { color: #e2e8f0 !important; border-left: 2px solid var(--swiss-red); padding-left: 1.25rem; font-weight: 500; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+        #txt-heroBadge { color: #fbbf24 !important; }
+
+        .btn-swiss-red { background: var(--swiss-red) !important; color: #fff !important; border-radius: 0 !important; }
+        .btn-swiss-outline { background: transparent !important; color: var(--swiss-ink) !important; border: 1px solid var(--swiss-ink) !important; border-radius: 0 !important; }
+        
+        #wondangPage button, #cheolsanPage button { color: #ffffff !important; }
     </style>
-    <!-- STREAMING_CHUNK:Initializing global JavaScript, multilingual state, and routing... -->
     <script>
         window.addEventListener('error', function(e) { console.warn('Caught runtime exception:', e.message); });
         window.addEventListener('unhandledrejection', function(e) { e.preventDefault(); });
 
         function handleImageError(img, fallbackText) {
             if (!img) return;
-            const fallbackUrl = 'https://placehold.co/1200x800/0f172a/f59e0b?text=' + encodeURIComponent(fallbackText || 'H&H+Investment+Project');
+            const fallbackUrl = 'https://placehold.co/1200x800/f7f7f5/111111?text=' + encodeURIComponent(fallbackText || 'H&H+Investment');
             if (img.src !== fallbackUrl) { img.src = fallbackUrl; }
         }
 
         function handleLogoError(img) {
             if (!img) return;
-            const fallbackUrl = 'https://placehold.co/200x60/0f172a/f59e0b?text=H%26H+Investment';
+            const fallbackUrl = 'https://placehold.co/200x60/f7f7f5/111111?text=H%26H+Investment';
             if (img.src !== fallbackUrl) { img.src = fallbackUrl; }
         }
 
@@ -213,7 +107,7 @@
             if (existing) existing.remove();
             const toast = document.createElement('div');
             toast.id = 'global-toast';
-            toast.className = 'fixed bottom-6 right-6 z-50 bg-amber-500 text-slate-950 px-5 py-3 rounded-xl font-bold shadow-2xl transition-all duration-300 transform translate-y-2 opacity-0 flex items-center gap-2 text-xs sm:text-sm max-w-[90vw]';
+            toast.className = 'fixed bottom-6 right-6 z-50 bg-swiss-ink text-white px-5 py-3 font-bold shadow-2xl transition-all duration-300 transform translate-y-2 opacity-0 flex items-center gap-2 text-xs sm:text-sm max-w-[90vw]';
             toast.innerHTML = `<span>🔔</span> <span>${msg}</span>`;
             document.body.appendChild(toast);
             setTimeout(function() { toast.classList.remove('translate-y-2', 'opacity-0'); }, 10);
@@ -268,8 +162,8 @@
                 bizTag: "Business Portfolio", bizTitle: "사업 영역 및 주요 프로젝트", bizBtnWondang: "현 진행중인 프로젝트 1 (원당)", bizBtnCheolsan: "현 진행중인 프로젝트 2 (철산)", div1Tag: "Division 01", div1Title: "공공부지 민간 복합개발사업", div1Desc: "지자체 및 공공기관 보유 핵심 부지를 대상으로 지구단위계획 변경 및 준주거지역 용적률 상향을 이끌어내며, 대규모 상업·업무·주거·문화시설이 융합된 복합 단지를 기획·조성합니다.", div1LinkWondang: "고양 원당 성사 사업 상세 보기 →", div1LinkCheolsan: "광명 철산동 사업 상세 보기 →", div2Tag: "Division 02", div2Title: "부동산 금융 및 프로젝트 파이낸싱 (PF)", div2Desc: "대형 증권사 및 금융기관과의 견고한 네트워크를 바탕으로 브릿지론부터 본 PF, ABCP 발행, 구조화 금융에 이르기까지 프로젝트 전반의 안정적 재원을 조달하며, 철저한 재무 타당성 검토를 통해 투자 안전성을 최우선으로 확보합니다.", div3Tag: "Division 03", div3Title: "글로벌 국제 교육시설 유치", div3Desc: "영국 Wycombe Abbey 등 세계적인 명문 국제학교 분교 및 교육연구시설을 독점 유치하여 주거 단지의 가치를 최고 수준으로 견인하며, 지역 사회에 글로벌 교육 인프라를 선사합니다.", div4Tag: "Division 04", div4Title: "하이엔드 주거 및 컨시어지 서비스", div4Desc: "반얀트리, 메리어트 등 최고급 호텔 브랜드의 주거 서비스 연계 및 차별화된 커뮤니티 어메니티를 기획하여 입주민의 삶의 품격을 완성하고 하이엔드 주거의 새로운 기준을 제시합니다.", portfolioHeader: "주요 프로젝트 포트폴리오", projDongjakTitle: "동작구청 현청사부지 개발사업 (노량진 DEGC)", projDongjakDesc: "지하 6층~지상 40층 규모의 복합 랜드마크 단지. 국제학교, 수영장, 아이스하키장 기부채납 복합 단지.", projDongjakBtn1: "상세 보기", projDongjakBtn2: "📄 요약보고서", projYuseongTitle: "대전 유성광역복합환승센터 (복합여객터미널)", projYuseongDesc: "연면적 243,680m², 지하 4층~지상 10층 규모. 여객터미널, 798호 오피스텔, 메가박스, 교보문고 융합 단지.", projYuseongBtn1: "상세 보기", projYuseongBtn2: "📄 요약보고서", projAnmyeondoTitle: "안면도 관광지 개발사업 (3지구 꽃지 씨사이드)", projAnmyeondoDesc: "대지면적 249,924m², 연면적 153,560m² 규모의 럭셔리 콘도미니엄 및 휴양 웰니스 테마 리조트 단지.", projAnmyeondoBtn1: "상세 보기", projAnmyeondoBtn2: "📄 요약보고서", projDmcTitle: "상암 DMC 미디어 복합단지 (DMC 랜드마크)", projDmcDesc: "지하 7층~지상 71층 최고높이 656m 연면적 591,855m² 규모의 글로벌 미디어 HQ, 컨벤션, 레지던스 타워.", projDmcBtn1: "상세 보기", projDmcBtn2: "📄 요약보고서", projWondangTitle: "고양 원당 성사 공공지원 민간임대주택 사업", projWondangDesc: "총 994세대의 대단지 주거 복합 랜드마크.", projWondangBtn: "현장 사업계획서 및 상세 페이지 →", projCheolsanTitle: "광명시 철산동 261 주거복합 개발사업", projCheolsanDesc: "지하 7층~지상 30층, 공동주택 299세대 및 상업시설 초역세권 주상복합 신축공사.", projCheolsanBtn: "현장 사업계획서 및 상세 페이지 →",
                 pressTag: "Press & Media Links", pressTitle: "주요 개발사업 관련 언론 보도 링크", pressDesc: "동작구청, 대전 유성복합환승센터, 안면도 관광지 개발사업 관련 언론 기사 링크입니다.", pressCat1: "동작구청 관련 보도", pressCat2: "대전 유성복합환승센터 관련 보도", pressCat3: "안면도 관광지 개발사업 관련 보도", pressItemDongjak1: "e대한경제 보도 기사", pressItemDongjak2: "연합뉴스 보도 기사", pressItemDongjak3: "스카이데일리 보도 기사", pressItemYuseong1: "충청투데이 보도 기사", pressItemYuseong2: "TJB 대전방송 보도 기사 (뉴스 1)", pressItemYuseong3: "대전MBC 보도 기사", pressItemYuseong4: "TJB 대전방송 보도 기사 (뉴스 2)", pressItemYuseong5: "뉴스1 보도 기사", pressItemAnmyeondo1: "TJB 대전방송 보도 기사", pressItemAnmyeondo2: "충청타임즈 보도 기사", pressItemAnmyeondo3: "금강일보 보도 기사", pressItemAnmyeondo4: "충청투데이 보도 기사", pressItemAnmyeondo5: "아시아경제 보도 기사", pressBtnLabel: "기사 원문 바로가기 ↗",
                 wondangTag: "Current Flagship Project 1 (Division 01)", wondangTitle: "고양 원당 성사 공공지원 민간임대주택 사업", wondangBackBtn: "← 사업 영역으로 돌아가기", wondangSubBadge: "현 진행중인 대표 공공지원 민간임대 개발사업", wondangHead: "고양시 덕양구 원당역 역세권 대단지 프리미엄 주거 복합 랜드마크", wondangDesc: "본 프로젝트는 고양시 덕양구 성사동 일원에 지하 3층~지상 35층, 총 8개동 994세대의 대단지 공공지원 민간임대주택을 구축하는 대규모 사업입니다. 준주거지역 상향 용적률(379.63%)을 적용하여 사업성을 극대화하였습니다.", wondangStat1Label: "세대 규모", wondangStat1Val: "총 994 세대", wondangStat2Label: "건축 규모", wondangStat2Val: "지하3층~지상35층", wondangPdfHeader: "📄 원당 사업계획서 원본 문서 (PDF)", wondangPdfSub: "원당 성사 공공지원 민간임대주택 사업의 상세 정보 및 재무 구조를 PDF 뷰어로 확인하실 수 있습니다.", wondangPdfOpenBtn: "새 창에서 전체 PDF 열기 ↗",
-                cheolsanTag: "Current Flagship Project 2 (Division 01)", cheolsanTitle: "광명시 철산동 261 주거복합 개발사업", cheolsanBackBtn: "← 사업 영역으로 돌아가기", cheolsanSubBadge: "현 진행중인 대표 주상복합 개발사업", cheolsanHead: "7호선 철산역 2번 출구 초역세권 프리미엄 주상복합 랜드마크", cheolsanDesc: "경기도 광명시 철산동 261번지 일원에 조성되는 지하 7층~지상 30층, 연면적 75,566.85㎡ 규모의 주상복합 신축공사입니다. 공동주택 299세대 및 상업시설로 구성되어 총매출액 5,512억 원, 세전이익 590억 원(수익률 10.71%)을 달성하는 고수익 프로젝트입니다.", cheolsanStat1Label: "세대 규모", cheolsanStat1Val: "공동주택 299세대", cheolsanStat2Label: "건축 규모", cheolsanStat2Val: "지하7층 ~ 지상30층", cheolsanStat3Label: "총 매출액", cheolsanStat3Val: "5,512 억원", cheolsanVideoLabel: "🎥 철산 현장 시공 타임랩스 시뮬레이션 영상", cheolsanPdfHeader: "📄 철산 사업계획서 원본 문서 (PDF)", cheolsanPdfSub: "광명 철산동 261 주거복합 개발사업의 상세 수지 분석 및 건축계획을 PDF 뷰어로 확인하실 수 있습니다.", cheolsanPdfOpenBtn: "새 창에서 전체 PDF 열기 ↗",
-                contactTag: "Contact Us", contactTitle: "글로벌 디벨로퍼의 새로운 파트너가 되어주세요", contactDesc: "H&H Investment는 부동산 개발 및 투자 제휴에 관한 모든 문의를 환영합니다. 혁신적인 아이디어와 비전을 가진 파트너들의 연락을 기다립니다.", contactHqLabel: "본사 위치", contactHqVal: "서울특별시 영등포구 / 강남구 및 주요 거점 오피스", contactEmailLabel: "이메일 문의", contactFormHeader: "온라인 문의하기", contactNameLabel: "성함 / 회사명", phContactName: "홍길동 / (주)파트너스", contactTelLabel: "연락처", phContactTel: "010-0000-0000", contactMsgLabel: "문의 내용", phContactMsg: "투자 제휴 및 프로젝트 협력 문의 내용을 입력해주세요.", contactSubmitBtn: "문의 접수하기"
+                cheolsanTag: "Current Flagship Project 2 (Division 01)", cheolsanTitle: "광명시 철산동 261 주거복합 개발사업", cheolsanBackBtn: "← 사업 영역으로 돌아가기", cheolsanSubBadge: "현 진행중인 대표 주상복합 개발사업", cheolsanHead: "7호선 철산역 2번 출구 초역세권 프리미엄 주상복합 랜드마크", cheolsanDesc: "경기도 광명시 철산동 261번지 일원에 조성되는 지하 7층~지상 30층, 연면적 75,566.85㎡ 규모의 주상복합 신축공사입니다. 공동주택 299세대 및 상업시설로 구성되어 총매출액 5,512억 원, 세전이익 590억 원(수익률 10.71%)을 달성하는 고수익 프로젝트입니다.", cheolsanStat1Label: "세대 규모", cheolsanStat1Val: "공동주택 299세대", cheolsanStat2Label: "건축 규모", cheolsanStat2Label: "지하7층 ~ 지상30층", cheolsanStat3Label: "총 매출액", cheolsanStat3Val: "5,512 억원", cheolsanVideoLabel: "🎥 철산 현장 시공 타임랩스 시뮬레이션 영상", cheolsanPdfHeader: "📄 철산 사업계획서 원본 문서 (PDF)", cheolsanPdfSub: "광명 철산동 261 주거복합 개발사업의 상세 수지 분석 및 건축계획을 PDF 뷰어로 확인하실 수 있습니다.", cheolsanPdfOpenBtn: "새 창에서 전체 PDF 열기 ↗",
+                contactTag: "Contact Us", contactTitle: "글로벌 디벨로퍼의 새로운 파트너가 되어주세요", contactDesc: "H&H Investment는 부동산 개발 및 투자 제휴에 관한 모든 문의를 환영합니다. 혁신적인 아이디어와 비전을 가진 파트너들의 연락을 기다립니다.", contactHqLabel: "본사 위치", contactHqVal: "고양시 덕양구 청초로 66, RiverWork A2001", contactEmailLabel: "이메일 문의", contactFormHeader: "온라인 문의하기", contactNameLabel: "성함 / 회사명", phContactName: "홍길동 / (주)파트너스", contactTelLabel: "연락처", phContactTel: "010-0000-0000", contactMsgLabel: "문의 내용", phContactMsg: "투자 제휴 및 프로젝트 협력 문의 내용을 입력해주세요.", contactSubmitBtn: "문의 접수하기"
             },
             ENG: {
                 navHome: "Home", navAbout: "About Us", navBusiness: "Business Area", navPhilosophy: "Philosophy", navPress: "Press", navContact: "Contact Us", navBtnProjects: "View Projects",
@@ -278,8 +172,8 @@
                 bizTag: "Business Portfolio", bizTitle: "Business Divisions & Key Projects", bizBtnWondang: "Active Flagship Project 1 (Wondang)", bizBtnCheolsan: "Active Flagship Project 2 (Cheolsan)", div1Tag: "Division 01", div1Title: "Public-Private Mixed-Use Development", div1Desc: "Targeting prime public site opportunities to secure rezoning and FAR increases, planning and creating mixed-use landmarks that seamlessly integrate commercial, office, residential, and cultural spaces.", div1LinkWondang: "View Wondang Project Details →", div1LinkCheolsan: "View Cheolsan Project Details →", div2Tag: "Division 02", div2Title: "Real Estate Finance & Project Financing (PF)", div2Desc: "Securing stable financing across bridge loans, main PF, ABCP issuance, and structured finance in robust partnership with top-tier financial institutions.", div3Tag: "Division 03", div3Title: "Global Educational Institution Attraction", div3Desc: "Exclusively attracting world-class global schools such as Wycombe Abbey to elevate property values and provide premium educational infrastructure to local communities.", div4Tag: "Division 04", div4Title: "High-End Residential & Hospitality Services", div4Desc: "Integrating luxury residential services and premium concierge amenities in collaboration with top hospitality brands like Banyan Tree and Marriott.", portfolioHeader: "Key Project Portfolio", projDongjakTitle: "Dongjak-gu Office Site Mixed-Use Landmark (Noryangjin DEGC)", projDongjakDesc: "A 40-story landmark complex featuring Wycombe Abbey International School, Banyan Tree concierge, and donated public sports facilities.", projDongjakBtn1: "View Details", projDongjakBtn2: "📄 Summary Report", projYuseongTitle: "Daejeon Yuseong Multi-Transit Center (Terminal Complex)", projYuseongDesc: "A 243,680m² regional transit hub integrating passenger terminals, 798 office units, MEGABOX cinema, and Kyobo Book Centre.", projYuseongBtn1: "View Details", projYuseongBtn2: "📄 Summary Report", projAnmyeondoTitle: "Anmyeondo Tourist Resort Development (Sector 3 Gkotji)", projAnmyeondoDesc: "A 249,924m² luxury seaside condominium and wellness resort complex in 태안, Chungnam.", projAnmyeondoBtn1: "View Details", projAnmyeondoBtn2: "📄 Summary Report", projDmcTitle: "Sangam DMC Media Mixed-Use Complex (DMC Landmark Tower)", projDmcDesc: "A 71-story, 656m ultra-tall landmark tower integrating global media HQ, convention center, department store, and luxury residences.", projDmcBtn1: "View Details", projDmcBtn2: "📄 Summary Report", projWondangTitle: "Goyang Wondang Public-Support Private Rental Housing", projWondangDesc: "A 994-unit prime residential landmark complex in Wondang.", projWondangBtn: "View Business Plan & Site Details →", projCheolsanTitle: "Gwangmyeong Cheolsan-dong 261 Mixed-Use Project", projCheolsanDesc: "A 30-story prime transit-oriented residential & commercial complex near Cheolsan Station Line 7.", projCheolsanBtn: "View Business Plan & Site Details →",
                 pressTag: "Press & Media Links", pressTitle: "Media Coverage Links for Key Developments", pressDesc: "Collection of official news links regarding Dongjak-gu Office, Daejeon Yuseong Center, and Anmyeondo Development.", pressCat1: "Dongjak-gu Office Project Press", pressCat2: "Daejeon Yuseong Transit Center Press", pressCat3: "Anmyeondo Resort Development Press", pressItemDongjak1: "E-Daehan Economy News Article", pressItemDongjak2: "Yonhap News Article", pressItemDongjak3: "Skyedaily News Article", pressItemYuseong1: "Chungcheong Today News Article", pressItemYuseong2: "TJB Daejeon Broadcasting Article (News 1)", pressItemYuseong3: "Daejeon MBC News Article", pressItemYuseong4: "TJB Daejeon Broadcasting Article (News 2)", pressItemYuseong5: "News1 Article", pressItemAnmyeondo1: "TJB Daejeon Broadcasting Article", pressItemAnmyeondo2: "Chungcheong Times Article", pressItemAnmyeondo3: "Geumgang Ilbo Article", pressItemAnmyeondo4: "Chungcheong Today Article", pressItemAnmyeondo5: "Asia Economy Article", pressBtnLabel: "View Original Article ↗",
                 wondangTag: "Current Flagship Project 1 (Division 01)", wondangTitle: "Goyang Wondang Public-Support Private Rental Housing Project", wondangBackBtn: "← Back to Business Area", wondangSubBadge: "Active Flagship Public-Support Private Housing Project", wondangHead: "Prime Station-Area Residential Landmark in Wondang, Goyang", wondangDesc: "Developing 994 residential units across 8 buildings (B3-35F) in Seongsa-dong, Goyang. Applied semi-residential rezoning to maximize FAR (379.63%).", wondangStat1Label: "Scale", wondangStat1Val: "994 Units Total", wondangStat2Label: "Building Scale", wondangStat2Val: "B3F - 35F", wondangPdfHeader: "📄 Wondang Business Plan Official Document (PDF)", wondangPdfSub: "Examine financial structures and architectural plans via the PDF viewer below.", wondangPdfOpenBtn: "Open Full PDF in New Window ↗",
-                cheolsanTag: "Current Flagship Project 2 (Division 01)", cheolsanTitle: "Gwangmyeong Cheolsan-dong 261 Mixed-Use Project", cheolsanBackBtn: "← Back to Business Area", cheolsanSubBadge: "Active Flagship Mixed-Use Development Project", cheolsanHead: "Prime Transit-Oriented Landmark at Line 7 Cheolsan Station", cheolsanDesc: "A 30-story transit-oriented development featuring 299 residential units and retail facilities in Cheolsan-dong, Gwangmyeong. Total revenue of ₩551.2B with a pre-tax profit of ₩59.0B (10.71% margin).", cheolsanStat1Label: "Scale", cheolsanStat1Val: "299 Residential Units", cheolsanStat2Label: "Building Scale", cheolsanStat2Val: "B7F - 30F", cheolsanStat3Label: "Total Revenue", cheolsanStat3Val: "₩ 551.2 B", cheolsanVideoLabel: "🎥 Cheolsan Construction Simulation Video", cheolsanPdfHeader: "📄 Cheolsan Business Plan Official Document (PDF)", cheolsanPdfSub: "View financial balance analysis and architectural plans via the PDF viewer below.", cheolsanPdfOpenBtn: "Open Full PDF in New Window ↗",
-                contactTag: "Contact Us", contactTitle: "Partner with a Premier Global Developer", contactDesc: "H&H Investment welcomes all inquiries regarding real estate development and investment partnerships. We look forward to connecting with visionary partners.", contactHqLabel: "Headquarters Location", contactHqVal: "Yeongdeungpo-gu & Gangnam-gu, Seoul, South Korea", contactEmailLabel: "Email Inquiry", contactFormHeader: "Online Inquiry Form", contactNameLabel: "Name / Company", phContactName: "John Doe / Partner Corp.", contactTelLabel: "Contact Number", phContactTel: "+82 10-0000-0000", contactMsgLabel: "Message", phContactMsg: "Please specify your inquiry regarding investment or project partnership.", contactSubmitBtn: "Submit Inquiry"
+                cheolsanTag: "Current Flagship Project 2 (Division 01)", cheolsanTitle: "Gwangmyeong Cheolsan-dong 261 Mixed-Use Project", cheolsanBackBtn: "← Back to Business Area", cheolsanSubBadge: "Active Flagship Mixed-Use Development Project", cheolsanHead: "Prime Transit-Oriented Landmark at Line 7 Cheolsan Station", cheolsanDesc: "A 30-story transit-oriented development featuring 299 residential units and retail facilities in Cheolsan-dong, Gwangmyeong. Total revenue of ₩551.2B with a pre-tax profit of ₩59.0B (10.71% margin).", cheolsanStat1Label: "Scale", cheolsanStat1Val: "299 Residential Units", cheolsanStat2Label: "Building Scale", cheolsanStat2Label: "B7F - 30F", cheolsanStat3Label: "Total Revenue", cheolsanStat3Val: "₩ 551.2 B", cheolsanVideoLabel: "🎥 Cheolsan Construction Simulation Video", cheolsanPdfHeader: "📄 Cheolsan Business Plan Official Document (PDF)", cheolsanPdfSub: "View financial balance analysis and architectural plans via the PDF viewer below.", cheolsanPdfOpenBtn: "Open Full PDF in New Window ↗",
+                contactTag: "Contact Us", contactTitle: "Partner with a Premier Global Developer", contactDesc: "H&H Investment welcomes all inquiries regarding real estate development and investment partnerships. We look forward to connecting with visionary partners.", contactHqLabel: "Headquarters Location", contactHqVal: "Goyang-si Deokyang-gu 청초로 66, RiverWork A2001", contactEmailLabel: "Email Inquiry", contactFormHeader: "Online Inquiry Form", contactNameLabel: "Name / Company", phContactName: "John Doe / Partner Corp.", contactTelLabel: "Contact Number", phContactTel: "+82 10-0000-0000", contactMsgLabel: "Message", phContactMsg: "Please specify your inquiry regarding investment or project partnership.", contactSubmitBtn: "Submit Inquiry"
             }
         };
 
@@ -299,7 +193,6 @@
                 }
             }
 
-            // Toggles the image in the philosophy page dynamically based on language
             const philoImg = document.getElementById('philoVisionImg');
             if (philoImg) {
                 philoImg.src = (currentLang === 'KOR') ? 'philosophyvisionkor.jpg' : 'philosophyvisioneng_2.jpg';
@@ -338,13 +231,13 @@
                 const thumb = document.createElement('img');
                 thumb.onerror = function() { handleImageError(this, 'Thumb'); };
                 thumb.src = imgSrc;
-                thumb.className = `w-16 h-12 sm:w-20 sm:h-16 object-cover rounded-xl border-2 cursor-pointer transition-all ${idx === 0 ? 'border-amber-500 scale-105' : 'border-slate-800 opacity-60 hover:opacity-100'}`;
+                thumb.className = `w-16 h-12 sm:w-20 sm:h-16 object-cover rounded-xl border-2 cursor-pointer transition-all ${idx === 0 ? 'border-swiss-red scale-105' : 'border-swiss-ink opacity-60 hover:opacity-100'}`;
                 thumb.onclick = function() {
                     mainImg.onerror = function() { handleImageError(this, p.title); };
                     mainImg.src = imgSrc;
                     const children = thumbs.children;
-                    for (let i = 0; i < children.length; i++) { children[i].classList.remove('border-amber-500', 'scale-105', 'opacity-100'); }
-                    thumb.classList.add('border-amber-500', 'scale-105', 'opacity-100');
+                    for (let i = 0; i < children.length; i++) { children[i].classList.remove('border-swiss-red', 'scale-105', 'opacity-100'); }
+                    thumb.classList.add('border-swiss-red', 'scale-105', 'opacity-100');
                 };
                 thumbs.appendChild(thumb);
             });
@@ -362,47 +255,94 @@
         function closeAnmyeongdoReportModal() { document.getElementById('anmyeondoReportModal').classList.add('hidden'); }
         function openDmcReportModal() { document.getElementById('dmcReportModal').classList.remove('hidden'); }
         function closeDmcReportModal() { document.getElementById('dmcReportModal').classList.add('hidden'); }
+
+        // 자바스크립트 기반 무한 순환 타이핑 효과 구현
+        document.addEventListener("DOMContentLoaded", function() {
+            const words = ["Shaping tomorrow", "Innovating spaces", "Building landmarks"];
+            let i = 0;
+            let timer;
+            
+            function typingEffect() {
+                const word = words[i].split("");
+                const typewriterEl = document.getElementById("txt-heroTitle1");
+                if (!typewriterEl) return;
+                
+                typewriterEl.innerHTML = "";
+                let loopTyping = function() {
+                    if (word.length > 0) {
+                        typewriterEl.innerHTML += word.shift();
+                    } else {
+                        setTimeout(deletingEffect, 2000);
+                        return;
+                    }
+                    timer = setTimeout(loopTyping, 100);
+                };
+                loopTyping();
+            }
+
+            function deletingEffect() {
+                const typewriterEl = document.getElementById("txt-heroTitle1");
+                if (!typewriterEl) return;
+                
+                let word = typewriterEl.innerHTML.split("");
+                let loopDeleting = function() {
+                    if (word.length > 0) {
+                        word.pop();
+                        typewriterEl.innerHTML = word.join("");
+                    } else {
+                        i = (i + 1) % words.length;
+                        setTimeout(typingEffect, 500);
+                        return;
+                    }
+                    timer = setTimeout(loopDeleting, 50);
+                };
+                loopDeleting();
+            }
+            
+            // 타입라이터 실행
+            setTimeout(typingEffect, 1000);
+        });
     </script>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950">
-    <a class="skip-link bg-amber-400 text-slate-950 px-4 py-2 rounded-lg font-bold text-sm" href="#main-content">본문으로 바로가기</a>
+<body class="bg-swiss-paper text-swiss-ink min-h-screen flex flex-col selection:bg-swiss-red selection:text-white">
+    <a class="skip-link bg-swiss-red text-white px-4 py-2 font-bold text-sm" href="#main-content">본문으로 바로가기</a>
 
     <!-- HEADER & NAVIGATION -->
-    <header class="fixed top-0 left-0 right-0 z-40 glass-nav border-b border-slate-800/80">
+    <header class="glass-nav border-b border-swiss-ink">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('home')">
                 <img src="HHI.png" alt="H&H Investment Logo" class="h-8 sm:h-10 w-auto object-contain" onerror="handleLogoError(this)">
             </div>
             
-            <nav aria-label="Main navigation" class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-slate-300">
-                <button type="button" onclick="showPage('home')" data-page="home" id="txt-navHome" class="nav-link is-active hover:text-amber-400 transition cursor-pointer">Home</button>
-                <button type="button" onclick="showPage('company')" data-page="company" id="txt-navAbout" class="nav-link hover:text-amber-400 transition cursor-pointer">About Us</button>
-                <button type="button" onclick="showPage('business')" data-page="business" id="txt-navBusiness" class="nav-link hover:text-amber-400 transition cursor-pointer">Business Area</button>
-                <button type="button" onclick="showPage('vision')" data-page="vision" id="txt-navPhilosophy" class="nav-link hover:text-amber-400 transition cursor-pointer">Philosophy</button>
-                <button type="button" onclick="showPage('pressPage')" data-page="pressPage" id="txt-navPress" class="nav-link hover:text-amber-400 transition cursor-pointer">Press</button>
-                <button type="button" onclick="showPage('contact')" data-page="contact" id="txt-navContact" class="nav-link hover:text-amber-400 transition cursor-pointer">Contact Us</button>
+            <nav aria-label="Main navigation" class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold">
+                <button type="button" onclick="showPage('home')" data-page="home" id="txt-navHome" class="nav-link is-active hover:text-swiss-red transition cursor-pointer">Home</button>
+                <button type="button" onclick="showPage('company')" data-page="company" id="txt-navAbout" class="nav-link hover:text-swiss-red transition cursor-pointer">About Us</button>
+                <button type="button" onclick="showPage('business')" data-page="business" id="txt-navBusiness" class="nav-link hover:text-swiss-red transition cursor-pointer">Business Area</button>
+                <button type="button" onclick="showPage('vision')" data-page="vision" id="txt-navPhilosophy" class="nav-link hover:text-swiss-red transition cursor-pointer">Philosophy</button>
+                <button type="button" onclick="showPage('pressPage')" data-page="pressPage" id="txt-navPress" class="nav-link hover:text-swiss-red transition cursor-pointer">Press</button>
+                <button type="button" onclick="showPage('contact')" data-page="contact" id="txt-navContact" class="nav-link hover:text-swiss-red transition cursor-pointer">Contact Us</button>
             </nav>
 
             <div class="flex items-center gap-2 sm:gap-3">
-                <button type="button" onclick="toggleLanguage()" id="langToggleBtn" class="bg-slate-800/90 hover:bg-slate-700 text-amber-400 font-bold px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs border border-amber-500/30 transition cursor-pointer shadow-lg">
+                <button type="button" onclick="toggleLanguage()" id="langToggleBtn" class="bg-transparent hover:text-swiss-red font-bold px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs border border-swiss-ink transition cursor-pointer">
                     🌐 ENG
                 </button>
-                <button type="button" onclick="showPage('business')" id="txt-navBtnProjects" class="hidden sm:inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs shadow-lg transition transform hover:scale-105 cursor-pointer">
+                <button type="button" onclick="showPage('business')" id="txt-navBtnProjects" class="hidden sm:inline-block bg-swiss-red text-white font-bold px-4 sm:px-5 py-2 sm:py-2.5 text-xs transition transform hover:scale-105 cursor-pointer">
                     프로젝트 보기
                 </button>
-                <button type="button" onclick="toggleMobileMenu()" aria-controls="mobileMenu" aria-expanded="false" aria-label="메뉴 열기" id="mobileMenuButton" class="md:hidden text-amber-400 p-2 focus:outline-none text-xl">
+                <button type="button" onclick="toggleMobileMenu()" aria-controls="mobileMenu" aria-expanded="false" aria-label="메뉴 열기" id="mobileMenuButton" class="md:hidden text-swiss-ink p-2 focus:outline-none text-xl">
                     ☰
                 </button>
             </div>
         </div>
-        <div id="mobileMenu" class="hidden md:hidden glass-nav border-b border-slate-800 px-6 py-4 space-y-3 text-sm font-semibold">
-            <button type="button" onclick="showPage('home')" class="block w-full text-left text-slate-200 hover:text-amber-400 py-1">Home</button>
-            <button type="button" onclick="showPage('company')" class="block w-full text-left text-slate-200 hover:text-amber-400 py-1">About Us</button>
-            <button type="button" onclick="showPage('business')" class="block w-full text-left text-slate-200 hover:text-amber-400 py-1">Business Area</button>
-            <button type="button" onclick="showPage('vision')" class="block w-full text-left text-slate-200 hover:text-amber-400 py-1">Philosophy</button>
-            <button type="button" onclick="showPage('pressPage')" class="block w-full text-left text-slate-200 hover:text-amber-400 py-1">Press</button>
-            <button type="button" onclick="showPage('contact')" class="block w-full text-left text-slate-200 hover:text-amber-400 py-1">Contact Us</button>
-            <button type="button" onclick="showPage('business')" class="block w-full text-center bg-amber-500 text-slate-950 font-bold py-2 rounded-xl text-xs mt-2">
+        <div id="mobileMenu" class="hidden md:hidden bg-swiss-paper border-b border-swiss-ink px-6 py-4 space-y-3 text-sm font-semibold">
+            <button type="button" onclick="showPage('home')" class="block w-full text-left hover:text-swiss-red py-1">Home</button>
+            <button type="button" onclick="showPage('company')" class="block w-full text-left hover:text-swiss-red py-1">About Us</button>
+            <button type="button" onclick="showPage('business')" class="block w-full text-left hover:text-swiss-red py-1">Business Area</button>
+            <button type="button" onclick="showPage('vision')" class="block w-full text-left hover:text-swiss-red py-1">Philosophy</button>
+            <button type="button" onclick="showPage('pressPage')" class="block w-full text-left hover:text-swiss-red py-1">Press</button>
+            <button type="button" onclick="showPage('contact')" class="block w-full text-left hover:text-swiss-red py-1">Contact Us</button>
+            <button type="button" onclick="showPage('business')" class="block w-full text-center bg-swiss-red text-white font-bold py-2 text-xs mt-2">
                 프로젝트 보기
             </button>
         </div>
@@ -412,96 +352,162 @@
         <!-- PAGE 1: HOME PAGE -->
         <section id="home" class="relative min-h-[90vh] sm:min-h-screen flex flex-col justify-center px-4 sm:px-6 py-16 sm:py-24">
             <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <video id="hero-bg-video" autoplay muted loop playsinline class="w-full h-full object-cover pointer-events-none opacity-100" oncanplay="this.muted=true; this.play();" onerror="this.style.display='none';">
+                <video id="hero-bg-video" autoplay muted loop playsinline class="w-full h-full object-cover pointer-events-none" oncanplay="this.muted=true; this.play();" onerror="this.style.display='none';">
                     <source src="newyork-skyline.mp4" type="video/mp4">
                 </video>
                 <div class="hero-overlay absolute inset-0"></div>
             </div>
+            
             <div class="relative z-10 max-w-5xl mx-auto w-full space-y-8 sm:space-y-10 text-left">
                 <div class="space-y-4 sm:space-y-6">
-                    <div class="inline-flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
-                        <span id="txt-heroBadge" class="text-[10px] sm:text-xs font-bold text-amber-400 uppercase tracking-widest drop-shadow-md">Global Real Estate Developer & Investment</span>
+                    <div class="inline-flex items-center gap-2 animate-kinetic-1">
+                        <span class="w-2 h-2 rounded-full bg-swiss-red animate-ping"></span>
+                        <span id="txt-heroBadge" class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-swiss-red">Global Real Estate Developer & Investment</span>
                     </div>
+                    
                     <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight text-left">
-                        <span id="txt-heroTitle1" class="inline-block text-white font-black drop-shadow-md">Shaping tomorrow</span><br>
-                        <span id="txt-heroTitle2" class="inline-block text-amber-500 drop-shadow-lg mt-1">with vision and action.</span><br>
-                        <span id="txt-heroTitleSub" class="inline-block text-base sm:text-2xl lg:text-3xl font-bold text-slate-100 mt-3 drop-shadow-md">도시의 미래 가치를 창조하는 글로벌 디벨로퍼, H&H Investment</span>
+                        <span id="txt-heroTitle1" class="inline-block font-black text-white drop-shadow-md typewriter-text">Shaping tomorrow</span><br>
+                        <span id="txt-heroTitle2" class="inline-block swiss-typewriter-text mt-1 drop-shadow-lg">with vision and action.</span><br>
+                        <span id="txt-heroTitleSub" class="inline-block text-base sm:text-2xl lg:text-3xl font-bold mt-3 text-slate-100 drop-shadow-md">도시의 미래 가치를 창조하는 글로벌 디벨로퍼, H&H Investment</span>
                     </h1>
-                    <p id="txt-heroDesc" class="text-slate-200 text-xs sm:text-base max-w-2xl leading-relaxed text-left font-medium drop-shadow-sm">
+                    
+                    <p id="txt-heroDesc" class="text-xs sm:text-base max-w-2xl leading-relaxed text-left font-medium text-slate-200 drop-shadow-sm border-l-2 border-swiss-red pl-4">
                         H&H Investment는 서울 및 수도권 핵심 요충지의 대규모 복합단지 개발, 도시정비사업, 그리고 혁신적인 금융 구조화를 선도하는 대한민국 대표 종합 부동산 디벨로퍼입니다.
                     </p>
                 </div>
+
                 <div class="flex flex-wrap items-center justify-start gap-3 sm:gap-4 pt-2">
-                    <button type="button" onclick="showPage('business')" id="txt-btnHeroProjects" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-xs sm:text-sm shadow-xl transition transform hover:scale-105 cursor-pointer flex items-center gap-2">
+                    <button type="button" onclick="showPage('business')" id="txt-btnHeroProjects" class="bg-swiss-red hover:bg-red-700 text-white font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-xs sm:text-sm shadow-xl transition transform hover:scale-105 cursor-pointer flex items-center gap-2">
                         주요 프로젝트 바로가기
                     </button>
-                    <button type="button" onclick="showPage('company')" id="txt-btnHeroCompany" class="text-white hover:text-amber-400 bg-slate-900/80 backdrop-blur-md px-4 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold rounded-xl transition cursor-pointer shadow-lg border border-slate-700">
+                    <button type="button" onclick="showPage('company')" id="txt-btnHeroCompany" class="text-white hover:text-swiss-red bg-slate-900/80 backdrop-blur-md px-4 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold rounded-xl transition cursor-pointer shadow-lg border border-slate-700">
                         기업 비전 및 연혁 →
                     </button>
                 </div>
+
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-8 sm:pt-10 border-t border-white/20">
                     <div class="p-1 sm:p-2 text-left">
                         <span id="txt-stat1Label" class="text-[10px] sm:text-xs font-medium text-slate-200 block mb-1 drop-shadow-md">Total Project Value</span>
-                        <span id="txt-stat1Val" class="text-xl sm:text-3xl font-extrabold text-amber-400 drop-shadow-lg">₩ 3.0T+</span>
+                        <span id="txt-stat1Val" class="text-xl sm:text-3xl font-extrabold text-swiss-red drop-shadow-lg">₩ 3.0T+</span>
                     </div>
                     <div class="p-1 sm:p-2 text-left">
                         <span id="txt-stat2Label" class="text-[10px] sm:text-xs font-medium text-slate-200 block mb-1 drop-shadow-md">Active Flagships</span>
-                        <span id="txt-stat2Val" class="text-xl sm:text-3xl font-extrabold text-amber-400 drop-shadow-lg">Wondang · Cheolsan</span>
+                        <span id="txt-stat2Val" class="text-xl sm:text-3xl font-extrabold text-swiss-red drop-shadow-lg">Wondang · Cheolsan</span>
                     </div>
                     <div class="p-1 sm:p-2 text-left">
                         <span id="txt-stat3Label" class="text-[10px] sm:text-xs font-medium text-slate-200 block mb-1 drop-shadow-md">Landmark Developments</span>
-                        <span id="txt-stat3Val" class="text-xl sm:text-3xl font-extrabold text-amber-400 drop-shadow-lg">6 Major Sites</span>
+                        <span id="txt-stat3Val" class="text-xl sm:text-3xl font-extrabold text-swiss-red drop-shadow-lg">6 Major Sites</span>
                     </div>
                     <div class="p-1 sm:p-2 text-left">
                         <span id="txt-stat4Label" class="text-[10px] sm:text-xs font-medium text-slate-200 block mb-1 drop-shadow-md">Global Alliances</span>
-                        <span id="txt-stat4Val" class="text-xl sm:text-3xl font-extrabold text-amber-400 drop-shadow-lg">Schools & Hotels</span>
+                        <span id="txt-stat4Val" class="text-xl sm:text-3xl font-extrabold text-swiss-red drop-shadow-lg">Schools & Hotels</span>
                     </div>
                 </div>
-                <div class="pt-4 sm:pt-6">
-                    <div class="flex flex-wrap items-center gap-3 sm:gap-6">
-                        <img src="seoulcity.png" alt="Seoul Metropolitan Government" onclick="openDmcReportModal()" title="상암 DMC 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 rounded-xl cursor-pointer" onerror="handleImageError(this, 'Seoul Govt')">
-                        <img src="daejeonmetro.png" alt="대전유성구" onclick="openYuseongReportModal()" title="대전 유성복합터미널 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 rounded-xl cursor-pointer" onerror="handleImageError(this, '대전유성')">
-                        <img src="dcco.png" alt="대전도시공사" onclick="openYuseongReportModal()" title="대전 유성복합터미널 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 rounded-xl cursor-pointer" onerror="handleImageError(this, '대전도시공사')">
-                        <img src="chungcheongnam.png" alt="충청남도" onclick="openAnmyeongdoReportModal()" title="안면도 관광지 개발사업 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 rounded-xl cursor-pointer" onerror="handleImageError(this, '충청남도')">
-                        <img src="dongjak.png" alt="동작구청" onclick="openDongjakReportModal()" title="동작구청 공모사업 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 rounded-xl cursor-pointer" onerror="handleImageError(this, '동작구청')">
+
+                <!-- 공공기관 로고 무한 슬라이딩 영역 -->
+                <div class="pt-4 sm:pt-6 overflow-hidden w-full relative">
+                    <div class="animate-infinite-slide flex items-center gap-8 sm:gap-12 whitespace-nowrap">
+                        <div class="flex items-center gap-8 sm:gap-12 shrink-0">
+                            <img src="seoulcity.png" alt="Seoul Metropolitan Government" onclick="openDmcReportModal()" title="상암 DMC 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 cursor-pointer" onerror="handleImageError(this, 'Seoul Govt')">
+                            <img src="daejeonmetro.png" alt="대전유성구" onclick="openYuseongReportModal()" title="대전 유성복합터미널 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 cursor-pointer" onerror="handleImageError(this, '대전유성')">
+                            <img src="dcco.png" alt="대전도시공사" onclick="openYuseongReportModal()" title="대전 유성복합터미널 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 cursor-pointer" onerror="handleImageError(this, '대전도시공사')">
+                            <img src="chungcheongnam.png" alt="충청남도" onclick="openAnmyeongdoReportModal()" title="안면도 관광지 개발사업 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 cursor-pointer" onerror="handleImageError(this, 'Chungnam Govt')">
+                            <img src="dongjak.png" alt="동작구청" onclick="openDongjakReportModal()" title="동작구청 공모사업 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 cursor-pointer" onerror="handleImageError(this, 'Dongjak')">
+                        </div>
+                        <div class="flex items-center gap-8 sm:gap-12 shrink-0" aria-hidden="true">
+                            <img src="seoulcity.png" alt="Seoul Metropolitan Government" onclick="openDmcReportModal()" title="상암 DMC 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 cursor-pointer" onerror="handleImageError(this, 'Seoul Govt')">
+                            <img src="daejeonmetro.png" alt="대전유성구" onclick="openYuseongReportModal()" title="대전 유성복합터미널 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 cursor-pointer" onerror="handleImageError(this, '대전유성')">
+                            <img src="dcco.png" alt="대전도시공사" onclick="openYuseongReportModal()" title="대전 유성복합터미널 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 cursor-pointer" onerror="handleImageError(this, '대전도시공사')">
+                            <img src="chungcheongnam.png" alt="충청남도" onclick="openAnmyeongdoReportModal()" title="안면도 관광지 개발사업 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 cursor-pointer" onerror="handleImageError(this, 'Chungnam Govt')">
+                            <img src="dongjak.png" alt="동작구청" onclick="openDongjakReportModal()" title="동작구청 공모사업 요약보고서 보기" class="h-10 sm:h-12 w-auto object-contain drop-shadow-lg hover:scale-105 transition-transform p-2 cursor-pointer" onerror="handleImageError(this, 'Dongjak')">
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
         <!-- PAGE 2: COMPANY INTRO -->
         <section id="company" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 space-y-12 sm:space-y-16">
-            <div class="border-b border-slate-800 pb-6 sm:pb-8 text-left">
-                <span id="txt-companyTag" class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">Company Overview</span>
-                <h2 id="txt-companyTitle" class="text-2xl sm:text-4xl font-extrabold text-white">최고의 전문성과 신뢰로 가치를 만듭니다</h2>
+            <div class="border-b border-swiss-line pb-6 sm:pb-8 text-left">
+                <span id="txt-companyTag" class="text-xs font-bold text-swiss-red uppercase tracking-widest block mb-2">Company Overview</span>
+                <h2 id="txt-companyTitle" class="text-2xl sm:text-4xl font-extrabold">최고의 전문성과 신뢰로 가치를 만듭니다</h2>
             </div>
+            
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center text-left">
-                <div class="space-y-4 sm:space-y-6 text-slate-300 leading-relaxed text-xs sm:text-base">
+                <div class="space-y-4 sm:space-y-6 leading-relaxed text-xs sm:text-base">
                     <p id="txt-companyP1">H&H Investment는 부동산 개발의 기획부터 인허가, 토지 매입, PF 금융 조달, 시공 관리 및 사후 운영에 이르기까지 전 과정을 아우르는 통합 솔루션을 제공합니다.</p>
                     <p id="txt-companyP2">당사는 단순한 건축물 시공을 넘어, 해당 지역의 문화와 인프라를 혁신적으로 탈바꿈시키는 대규모 복합 랜드마크 개발에 주력하고 있으며, 철저한 리스크 관리와 압도적인 수익성을 동시에 실현하고 있습니다.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 sm:pt-4">
-                        <div class="bg-slate-900 p-4 sm:p-5 rounded-2xl border border-slate-800"><h4 id="txt-compFeat1Title" class="text-white font-bold mb-1 text-sm sm:text-base">철저한 리스크 관리</h4><p id="txt-compFeat1Desc" class="text-[11px] sm:text-xs text-slate-400">대형 금융사 및 HUG 보증을 통한 확실한 자금 안정성</p></div>
-                        <div class="bg-slate-900 p-4 sm:p-5 rounded-2xl border border-slate-800"><h4 id="txt-compFeat2Title" class="text-white font-bold mb-1 text-sm sm:text-base">랜드마크 기획력</h4><p id="txt-compFeat2Desc" class="text-[11px] sm:text-xs text-slate-400">지역 사회가 열광하는 특화 디자인 및 복합 인프라</p></div>
+                        <div class="swiss-card p-4 sm:p-5">
+                            <h4 id="txt-compFeat1Title" class="font-bold mb-1 text-sm sm:text-base">철저한 리스크 관리</h4>
+                            <p id="txt-compFeat1Desc" class="text-[11px] sm:text-xs">대형 금융사 및 HUG 보증을 통한 확실한 자금 안정성</p>
+                        </div>
+                        <div class="swiss-card p-4 sm:p-5">
+                            <h4 id="txt-compFeat2Title" class="font-bold mb-1 text-sm sm:text-base">랜드마크 기획력</h4>
+                            <p id="txt-compFeat2Desc" class="text-[11px] sm:text-xs">지역 사회가 열광하는 특화 디자인 및 복합 인프라</p>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl space-y-6">
-                    <h3 id="txt-compCoreHeader" class="text-lg sm:text-xl font-bold text-white border-b border-slate-800 pb-4">핵심 역량 (Core Competencies)</h3>
-                    <ul class="space-y-4 text-xs sm:text-sm text-slate-300">
-                        <li class="flex items-start gap-3"><span class="text-amber-400 font-bold">01</span><div><strong id="txt-compCore1Title" class="text-white block mb-0.5">프로젝트 파이낸싱 (PF) 구조화</strong><span id="txt-compCore1Desc">다수의 금융기관과 신디케이트론 및 비소구 PF를 성공적으로 성사시킨 풍부한 경험</span></div></li>
-                        <li class="flex items-start gap-3"><span class="text-amber-400 font-bold">02</span><div><strong id="txt-compCore2Title" class="text-white block mb-0.5">앵커 테넌트 유치</strong><span id="txt-compCore2Desc">글로벌 명문 학교(Wycombe Abbey), 호텔 브랜드(Banyan Tree / Marriott) 등 제휴</span></div></li>
-                        <li class="flex items-start gap-3"><span class="text-amber-400 font-bold">03</span><div><strong id="txt-compCore3Title" class="text-white block mb-0.5">도시계획 및 용적률 극대화</strong><span id="txt-compCore3Desc">준주거지역 상향 및 복합용도 최적화를 통한 압도적인 사업성 확보</span></div></li>
+                <div class="swiss-card p-6 sm:p-8 space-y-6">
+                    <h3 id="txt-compCoreHeader" class="text-lg sm:text-xl font-bold border-b border-swiss-line pb-4">핵심 역량 (Core Competencies)</h3>
+                    <ul class="space-y-4 text-xs sm:text-sm">
+                        <li class="flex items-start gap-3">
+                            <span class="text-swiss-red font-bold">01</span>
+                            <div>
+                                <strong id="txt-compCore1Title" class="block mb-0.5">프로젝트 파이낸싱 (PF) 구조화</strong>
+                                <span id="txt-compCore1Desc">다수의 금융기관과 신디케이트론 및 비소구 PF를 성공적으로 성사시킨 풍부한 경험</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-swiss-red font-bold">02</span>
+                            <div>
+                                <strong id="txt-compCore2Title" class="block mb-0.5">앵커 테넌트 유치</strong>
+                                <span id="txt-compCore2Desc">글로벌 명문 학교(Wycombe Abbey), 호텔 브랜드(Banyan Tree / Marriott) 등 제휴</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-swiss-red font-bold">03</span>
+                            <div>
+                                <strong id="txt-compCore3Title" class="block mb-0.5">도시계획 및 용적률 극대화</strong>
+                                <span id="txt-compCore3Desc">준주거지역 상향 및 복합용도 최적화를 통한 압도적인 사업성 확보</span>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="pt-8 sm:pt-12 border-t border-slate-800 text-left space-y-6 sm:space-y-8">
-                <div><span id="txt-ceoTitle" class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">CEO Message & Profile</span><h3 id="txt-ceoHeader" class="text-2xl sm:text-3xl font-bold text-white">대표이사 인사말 및 프로필</h3></div>
-                <div class="glass-card p-6 sm:p-10 rounded-3xl border border-slate-800 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
-                    <div class="lg:col-span-4 flex justify-center"><div class="relative w-48 sm:w-56 aspect-[3/4] rounded-2xl overflow-hidden border-2 border-amber-500/40 shadow-2xl bg-slate-900"><img src="ceodonsong.jpg" alt="대표이사 송동훈" class="w-full h-full object-cover" onerror="handleImageError(this, '대표이사 프로필')"></div></div>
+
+            <!-- CEO MESSAGE & PROFILE SECTION -->
+            <div class="pt-8 sm:pt-12 border-t border-swiss-line text-left space-y-6 sm:space-y-8">
+                <div>
+                    <span id="txt-ceoTitle" class="text-xs font-bold text-swiss-red uppercase tracking-widest block mb-2">CEO Message & Profile</span>
+                    <h3 id="txt-ceoHeader" class="text-2xl sm:text-3xl font-bold">대표이사 인사말 및 프로필</h3>
+                </div>
+
+                <div class="swiss-card p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+                    <div class="lg:col-span-4 flex justify-center">
+                        <div class="relative w-48 sm:w-56 aspect-[3/4] overflow-hidden border-2 border-swiss-ink shadow-2xl bg-swiss-paper">
+                            <img src="ceodonsong.jpg" alt="대표이사 송동훈" class="w-full h-full object-cover" onerror="handleImageError(this, '대표이사 프로필')">
+                        </div>
+                    </div>
                     <div class="lg:col-span-8 space-y-4 sm:space-y-6">
-                        <div><h4 id="txt-ceoName" class="text-xl sm:text-2xl font-extrabold text-white">대표이사 송동훈</h4><p id="txt-ceoSubtitle" class="text-xs font-semibold text-amber-400 uppercase tracking-wider mt-1">CEO & Founder, H&H Investment</p></div>
-                        <div class="space-y-2 sm:space-y-3"><h5 id="txt-ceoCareerHeader" class="text-xs sm:text-sm font-bold text-amber-400 border-l-2 border-amber-500 pl-2">주요 경력 사항</h5><ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed list-disc list-inside"><li id="txt-ceoCareer1">1999년~ : KPMG Financial Service 부동산 자문 업무 수행</li><li id="txt-ceoCareer2">2001년~ : 삼일회계법인 FAS 본부 부동산 개발, 금융, 프로젝트 모니터링 및 M&A 자문 수행</li><li id="txt-ceoCareer3">2005년~ : 노무라종합연구소 부동산 타당성 검토 및 부동산 금융 업무 전문 수행</li><li id="txt-ceoCareer4">2007년~ : KPIH, H&H Investment (외국인투자기업) 대표이사 부동산 개발 사업</li></ul></div>
-                        <div class="space-y-2 pt-2 border-t border-slate-800"><h5 id="txt-ceoEduHeader" class="text-xs sm:text-sm font-bold text-amber-400 border-l-2 border-amber-500 pl-2">학력 사항</h5><p id="txt-ceoEdu" class="text-xs sm:text-sm text-slate-300 leading-relaxed">뉴욕공과대학교 (NYIT) 회계학 학사 및 동 대학원 MBA 졸업</p></div>
+                        <div>
+                            <h4 id="txt-ceoName" class="text-xl sm:text-2xl font-extrabold">대표이사 송동훈</h4>
+                            <p id="txt-ceoSubtitle" class="text-xs font-semibold text-swiss-red uppercase tracking-wider mt-1">CEO & Founder, H&H Investment</p>
+                        </div>
+                        <div class="space-y-2 sm:space-y-3">
+                            <h5 id="txt-ceoCareerHeader" class="text-xs sm:text-sm font-bold text-swiss-red border-l-2 border-swiss-red pl-2">주요 경력 사항</h5>
+                            <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm leading-relaxed list-disc list-inside">
+                                <li id="txt-ceoCareer1">1999년~ : KPMG Financial Service 부동산 자문 업무 수행</li>
+                                <li id="txt-ceoCareer2">2001년~ : 삼일회계법인 FAS 본부 부동산 개발, 금융, 프로젝트 모니터링 및 M&A 자문 수행</li>
+                                <li id="txt-ceoCareer3">2005년~ : 노무라종합연구소 부동산 타당성 검토 및 부동산 금융 업무 전문 수행</li>
+                                <li id="txt-ceoCareer4">2007년~ : KPIH, H&H Investment (외국인투자기업) 대표이사 부동산 개발 사업</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-2 pt-2 border-t border-swiss-line">
+                            <h5 id="txt-ceoEduHeader" class="text-xs sm:text-sm font-bold text-swiss-red border-l-2 border-swiss-red pl-2">학력 사항</h5>
+                            <p id="txt-ceoEdu" class="text-xs sm:text-sm leading-relaxed">뉴욕공과대학교 (NYIT) 회계학 학사 및 동 대학원 MBA 졸업</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -509,97 +515,331 @@
 
         <!-- PAGE 3: BUSINESS AREA -->
         <section id="business" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 space-y-12 sm:space-y-16">
-            <div class="border-b border-slate-800 pb-6 sm:pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 text-left">
-                <div><span id="txt-bizTag" class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">Business Portfolio</span><h2 id="txt-bizTitle" class="text-2xl sm:text-4xl font-extrabold text-white">사업 영역 및 주요 프로젝트</h2></div>
-                <div class="flex items-center gap-2 sm:gap-3 flex-wrap"><button type="button" onclick="showPage('wondangPage')" id="txt-bizBtnWondang" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl text-xs sm:text-sm shadow transition cursor-pointer">현 진행중인 프로젝트 1 (원당)</button><button type="button" onclick="showPage('cheolsanPage')" id="txt-bizBtnCheolsan" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl text-xs sm:text-sm shadow transition cursor-pointer">현 진행중인 프로젝트 2 (철산)</button></div>
+            <div class="border-b border-swiss-line pb-6 sm:pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 text-left">
+                <div>
+                    <span id="txt-bizTag" class="text-xs font-bold text-swiss-red uppercase tracking-widest block mb-2">Business Portfolio</span>
+                    <h2 id="txt-bizTitle" class="text-2xl sm:text-4xl font-extrabold">사업 영역 및 주요 프로젝트</h2>
+                </div>
+                <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+                    <button type="button" onclick="showPage('wondangPage')" id="txt-bizBtnWondang" class="btn-swiss-red font-bold px-4 py-2.5 sm:px-5 sm:py-3 text-xs sm:text-sm shadow transition cursor-pointer">현 진행중인 프로젝트 1 (원당)</button>
+                    <button type="button" onclick="showPage('cheolsanPage')" id="txt-bizBtnCheolsan" class="btn-swiss-red font-bold px-4 py-2.5 sm:px-5 sm:py-3 text-xs sm:text-sm shadow transition cursor-pointer">현 진행중인 프로젝트 2 (철산)</button>
+                </div>
             </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 text-left">
-                <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-3 sm:space-y-4"><span id="txt-div1Tag" class="text-xs font-bold text-amber-400 uppercase tracking-wider">Division 01</span><h3 id="txt-div1Title" class="text-xl sm:text-2xl font-bold text-white">공공부지 민간 복합개발사업</h3><p id="txt-div1Desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed">지자체 및 공공기관 보유 핵심 부지를 대상으로 지구단위계획 변경 및 준주거지역 용적률 상향을 이끌어내며, 대규모 상업·업무·주거·문화시설이 융합된 복합 단지를 기획·조성합니다.</p><div class="pt-2 sm:pt-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"><button type="button" onclick="showPage('wondangPage')" id="txt-div1LinkWondang" class="text-amber-400 hover:text-amber-300 font-bold text-xs flex items-center gap-1 cursor-pointer">고양 원당 성사 사업 상세 보기 →</button><button type="button" onclick="showPage('cheolsanPage')" id="txt-div1LinkCheolsan" class="text-amber-400 hover:text-amber-300 font-bold text-xs flex items-center gap-1 cursor-pointer">광명 철산동 사업 상세 보기 →</button></div></div>
-                <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-3 sm:space-y-4"><span id="txt-div2Tag" class="text-xs font-bold text-amber-400 uppercase tracking-wider">Division 02</span><h3 id="txt-div2Title" class="text-xl sm:text-2xl font-bold text-white">부동산 금융 및 프로젝트 파이낸싱 (PF)</h3><p id="txt-div2Desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed">대형 증권사 및 금융기관과의 견고한 네트워크를 바탕으로 브릿지론부터 본 PF, ABCP 발행, 구조화 금융에 이르기까지 프로젝트 전반의 안정적 재원을 조달하며, 철저한 재무 타당성 검토를 통해 투자 안전성을 최우선으로 확보합니다.</p></div>
-                <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-3 sm:space-y-4"><span id="txt-div3Tag" class="text-xs font-bold text-amber-400 uppercase tracking-wider">Division 03</span><h3 id="txt-div3Title" class="text-xl sm:text-2xl font-bold text-white">글로벌 국제 교육시설 유치</h3><p id="txt-div3Desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed">영국 Wycombe Abbey 등 세계적인 명문 국제학교 분교 및 교육연구시설을 독점 유치하여 주거 단지의 가치를 최고 수준으로 견인하며, 지역 사회에 글로벌 교육 인프라를 선사합니다.</p></div>
-                <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-3 sm:space-y-4"><span id="txt-div4Tag" class="text-xs font-bold text-amber-400 uppercase tracking-wider">Division 04</span><h3 id="txt-div4Title" class="text-xl sm:text-2xl font-bold text-white">하이엔드 주거 및 컨시어지 서비스</h3><p id="txt-div4Desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed">반얀트리, 메리어트 등 최고급 호텔 브랜드의 주거 서비스 연계 및 차별화된 커뮤니티 어메니티를 기획하여 입주민의 삶의 품격을 완성하고 하이엔드 주거의 새로운 기준을 제시합니다.</p></div>
+                <div class="swiss-card p-6 sm:p-8 space-y-3 sm:space-y-4">
+                    <span id="txt-div1Tag" class="text-xs font-bold text-swiss-red uppercase tracking-wider">Division 01</span>
+                    <h3 id="txt-div1Title" class="text-xl sm:text-2xl font-bold">공공부지 민간 복합개발사업</h3>
+                    <p id="txt-div1Desc" class="text-xs sm:text-sm leading-relaxed">지자체 및 공공기관 보유 핵심 부지를 대상으로 지구단위계획 변경 및 준주거지역 용적률 상향을 이끌어내며, 대규모 상업·업무·주거·문화시설이 융합된 복합 단지를 기획·조성합니다.</p>
+                    <div class="pt-2 sm:pt-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                        <button type="button" onclick="showPage('wondangPage')" id="txt-div1LinkWondang" class="text-swiss-red font-bold text-xs flex items-center gap-1 cursor-pointer hover:underline">고양 원당 성사 사업 상세 보기 →</button>
+                        <button type="button" onclick="showPage('cheolsanPage')" id="txt-div1LinkCheolsan" class="text-swiss-red font-bold text-xs flex items-center gap-1 cursor-pointer hover:underline">광명 철산동 사업 상세 보기 →</button>
+                    </div>
+                </div>
+
+                <div class="swiss-card p-6 sm:p-8 space-y-3 sm:space-y-4">
+                    <span id="txt-div2Tag" class="text-xs font-bold text-swiss-red uppercase tracking-wider">Division 02</span>
+                    <h3 id="txt-div2Title" class="text-xl sm:text-2xl font-bold">부동산 금융 및 프로젝트 파이낸싱 (PF)</h3>
+                    <p id="txt-div2Desc" class="text-xs sm:text-sm leading-relaxed">대형 증권사 및 금융기관과의 견고한 네트워크를 바탕으로 브릿지론부터 본 PF, ABCP 발행, 구조화 금융에 이르기까지 프로젝트 전반의 안정적 재원을 조달하며, 철저한 재무 타당성 검토를 통해 투자 안전성을 최우선으로 확보합니다.</p>
+                </div>
+
+                <div class="swiss-card p-6 sm:p-8 space-y-3 sm:space-y-4">
+                    <span id="txt-div3Tag" class="text-xs font-bold text-swiss-red uppercase tracking-wider">Division 03</span>
+                    <h3 id="txt-div3Title" class="text-xl sm:text-2xl font-bold">글로벌 국제 교육시설 유치</h3>
+                    <p id="txt-div3Desc" class="text-xs sm:text-sm leading-relaxed">영국 Wycombe Abbey 등 세계적인 명문 국제학교 분교 및 교육연구시설을 독점 유치하여 주거 단지의 가치를 최고 수준으로 견인하며, 지역 사회에 글로벌 교육 인프라를 선사합니다.</p>
+                </div>
+
+                <div class="swiss-card p-6 sm:p-8 space-y-3 sm:space-y-4">
+                    <span id="txt-div4Tag" class="text-xs font-bold text-swiss-red uppercase tracking-wider">Division 04</span>
+                    <h3 id="txt-div4Title" class="text-xl sm:text-2xl font-bold">하이엔드 주거 및 컨시어지 서비스</h3>
+                    <p id="txt-div4Desc" class="text-xs sm:text-sm leading-relaxed">반얀트리, 메리어트 등 최고급 호텔 브랜드의 주거 서비스 연계 및 차별화된 커뮤니티 어메니티를 기획하여 입주민의 삶의 품격을 완성하고 하이엔드 주거의 새로운 기준을 제시합니다.</p>
+                </div>
             </div>
+
+            <!-- PROJECTS GRID -->
             <div class="pt-8 sm:pt-12 text-left">
-                <h3 id="txt-portfolioHeader" class="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 border-l-4 border-amber-500 pl-3 sm:pl-4">주요 프로젝트 포트폴리오</h3>
+                <h3 id="txt-portfolioHeader" class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 border-l-4 border-swiss-red pl-3 sm:pl-4">주요 프로젝트 포트폴리오</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    
                     <!-- 1. Dongjak -->
-                    <div class="glass-card rounded-2xl overflow-hidden group border border-slate-800 flex flex-col justify-between"><div><div class="relative aspect-video sm:h-60 overflow-hidden bg-slate-900"><img src="dongjak1_2.jpg" alt="동작구청" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '동작구청')"><div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-slate-950/80 backdrop-blur text-amber-400 text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-800">서울 동작구</div></div><div class="p-5 sm:p-6 space-y-2 sm:space-y-3"><h4 id="txt-projDongjakTitle" class="text-base sm:text-lg font-bold text-white">동작구청 현청사부지 개발사업 (노량진 DEGC)</h4><p id="txt-projDongjakDesc" class="text-xs text-slate-300 line-clamp-3 leading-relaxed">지하 6층~지상 40층 규모의 복합 랜드마크 단지. 국제학교, 수영장, 아이스하키장 기부채납 복합 단지.</p></div></div><div class="p-5 sm:p-6 pt-0 flex flex-wrap items-center gap-2"><button type="button" onclick="openProjectModal('dongjak')" id="txt-projDongjakBtn1" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl text-xs transition cursor-pointer text-center">상세 보기</button><button type="button" onclick="openDongjakReportModal()" id="txt-projDongjakBtn2" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-3.5 sm:px-4 py-2.5 rounded-xl text-xs transition cursor-pointer">📄 요약보고서</button></div></div>
+                    <div class="swiss-card rounded-none overflow-hidden group project-card flex flex-col justify-between">
+                        <div>
+                            <div class="relative aspect-video sm:h-60 overflow-hidden bg-swiss-paper">
+                                <img src="dongjak1_2.jpg" alt="동작구청" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '동작구청')">
+                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-ink text-swiss-red text-xs font-bold px-2.5 py-1">서울 동작구</div>
+                            </div>
+                            <div class="p-5 sm:p-6 space-y-2 sm:space-y-3">
+                                <h4 id="txt-projDongjakTitle" class="text-base sm:text-lg font-bold">동작구청 현청사부지 개발사업 (노량진 DEGC)</h4>
+                                <p id="txt-projDongjakDesc" class="text-xs line-clamp-3 leading-relaxed">지하 6층~지상 40층 규모의 복합 랜드마크 단지. 국제학교, 수영장, 아이스하키장 기부채납 복합 단지.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6 pt-0 flex flex-wrap items-center gap-2">
+                            <button type="button" onclick="openProjectModal('dongjak')" id="txt-projDongjakBtn1" class="flex-1 btn-swiss-outline py-2.5 text-xs text-center cursor-pointer">상세 보기</button>
+                            <button type="button" onclick="openDongjakReportModal()" id="txt-projDongjakBtn2" class="btn-swiss-red px-3.5 sm:px-4 py-2.5 text-xs cursor-pointer">📄 요약보고서</button>
+                        </div>
+                    </div>
+
                     <!-- 2. Yuseong -->
-                    <div class="glass-card rounded-2xl overflow-hidden group border border-slate-800 flex flex-col justify-between"><div><div class="relative aspect-video sm:h-60 overflow-hidden bg-slate-900"><img src="yuseongmain_3.jpg" alt="대전유성" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '대전유성')"><div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-slate-950/80 backdrop-blur text-amber-400 text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-800">대전 유성구</div></div><div class="p-5 sm:p-6 space-y-2 sm:space-y-3"><h4 id="txt-projYuseongTitle" class="text-base sm:text-lg font-bold text-white">대전 유성광역복합환승센터 (복합여객터미널)</h4><p id="txt-projYuseongDesc" class="text-xs text-slate-300 line-clamp-3 leading-relaxed">연면적 243,680m², 지하 4층~지상 10층 규모. 여객터미널, 798호 오피스텔, 메가박스, 교보문고 융합 단지.</p></div></div><div class="p-5 sm:p-6 pt-0 flex flex-wrap items-center gap-2"><button type="button" onclick="openProjectModal('yuseong')" id="txt-projYuseongBtn1" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl text-xs transition cursor-pointer text-center">상세 보기</button><button type="button" onclick="openYuseongReportModal()" id="txt-projYuseongBtn2" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-3.5 sm:px-4 py-2.5 rounded-xl text-xs transition cursor-pointer">📄 요약보고서</button></div></div>
-                    <!-- 3. Anmyeongdo -->
-                    <div class="glass-card rounded-2xl overflow-hidden group border border-slate-800 flex flex-col justify-between"><div><div class="relative aspect-video sm:h-60 overflow-hidden bg-slate-900"><img src="anmyunmain.jpg" alt="안면도" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '안면도관광지')"><div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-slate-950/80 backdrop-blur text-amber-400 text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-800">충남 태안군</div></div><div class="p-5 sm:p-6 space-y-2 sm:space-y-3"><h4 id="txt-projAnmyeondoTitle" class="text-base sm:text-lg font-bold text-white">안면도 관광지 개발사업 (3지구 꽃지 씨사이드)</h4><p id="txt-projAnmyeondoDesc" class="text-xs text-slate-300 line-clamp-3 leading-relaxed">대지면적 249,924m², 연면적 153,560m² 규모의 럭셔리 콘도미니엄 및 휴양 웰니스 테마 리조트 단지.</p></div></div><div class="p-5 sm:p-6 pt-0 flex flex-wrap items-center gap-2"><button type="button" onclick="openProjectModal('anmyeondo')" id="txt-projAnmyeondoBtn1" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl text-xs transition cursor-pointer text-center">상세 보기</button><button type="button" onclick="openAnmyeongdoReportModal()" id="txt-projAnmyeondoBtn2" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-3.5 sm:px-4 py-2.5 rounded-xl text-xs transition cursor-pointer">📄 요약보고서</button></div></div>
+                    <div class="swiss-card rounded-none overflow-hidden group project-card flex flex-col justify-between">
+                        <div>
+                            <div class="relative aspect-video sm:h-60 overflow-hidden bg-swiss-paper">
+                                <img src="yuseongmain_3.jpg" alt="대전유성" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '대전유성')">
+                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-ink text-swiss-red text-xs font-bold px-2.5 py-1">대전 유성구</div>
+                            </div>
+                            <div class="p-5 sm:p-6 space-y-2 sm:space-y-3">
+                                <h4 id="txt-projYuseongTitle" class="text-base sm:text-lg font-bold">대전 유성광역복합환승센터 (복합여객터미널)</h4>
+                                <p id="txt-projYuseongDesc" class="text-xs line-clamp-3 leading-relaxed">연면적 243,680m², 지하 4층~지상 10층 규모. 여객터미널, 798호 오피스텔, 메가박스, 교보문고 융합 단지.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6 pt-0 flex flex-wrap items-center gap-2">
+                            <button type="button" onclick="openProjectModal('yuseong')" id="txt-projYuseongBtn1" class="flex-1 btn-swiss-outline py-2.5 text-xs text-center cursor-pointer">상세 보기</button>
+                            <button type="button" onclick="openYuseongReportModal()" id="txt-projYuseongBtn2" class="btn-swiss-red px-3.5 sm:px-4 py-2.5 text-xs cursor-pointer">📄 요약보고서</button>
+                        </div>
+                    </div>
+
+                    <!-- 3. Anmyeondo -->
+                    <div class="swiss-card rounded-none overflow-hidden group project-card flex flex-col justify-between">
+                        <div>
+                            <div class="relative aspect-video sm:h-60 overflow-hidden bg-swiss-paper">
+                                <img src="anmyunmain.jpg" alt="안면도" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '안면도관광지')">
+                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-ink text-swiss-red text-xs font-bold px-2.5 py-1">충남 태안군</div>
+                            </div>
+                            <div class="p-5 sm:p-6 space-y-2 sm:space-y-3">
+                                <h4 id="txt-projAnmyeondoTitle" class="text-base sm:text-lg font-bold">안면도 관광지 개발사업 (3지구 꽃지 씨사이드)</h4>
+                                <p id="txt-projAnmyeondoDesc" class="text-xs line-clamp-3 leading-relaxed">대지면적 249,924m², 연면적 153,560m² 규모의 럭셔리 콘도미니엄 및 휴양 웰니스 테마 리조트 단지.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6 pt-0 flex flex-wrap items-center gap-2">
+                            <button type="button" onclick="openProjectModal('anmyeondo')" id="txt-projAnmyeondoBtn1" class="flex-1 btn-swiss-outline py-2.5 text-xs text-center cursor-pointer">상세 보기</button>
+                            <button type="button" onclick="openAnmyeongdoReportModal()" id="txt-projAnmyeondoBtn2" class="btn-swiss-red px-3.5 sm:px-4 py-2.5 text-xs cursor-pointer">📄 요약보고서</button>
+                        </div>
+                    </div>
+
                     <!-- 4. DMC -->
-                    <div class="glass-card rounded-2xl overflow-hidden group border border-slate-800 flex flex-col justify-between"><div><div class="relative aspect-video sm:h-60 overflow-hidden bg-slate-900"><img src="dmcmain.jpg" alt="상암DMC" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '상암DMC')"><div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-slate-950/80 backdrop-blur text-amber-400 text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-800">서울 마포구</div></div><div class="p-5 sm:p-6 space-y-2 sm:space-y-3"><h4 id="txt-projDmcTitle" class="text-base sm:text-lg font-bold text-white">상암 DMC 미디어 복합단지 (DMC 랜드마크)</h4><p id="txt-projDmcDesc" class="text-xs text-slate-300 line-clamp-3 leading-relaxed">지하 7층~지상 71층 최고높이 656m 연면적 591,855m² 규모의 글로벌 미디어 HQ, 컨벤션, 레지던스 타워.</p></div></div><div class="p-5 sm:p-6 pt-0 flex flex-wrap items-center gap-2"><button type="button" onclick="openProjectModal('dmc')" id="txt-projDmcBtn1" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl text-xs transition cursor-pointer text-center">상세 보기</button><button type="button" onclick="openDmcReportModal()" id="txt-dmcBtn2" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-3.5 sm:px-4 py-2.5 rounded-xl text-xs transition cursor-pointer">📄 요약보고서</button></div></div>
+                    <div class="swiss-card rounded-none overflow-hidden group project-card flex flex-col justify-between">
+                        <div>
+                            <div class="relative aspect-video sm:h-60 overflow-hidden bg-swiss-paper">
+                                <img src="dmcmain.jpg" alt="상암DMC" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '상암DMC')">
+                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-ink text-swiss-red text-xs font-bold px-2.5 py-1">서울 마포구</div>
+                            </div>
+                            <div class="p-5 sm:p-6 space-y-2 sm:space-y-3">
+                                <h4 id="txt-projDmcTitle" class="text-base sm:text-lg font-bold">상암 DMC 미디어 복합단지 (DMC 랜드마크)</h4>
+                                <p id="txt-projDmcDesc" class="text-xs line-clamp-3 leading-relaxed">지하 7층~지상 71층 최고높이 656m 연면적 591,855m² 규모의 글로벌 미디어 HQ, 컨벤션, 레지던스 타워.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6 pt-0 flex flex-wrap items-center gap-2">
+                            <button type="button" onclick="openProjectModal('dmc')" id="txt-projDmcBtn1" class="flex-1 btn-swiss-outline py-2.5 text-xs text-center cursor-pointer">상세 보기</button>
+                            <button type="button" onclick="openDmcReportModal()" id="txt-dmcBtn2" class="btn-swiss-red px-3.5 sm:px-4 py-2.5 text-xs cursor-pointer">📄 요약보고서</button>
+                        </div>
+                    </div>
+
                     <!-- 5. Wondang -->
-                    <div class="glass-card rounded-2xl overflow-hidden group border border-slate-800 flex flex-col justify-between"><div><div class="relative aspect-video sm:h-60 overflow-hidden bg-slate-900"><img src="wondangmain.jpg" alt="고양원당" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '고양원당')"><div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-amber-500 text-slate-950 text-xs font-extrabold px-2.5 py-1 rounded-lg shadow">현 진행중인 프로젝트 1</div></div><div class="p-5 sm:p-6 space-y-2 sm:space-y-3"><h4 id="txt-projWondangTitle" class="text-base sm:text-lg font-bold text-white">고양 원당 성사 공공지원 민간임대주택 사업</h4><p id="txt-projWondangDesc" class="text-xs text-slate-300 line-clamp-3 leading-relaxed">총 994세대의 대단지 주거 복합 랜드마크.</p></div></div><div class="p-5 sm:p-6 pt-0 flex items-center gap-2"><button type="button" onclick="showPage('wondangPage')" id="txt-projWondangBtn" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 sm:py-3 rounded-xl text-xs transition cursor-pointer text-center">현장 사업계획서 및 상세 페이지 →</button></div></div>
+                    <div class="swiss-card rounded-none overflow-hidden group project-card flex flex-col justify-between">
+                        <div>
+                            <div class="relative aspect-video sm:h-60 overflow-hidden bg-swiss-paper">
+                                <img src="wondangmain.jpg" alt="고양원당" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '고양원당')">
+                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-red text-white text-xs font-bold px-2.5 py-1">현 진행중인 프로젝트 1</div>
+                            </div>
+                            <div class="p-5 sm:p-6 space-y-2 sm:space-y-3">
+                                <h4 id="txt-projWondangTitle" class="text-base sm:text-lg font-bold">고양 원당 성사 공공지원 민간임대주택 사업</h4>
+                                <p id="txt-projWondangDesc" class="text-xs line-clamp-3 leading-relaxed">총 994세대의 대단지 주거 복합 랜드마크.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6 pt-0 flex items-center gap-2">
+                            <button type="button" onclick="showPage('wondangPage')" id="txt-projWondangBtn" class="w-full btn-swiss-red py-2.5 sm:py-3 text-xs text-center cursor-pointer">현장 사업계획서 및 상세 페이지 →</button>
+                        </div>
+                    </div>
+
                     <!-- 6. Cheolsan -->
-                    <div class="glass-card rounded-2xl overflow-hidden group border border-slate-800 flex flex-col justify-between"><div><div class="relative aspect-video sm:h-60 overflow-hidden bg-slate-900"><img src="chulsan1.jpg" alt="광명철산" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '광명철산')"><div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-amber-500 text-slate-950 text-xs font-extrabold px-2.5 py-1 rounded-lg shadow">현 진행중인 프로젝트 2</div></div><div class="p-5 sm:p-6 space-y-2 sm:space-y-3"><h4 id="txt-projCheolsanTitle" class="text-base sm:text-lg font-bold text-white">광명시 철산동 261 주거복합 개발사업</h4><p id="txt-projCheolsanDesc" class="text-xs text-slate-300 line-clamp-3 leading-relaxed">지하 7층~지상 30층, 공동주택 299세대 및 상업시설 초역세권 주상복합 신축공사.</p></div></div><div class="p-5 sm:p-6 pt-0 flex items-center gap-2"><button type="button" onclick="showPage('cheolsanPage')" id="txt-projCheolsanBtn" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 sm:py-3 rounded-xl text-xs transition cursor-pointer text-center">현장 사업계획서 및 상세 페이지 →</button></div></div>
+                    <div class="swiss-card rounded-none overflow-hidden group project-card flex flex-col justify-between">
+                        <div>
+                            <div class="relative aspect-video sm:h-60 overflow-hidden bg-swiss-paper">
+                                <img src="chulsan1.jpg" alt="광명철산" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '광명철산')">
+                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-red text-white text-xs font-bold px-2.5 py-1">현 진행중인 프로젝트 2</div>
+                            </div>
+                            <div class="p-5 sm:p-6 space-y-2 sm:space-y-3">
+                                <h4 id="txt-projCheolsanTitle" class="text-base sm:text-lg font-bold">광명시 철산동 261 주거복합 개발사업</h4>
+                                <p id="txt-projCheolsanDesc" class="text-xs line-clamp-3 leading-relaxed">지하 7층~지상 30층, 공동주택 299세대 및 상업시설 초역세권 주상복합 신축공사.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6 pt-0 flex items-center gap-2">
+                            <button type="button" onclick="showPage('cheolsanPage')" id="txt-projCheolsanBtn" class="w-full btn-swiss-red py-2.5 sm:py-3 text-xs text-center cursor-pointer">현장 사업계획서 및 상세 페이지 →</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
         <!-- WONDANG PAGE -->
         <section id="wondangPage" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-8 sm:space-y-12 text-left">
-            <div class="border-b border-slate-800 pb-6 sm:pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4"><div><span id="txt-wondangTag" class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">Current Flagship Project 1 (Division 01)</span><h2 id="txt-wondangTitle" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white">고양 원당 성사 공공지원 민간임대주택 사업</h2></div><div class="flex items-center gap-3 flex-wrap"><button type="button" onclick="showPage('business')" id="txt-wondangBackBtn" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl text-xs sm:text-sm transition-all cursor-pointer border border-slate-700">← 사업 영역으로 돌아가기</button></div></div>
-            <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 p-6 sm:p-8 items-center"><div class="space-y-4 sm:space-y-6"><div id="txt-wondangSubBadge" class="inline-block bg-amber-500/20 text-amber-400 font-bold text-xs px-3 py-1 rounded-full border border-amber-500/30">현 진행중인 대표 공공지원 민간임대 개발사업</div><h3 id="txt-wondangHead" class="text-xl sm:text-3xl font-bold text-white leading-snug">고양시 덕양구 원당역 역세권 대단지 프리미엄 주거 복합 랜드마크</h3><p id="txt-wondangDesc" class="text-slate-300 text-xs sm:text-sm leading-relaxed">본 프로젝트는 고양시 덕양구 성사동 일원에 지하 3층~지상 35층, 총 8개동 994세대의 대단지 공공지원 민간임대주택을 구축하는 대규모 사업입니다. 준주거지역 상향 용적률(379.63%)을 적용하여 사업성을 극대화하였습니다.</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2"><div class="bg-slate-950 p-3 sm:p-4 rounded-xl border border-slate-800 text-center"><span id="txt-wondangStat1Label" class="text-[10px] sm:text-[11px] text-slate-400 block mb-1">세대 규모</span><span id="txt-wondangStat1Val" class="text-sm sm:text-base font-extrabold text-amber-400">총 994 세대</span></div><div class="bg-slate-950 p-3 sm:p-4 rounded-xl border border-slate-800 text-center"><span id="txt-wondangStat2Label" class="text-[10px] sm:text-[11px] text-slate-400 block mb-1">건축 규모</span><span id="txt-wondangStat2Val" class="text-sm sm:text-base font-extrabold text-amber-400">지하3층~지상35층</span></div></div></div><div class="relative aspect-video sm:h-80 lg:h-96 rounded-2xl overflow-hidden bg-slate-950 border border-slate-800"><img src="wondangmain.jpg" alt="고양 원당 프로젝트" class="w-full h-full object-cover" onerror="handleImageError(this, '원당 프로젝트')"><div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div></div></div>
-            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-4 sm:p-8 space-y-4 sm:space-y-6"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-800 pb-4"><div><h3 id="txt-wondangPdfHeader" class="text-lg sm:text-xl font-bold text-white">📄 원당 사업계획서 원본 문서 (PDF)</h3><p id="txt-wondangPdfSub" class="text-xs text-slate-400 mt-1">원당 성사 공공지원 민간임대주택 사업의 상세 정보 및 재무 구조를 PDF 뷰어로 확인하실 수 있습니다.</p></div><a href="wondangbusinessplan.pdf" target="_blank" id="txt-wondangPdfOpenBtn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs transition cursor-pointer">새 창에서 전체 PDF 열기 ↗</a></div><div class="w-full h-[400px] sm:h-[650px] bg-slate-950 rounded-2xl overflow-hidden border border-slate-800"><iframe src="wondangbusinessplan.pdf" class="w-full h-full border-0"></iframe></div></div>
+            <div class="border-b border-swiss-line pb-6 sm:pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span id="txt-wondangTag" class="text-xs font-bold text-swiss-red uppercase tracking-widest block mb-2">Current Flagship Project 1 (Division 01)</span>
+                    <h2 id="txt-wondangTitle" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold">고양 원당 성사 공공지원 민간임대주택 사업</h2>
+                </div>
+                <div class="flex items-center gap-3 flex-wrap">
+                    <button type="button" onclick="showPage('business')" id="txt-wondangBackBtn" class="bg-swiss-ink text-white font-bold px-4 py-2.5 sm:px-5 sm:py-3 text-xs sm:text-sm transition-all cursor-pointer">← 사업 영역으로 돌아가기</button>
+                </div>
+            </div>
+
+            <div class="swiss-card grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 p-6 sm:p-8 items-center">
+                <div class="space-y-4 sm:space-y-6">
+                    <div id="txt-wondangSubBadge" class="inline-block bg-swiss-red/10 text-swiss-red font-bold text-xs px-3 py-1">현 진행중인 대표 공공지원 민간임대 개발사업</div>
+                    <h3 id="txt-wondangHead" class="text-xl sm:text-3xl font-bold leading-snug">고양시 덕양구 원당역 역세권 대단지 프리미엄 주거 복합 랜드마크</h3>
+                    <p id="txt-wondangDesc" class="text-xs sm:text-sm leading-relaxed">본 프로젝트는 고양시 덕양구 성사동 일원에 지하 3층~지상 35층, 총 8개동 994세대의 대단지 공공지원 민간임대주택을 구축하는 대규모 사업입니다. 준주거지역 상향 용적률(379.63%)을 적용하여 사업성을 극대화하였습니다.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2">
+                        <div class="bg-swiss-paper p-3 sm:p-4 border border-swiss-line text-center">
+                            <span id="txt-wondangStat1Label" class="text-[10px] sm:text-[11px] block mb-1">세대 규모</span>
+                            <span id="txt-wondangStat1Val" class="text-sm sm:text-base font-extrabold text-swiss-red">총 994 세대</span>
+                        </div>
+                        <div class="bg-swiss-paper p-3 sm:p-4 border border-swiss-line text-center">
+                            <span id="txt-wondangStat2Label" class="text-[10px] sm:text-[11px] block mb-1">건축 규모</span>
+                            <span id="txt-wondangStat2Val" class="text-sm sm:text-base font-extrabold text-swiss-red">지하3층~지상35층</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative aspect-video sm:h-80 lg:h-96 overflow-hidden bg-swiss-paper border border-swiss-line">
+                    <img src="wondangmain.jpg" alt="고양 원당 프로젝트" class="w-full h-full object-cover" onerror="handleImageError(this, '원당 프로젝트')">
+                </div>
+            </div>
+
+            <div class="swiss-card p-4 sm:p-8 space-y-4 sm:space-y-6">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-swiss-line pb-4">
+                    <div>
+                        <h3 id="txt-wondangPdfHeader" class="text-lg sm:text-xl font-bold">📄 원당 사업계획서 원본 문서 (PDF)</h3>
+                        <p id="txt-wondangPdfSub" class="text-xs mt-1">원당 성사 공공지원 민간임대주택 사업의 상세 정보 및 재무 구조를 PDF 뷰어로 확인하실 수 있습니다.</p>
+                    </div>
+                    <a href="wondangbusinessplan.pdf" target="_blank" id="txt-wondangPdfOpenBtn" class="btn-swiss-red font-bold px-4 py-2 sm:px-5 sm:py-2.5 text-xs transition cursor-pointer inline-block">새 창에서 전체 PDF 열기 ↗</a>
+                </div>
+                <div class="w-full h-[400px] sm:h-[650px] bg-swiss-paper overflow-hidden border border-swiss-line">
+                    <iframe src="wondangbusinessplan.pdf" class="w-full h-full border-0"></iframe>
+                </div>
+            </div>
         </section>
 
         <!-- CHEOLSAN PAGE -->
         <section id="cheolsanPage" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-8 sm:space-y-12 text-left">
-            <div class="border-b border-slate-800 pb-6 sm:pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4"><div><span id="txt-cheolsanTag" class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">Current Flagship Project 2 (Division 01)</span><h2 id="txt-cheolsanTitle" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white">광명시 철산동 261 주거복합 개발사업</h2></div><div class="flex items-center gap-3"><button type="button" onclick="showPage('business')" id="txt-cheolsanBackBtn" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl text-xs sm:text-sm transition-all cursor-pointer border border-slate-700">← 사업 영역으로 돌아가기</button></div></div>
-            <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 p-6 sm:p-8 items-center"><div class="space-y-4 sm:space-y-6"><div id="txt-cheolsanSubBadge" class="inline-block bg-amber-500/20 text-amber-400 font-bold text-xs px-3 py-1 rounded-full border border-amber-500/30">현 진행중인 대표 주상복합 개발사업</div><h3 id="txt-cheolsanHead" class="text-xl sm:text-3xl font-bold text-white leading-snug">7호선 철산역 2번 출구 초역세권 프리미엄 주상복합 랜드마크</h3><p id="txt-cheolsanDesc" class="text-slate-300 text-xs sm:text-sm leading-relaxed">경기도 광명시 철산동 261번지 일원에 조성되는 지하 7층~지상 30층, 연면적 75,566.85㎡ 규모의 주상복합 신축공사입니다. 공동주택 299세대 및 상업시설로 구성되어 총매출액 5,512억 원, 세전이익 590억 원(수익률 10.71%)을 달성하는 고수익 프로젝트입니다.</p><div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-2"><div class="bg-slate-950 p-3 sm:p-4 rounded-xl border border-slate-800 text-center"><span id="txt-cheolsanStat1Label" class="text-[10px] sm:text-[11px] text-slate-400 block mb-1">세대 규모</span><span id="txt-cheolsanStat1Val" class="text-sm sm:text-base font-extrabold text-amber-400">공동주택 299세대</span></div><div class="bg-slate-950 p-3 sm:p-4 rounded-xl border border-slate-800 text-center"><span id="txt-cheolsanStat2Label" class="text-[10px] sm:text-[11px] text-slate-400 block mb-1">건축 규모</span><span id="txt-cheolsanStat2Val" class="text-sm sm:text-base font-extrabold text-amber-400">지하7층 ~ 지상30층</span></div><div class="bg-slate-950 p-3 sm:p-4 rounded-xl border border-slate-800 text-center"><span id="txt-cheolsanStat3Label" class="text-[10px] sm:text-[11px] text-slate-400 block mb-1">총 매출액</span><span id="txt-cheolsanStat3Val" class="text-sm sm:text-base font-extrabold text-amber-400">5,512 억원</span></div></div></div><div class="space-y-4"><div class="grid grid-cols-3 gap-2 sm:gap-3"><div class="relative h-28 sm:h-44 rounded-xl overflow-hidden bg-slate-950 border border-slate-800 cursor-pointer group"><img src="chulsan1.jpg" alt="철산 프로젝트 1" class="w-full h-full object-cover group-hover:scale-105 transition" onclick="document.getElementById('cheolsanMainImg').src='chulsan1.jpg'" onerror="handleImageError(this, '철산 조감도')"></div><div class="relative h-28 sm:h-44 rounded-xl overflow-hidden bg-slate-950 border border-slate-800 cursor-pointer group"><img src="chulsanlowlevel.jpg" alt="철산 저층부" class="w-full h-full object-cover group-hover:scale-105 transition" onclick="document.getElementById('cheolsanMainImg').src='chulsanlowlevel.jpg'" onerror="handleImageError(this, '철산 저층부')"></div><div class="relative h-28 sm:h-44 rounded-xl overflow-hidden bg-slate-950 border border-slate-800 cursor-pointer group"><img src="chulsan2.jpg" alt="철산 프로젝트 2" class="w-full h-full object-cover group-hover:scale-105 transition" onclick="document.getElementById('cheolsanMainImg').src='chulsan2.jpg'" onerror="handleImageError(this, '철산 뷰')"></div></div><div class="relative h-48 sm:h-64 rounded-2xl overflow-hidden bg-slate-950 border border-slate-800"><img id="cheolsanMainImg" src="chulsan1.jpg" alt="철산 프로젝트 메인" class="w-full h-full object-cover" onerror="handleImageError(this, '철산 프로젝트')"></div><div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 space-y-2"><span id="txt-cheolsanVideoLabel" class="text-xs font-bold text-amber-400 block">🎥 철산 현장 시공 타임랩스 시뮬레이션 영상</span><div class="relative rounded-xl overflow-hidden aspect-video bg-black"><video autoplay muted loop playsinline class="w-full h-full object-cover"><source src="chulsantimelap.mp4" type="video/mp4">Your browser does not support the video tag.</video></div></div></div></div>
-            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-4 sm:p-8 space-y-4 sm:space-y-6"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-800 pb-4"><div><h3 id="txt-cheolsanPdfHeader" class="text-lg sm:text-xl font-bold text-white">📄 철산 사업계획서 원본 문서 (PDF)</h3><p id="txt-cheolsanPdfSub" class="text-xs text-slate-400 mt-1">광명 철산동 261 주거복합 개발사업의 상세 수지 분석 및 건축계획을 PDF 뷰어로 확인하실 수 있습니다.</p></div><a href="chulsanbusinessplan.pdf" target="_blank" id="txt-cheolsanPdfOpenBtn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs transition cursor-pointer">새 창에서 전체 PDF 열기 ↗</a></div><div class="w-full h-[400px] sm:h-[650px] bg-slate-950 rounded-2xl overflow-hidden border border-slate-800"><iframe src="chulsanbusinessplan.pdf" class="w-full h-full border-0"></iframe></div></div>
+            <div class="border-b border-swiss-line pb-6 sm:pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span id="txt-cheolsanTag" class="text-xs font-bold text-swiss-red uppercase tracking-widest block mb-2">Current Flagship Project 2 (Division 01)</span>
+                    <h2 id="txt-cheolsanTitle" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold">광명시 철산동 261 주거복합 개발사업</h2>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button type="button" onclick="showPage('business')" id="txt-cheolsanBackBtn" class="bg-swiss-ink text-white font-bold px-4 py-2.5 sm:px-5 sm:py-3 text-xs sm:text-sm transition-all cursor-pointer">← 사업 영역으로 돌아가기</button>
+                </div>
+            </div>
+
+            <div class="swiss-card grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 p-6 sm:p-8 items-center">
+                <div class="space-y-4 sm:space-y-6">
+                    <div id="txt-cheolsanSubBadge" class="inline-block bg-swiss-red/10 text-swiss-red font-bold text-xs px-3 py-1">현 진행중인 대표 주상복합 개발사업</div>
+                    <h3 id="txt-cheolsanHead" class="text-xl sm:text-3xl font-bold leading-snug">7호선 철산역 2번 출구 초역세권 프리미엄 주상복합 랜드마크</h3>
+                    <p id="txt-cheolsanDesc" class="text-xs sm:text-sm leading-relaxed">경기도 광명시 철산동 261번지 일원에 조성되는 지하 7층~지상 30층, 연면적 75,566.85㎡ 규모의 주상복합 신축공사입니다. 공동주택 299세대 및 상업시설로 구성되어 총매출액 5,512억 원, 세전이익 590억 원(수익률 10.71%)을 달성하는 고수익 프로젝트입니다.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-2">
+                        <div class="bg-swiss-paper p-3 sm:p-4 border border-swiss-line text-center">
+                            <span id="txt-cheolsanStat1Label" class="text-[10px] sm:text-[11px] block mb-1">세대 규모</span>
+                            <span id="txt-cheolsanStat1Val" class="text-sm sm:text-base font-extrabold text-swiss-red">공동주택 299세대</span>
+                        </div>
+                        <div class="bg-swiss-paper p-3 sm:p-4 border border-swiss-line text-center">
+                            <span id="txt-cheolsanStat2Label" class="text-[10px] sm:text-[11px] block mb-1">건축 규모</span>
+                            <span id="txt-cheolsanStat2Val" class="text-sm sm:text-base font-extrabold text-swiss-red">지하7층 ~ 지상30층</span>
+                        </div>
+                        <div class="bg-swiss-paper p-3 sm:p-4 border border-swiss-line text-center">
+                            <span id="txt-cheolsanStat3Label" class="text-[10px] sm:text-[11px] block mb-1">총 매출액</span>
+                            <span id="txt-cheolsanStat3Val" class="text-sm sm:text-base font-extrabold text-swiss-red">5,512 억원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="grid grid-cols-3 gap-2 sm:gap-3">
+                        <div class="relative h-28 sm:h-44 bg-swiss-paper border border-swiss-line cursor-pointer group">
+                            <img src="chulsan1.jpg" alt="철산 프로젝트 1" class="w-full h-full object-cover group-hover:scale-105 transition" onclick="document.getElementById('cheolsanMainImg').src='chulsan1.jpg'" onerror="handleImageError(this, '철산 조감도')">
+                        </div>
+                        <div class="relative h-28 sm:h-44 bg-swiss-paper border border-swiss-line cursor-pointer group">
+                            <img src="chulsanlowlevel.jpg" alt="철산 저층부" class="w-full h-full object-cover group-hover:scale-105 transition" onclick="document.getElementById('cheolsanMainImg').src='chulsanlowlevel.jpg'" onerror="handleImageError(this, '철산 저층부')">
+                        </div>
+                        <div class="relative h-28 sm:h-44 bg-swiss-paper border border-swiss-line cursor-pointer group">
+                            <img src="chulsan2.jpg" alt="철산 프로젝트 2" class="w-full h-full object-cover group-hover:scale-105 transition" onclick="document.getElementById('cheolsanMainImg').src='chulsan2.jpg'" onerror="handleImageError(this, '철산 뷰')">
+                        </div>
+                    </div>
+                    <div class="relative h-48 sm:h-64 bg-swiss-paper border border-swiss-line">
+                        <img id="cheolsanMainImg" src="chulsan1.jpg" alt="철산 프로젝트 메인" class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-swiss-paper p-4 border border-swiss-line space-y-2">
+                        <span id="txt-cheolsanVideoLabel" class="text-xs font-bold text-swiss-red block">🎥 철산 현장 시공 타임랩스 시뮬레이션 영상</span>
+                        <div class="relative rounded-none overflow-hidden aspect-video bg-black">
+                            <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                                <source src="chulsantimelap.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiss-card p-4 sm:p-8 space-y-4 sm:space-y-6">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-swiss-line pb-4">
+                    <div>
+                        <h3 id="txt-cheolsanPdfHeader" class="text-lg sm:text-xl font-bold">📄 철산 사업계획서 원본 문서 (PDF)</h3>
+                        <p id="txt-cheolsanPdfSub" class="text-xs mt-1">광명 철산동 261 주거복합 개발사업의 상세 수지 분석 및 건축계획을 PDF 뷰어로 확인하실 수 있습니다.</p>
+                    </div>
+                    <a href="chulsanbusinessplan.pdf" target="_blank" id="txt-cheolsanPdfOpenBtn" class="btn-swiss-red font-bold px-4 py-2 sm:px-5 sm:py-2.5 text-xs transition cursor-pointer inline-block">새 창에서 전체 PDF 열기 ↗</a>
+                </div>
+                <div class="w-full h-[400px] sm:h-[650px] bg-swiss-paper overflow-hidden border border-swiss-line">
+                    <iframe src="chulsanbusinessplan.pdf" class="w-full h-full border-0"></iframe>
+                </div>
+            </div>
         </section>
 
         <!-- PAGE 4: PHILOSOPHY -->
         <section id="vision" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 flex flex-col items-center bg-white">
-            <div class="w-full max-w-6xl bg-white border border-slate-200 overflow-hidden">
+            <div class="w-full max-w-6xl bg-white border border-swiss-ink overflow-hidden">
                 <img id="philoVisionImg" src="philosophyvisionkor.jpg" alt="철학과 비전" class="w-full h-auto object-contain block">
             </div>
         </section>
 
         <!-- PAGE 5: PRESS PAGE -->
         <section id="pressPage" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 space-y-12 sm:space-y-16 text-left">
-            <div class="border-b border-slate-800 pb-6 sm:pb-8">
-                <span id="txt-pressTag" class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">Press & Media Links</span>
-                <h2 id="txt-pressTitle" class="text-2xl sm:text-4xl font-extrabold text-white">주요 개발사업 관련 언론 보도 링크</h2>
-                <p id="txt-pressDesc" class="text-slate-400 text-xs sm:text-sm mt-2 sm:mt-3">동작구청, 대전 유성복합환승센터, 안면도 관광지 개발사업 관련 언론 기사 링크입니다.</p>
+            <div class="border-b border-swiss-line pb-6 sm:pb-8">
+                <span id="txt-pressTag" class="text-xs font-bold text-swiss-red uppercase tracking-widest block mb-2">Press & Media Links</span>
+                <h2 id="txt-pressTitle" class="text-2xl sm:text-4xl font-extrabold">주요 개발사업 관련 언론 보도 링크</h2>
+                <p id="txt-pressDesc" class="text-xs sm:text-sm mt-2 sm:mt-3">동작구청, 대전 유성복합환승센터, 안면도 관광지 개발사업 관련 언론 기사 링크입니다.</p>
             </div>
+            
             <div class="space-y-8 sm:space-y-12">
                 <div class="space-y-4 sm:space-y-6">
-                    <h3 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-3 border-l-4 border-amber-500 pl-3 sm:pl-4">
+                    <h3 class="text-xl sm:text-2xl font-bold flex items-center gap-3 border-l-4 border-swiss-red pl-3 sm:pl-4">
                         <span id="txt-pressCat1">동작구청 관련 보도</span>
-                        <span class="text-[10px] sm:text-xs bg-amber-500/20 text-amber-400 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-amber-500/30">3 Links</span>
+                        <span class="text-[10px] sm:text-xs bg-swiss-red/10 text-swiss-red px-2.5 py-0.5 sm:px-3 sm:py-1">3 Links</span>
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">e대한경제</span>
-                                <h4 id="txt-pressItemDongjak1" class="text-xs sm:text-sm font-bold text-white">e대한경제 보도 기사</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">https://www.dnews.co.kr/uhtml/view.jsp?idxno=202406051013367560270</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">e대한경제</span>
+                                <h4 id="txt-pressItemDongjak1" class="text-xs sm:text-sm font-bold">e대한경제 보도 기사</h4>
+                                <p class="text-[11px] break-all font-mono">https://www.dnews.co.kr/uhtml/view.jsp?idxno=202406051013367560270</p>
                             </div>
-                            <a href="https://www.dnews.co.kr/uhtml/view.jsp?idxno=202406051013367560270" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="https://www.dnews.co.kr/uhtml/view.jsp?idxno=202406051013367560270" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">연합뉴스</span>
-                                <h4 id="txt-pressItemDongjak2" class="text-xs sm:text-sm font-bold text-white">연합뉴스 보도 기사</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">https://www.yna.co.kr/view/AKR20240605043800004?input=1195m</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">연합뉴스</span>
+                                <h4 id="txt-pressItemDongjak2" class="text-xs sm:text-sm font-bold">연합뉴스 보도 기사</h4>
+                                <p class="text-[11px] break-all font-mono">https://www.yna.co.kr/view/AKR20240605043800004?input=1195m</p>
                             </div>
-                            <a href="https://www.yna.co.kr/view/AKR20240605043800004?input=1195m" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="https://www.yna.co.kr/view/AKR20240605043800004?input=1195m" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">스카이데일리</span>
-                                <h4 id="txt-pressItemDongjak3" class="text-xs sm:text-sm font-bold text-white">스카이데일리 보도 기사</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">https://www.skyedaily.com/news/news_view.html?ID=251192</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">스카이데일리</span>
+                                <h4 id="txt-pressItemDongjak3" class="text-xs sm:text-sm font-bold">스카이데일리 보도 기사</h4>
+                                <p class="text-[11px] break-all font-mono">https://www.skyedaily.com/news/news_view.html?ID=251192</p>
                             </div>
-                            <a href="https://www.skyedaily.com/news/news_view.html?ID=251192" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="https://www.skyedaily.com/news/news_view.html?ID=251192" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
@@ -607,59 +847,59 @@
                 </div>
 
                 <!-- Category 2: 대전 유성복합환승센터 -->
-                <div class="space-y-4 sm:space-y-6 pt-4 sm:pt-6 border-t border-slate-800/80">
-                    <h3 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-3 border-l-4 border-amber-500 pl-3 sm:pl-4">
+                <div class="space-y-4 sm:space-y-6 pt-4 sm:pt-6 border-t border-swiss-line">
+                    <h3 class="text-xl sm:text-2xl font-bold flex items-center gap-3 border-l-4 border-swiss-red pl-3 sm:pl-4">
                         <span id="txt-pressCat2">대전 유성복합환승센터 관련 보도</span>
-                        <span class="text-[10px] sm:text-xs bg-amber-500/20 text-amber-400 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-amber-500/30">5 Links</span>
+                        <span class="text-[10px] sm:text-xs bg-swiss-red/10 text-swiss-red px-2.5 py-0.5 sm:px-3 sm:py-1">5 Links</span>
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">충청투데이</span>
-                                <h4 id="txt-pressItemYuseong1" class="text-xs sm:text-sm font-bold text-white">충청투데이 보도 기사</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">https://www.cctoday.co.kr/news/articleView.html?idxno=2062028</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">충청투데이</span>
+                                <h4 id="txt-pressItemYuseong1" class="text-xs sm:text-sm font-bold">충청투데이 보도 기사</h4>
+                                <p class="text-[11px] break-all font-mono">https://www.cctoday.co.kr/news/articleView.html?idxno=2062028</p>
                             </div>
-                            <a href="https://www.cctoday.co.kr/news/articleView.html?idxno=2062028" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="https://www.cctoday.co.kr/news/articleView.html?idxno=2062028" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">TJB 대전방송</span>
-                                <h4 id="txt-pressItemYuseong2" class="text-xs sm:text-sm font-bold text-white">TJB 대전방송 보도 기사 (뉴스 1)</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">https://www.tjb.co.kr/news05/bodo/view/id/38078/version/1</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">TJB 대전방송</span>
+                                <h4 id="txt-pressItemYuseong2" class="text-xs sm:text-sm font-bold">TJB 대전방송 보도 기사 (뉴스 1)</h4>
+                                <p class="text-[11px] break-all font-mono">https://www.tjb.co.kr/news05/bodo/view/id/38078/version/1</p>
                             </div>
-                            <a href="https://www.tjb.co.kr/news05/bodo/view/id/38078/version/1" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="https://www.tjb.co.kr/news05/bodo/view/id/38078/version/1" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">대전MBC</span>
-                                <h4 id="txt-pressItemYuseong3" class="text-xs sm:text-sm font-bold text-white">대전MBC 보도 기사</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">https://tjmbc.co.kr/NewsArticle/298227</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">대전MBC</span>
+                                <h4 id="txt-pressItemYuseong3" class="text-xs sm:text-sm font-bold">대전MBC 보도 기사</h4>
+                                <p class="text-[11px] break-all font-mono">https://tjmbc.co.kr/NewsArticle/298227</p>
                             </div>
-                            <a href="https://tjmbc.co.kr/NewsArticle/298227" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="https://tjmbc.co.kr/NewsArticle/298227" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">TJB 대전방송</span>
-                                <h4 id="txt-pressItemYuseong4" class="text-xs sm:text-sm font-bold text-white">TJB 대전방송 보도 기사 (뉴스 2)</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">https://www.tjb.co.kr/news05/bodo/view/id/31217/version/1</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">TJB 대전방송</span>
+                                <h4 id="txt-pressItemYuseong4" class="text-xs sm:text-sm font-bold">TJB 대전방송 보도 기사 (뉴스 2)</h4>
+                                <p class="text-[11px] break-all font-mono">https://www.tjb.co.kr/news05/bodo/view/id/31217/version/1</p>
                             </div>
-                            <a href="https://www.tjb.co.kr/news05/bodo/view/id/31217/version/1" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="https://www.tjb.co.kr/news05/bodo/view/id/31217/version/1" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">뉴스1</span>
-                                <h4 id="txt-pressItemYuseong5" class="text-xs sm:text-sm font-bold text-white">뉴스1 보도 기사</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">https://www.news1.kr/local/daejeon-chungnam/3322849</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">뉴스1</span>
+                                <h4 id="txt-pressItemYuseong5" class="text-xs sm:text-sm font-bold">뉴스1 보도 기사</h4>
+                                <p class="text-[11px] break-all font-mono">https://www.news1.kr/local/daejeon-chungnam/3322849</p>
                             </div>
-                            <a href="https://www.news1.kr/local/daejeon-chungnam/3322849" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="https://www.news1.kr/local/daejeon-chungnam/3322849" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
@@ -667,59 +907,59 @@
                 </div>
 
                 <!-- Category 3: 안면도 -->
-                <div class="space-y-4 sm:space-y-6 pt-4 sm:pt-6 border-t border-slate-800/80">
-                    <h3 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-3 border-l-4 border-amber-500 pl-3 sm:pl-4">
+                <div class="space-y-4 sm:space-y-6 pt-4 sm:pt-6 border-t border-swiss-line">
+                    <h3 class="text-xl sm:text-2xl font-bold flex items-center gap-3 border-l-4 border-swiss-red pl-3 sm:pl-4">
                         <span id="txt-pressCat3">안면도 관광지 개발사업 관련 보도</span>
-                        <span class="text-[10px] sm:text-xs bg-amber-500/20 text-amber-400 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-amber-500/30">5 Links</span>
+                        <span class="text-[10px] sm:text-xs bg-swiss-red/10 text-swiss-red px-2.5 py-0.5 sm:px-3 sm:py-1">5 Links</span>
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">TJB 대전방송</span>
-                                <h4 id="txt-pressItemAnmyeondo1" class="text-xs sm:text-sm font-bold text-white">TJB 대전방송 보도 기사</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">https://www.tjb.co.kr/news05/bodo/view/id/40294/version/1</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">TJB 대전방송</span>
+                                <h4 id="txt-pressItemAnmyeondo1" class="text-xs sm:text-sm font-bold">TJB 대전방송 보도 기사</h4>
+                                <p class="text-[11px] break-all font-mono">https://www.tjb.co.kr/news05/bodo/view/id/40294/version/1</p>
                             </div>
-                            <a href="https://www.tjb.co.kr/news05/bodo/view/id/40294/version/1" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="https://www.tjb.co.kr/news05/bodo/view/id/40294/version/1" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">충청타임즈</span>
-                                <h4 id="txt-pressItemAnmyeondo2" class="text-xs sm:text-sm font-bold text-white">충청타임즈 보도 기사</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">http://www.cctimes.kr/news/articleView.html?idxno=587127</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">충청타임즈</span>
+                                <h4 id="txt-pressItemAnmyeondo2" class="text-xs sm:text-sm font-bold">충청타임즈 보도 기사</h4>
+                                <p class="text-[11px] break-all font-mono">http://www.cctimes.kr/news/articleView.html?idxno=587127</p>
                             </div>
-                            <a href="http://www.cctimes.kr/news/articleView.html?idxno=587127" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="http://www.cctimes.kr/news/articleView.html?idxno=587127" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">금강일보</span>
-                                <h4 id="txt-pressItemAnmyeondo3" class="text-xs sm:text-sm font-bold text-white">금강일보 보도 기사</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">http://www.ggilbo.com/news/articleView.html?idxno=711152</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">금강일보</span>
+                                <h4 id="txt-pressItemAnmyeondo3" class="text-xs sm:text-sm font-bold">금강일보 보도 기사</h4>
+                                <p class="text-[11px] break-all font-mono">http://www.ggilbo.com/news/articleView.html?idxno=711152</p>
                             </div>
-                            <a href="http://www.ggilbo.com/news/articleView.html?idxno=711152" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="http://www.ggilbo.com/news/articleView.html?idxno=711152" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">충청투데이</span>
-                                <h4 id="txt-pressItemAnmyeondo4" class="text-xs sm:text-sm font-bold text-white">충청투데이 보도 기사</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">https://www.cctoday.co.kr/news/articleView.html?idxno=1208219</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">충청투데이</span>
+                                <h4 id="txt-pressItemAnmyeondo4" class="text-xs sm:text-sm font-bold">충청투데이 보도 기사</h4>
+                                <p class="text-[11px] break-all font-mono">https://www.cctoday.co.kr/news/articleView.html?idxno=1208219</p>
                             </div>
-                            <a href="https://www.cctoday.co.kr/news/articleView.html?idxno=1208219" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="https://www.cctoday.co.kr/news/articleView.html?idxno=1208219" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
-                        <div class="glass-card p-5 sm:p-6 rounded-2xl border border-slate-800 hover:border-amber-500/60 transition flex flex-col justify-between space-y-4">
+                        <div class="swiss-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-amber-400 uppercase block">아시아경제</span>
-                                <h4 id="txt-pressItemAnmyeondo5" class="text-xs sm:text-sm font-bold text-white">아시아경제 보도 기사</h4>
-                                <p class="text-[11px] text-slate-400 break-all font-mono">http://view.asiae.co.kr/news/view.htm?idxno=2019032607344783896</p>
+                                <span class="text-xs font-bold text-swiss-red uppercase block">아시아경제</span>
+                                <h4 id="txt-pressItemAnmyeondo5" class="text-xs sm:text-sm font-bold">아시아경제 보도 기사</h4>
+                                <p class="text-[11px] break-all font-mono">http://view.asiae.co.kr/news/view.htm?idxno=2019032607344783896</p>
                             </div>
-                            <a href="http://view.asiae.co.kr/news/view.htm?idxno=2019032607344783896" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition cursor-pointer">
+                            <a href="http://view.asiae.co.kr/news/view.htm?idxno=2019032607344783896" target="_blank" rel="noopener noreferrer" class="w-full btn-swiss-red py-2.5 text-xs text-center cursor-pointer block">
                                 <span class="txt-pressBtnLabel">기사 원문 바로가기 ↗</span>
                             </a>
                         </div>
@@ -731,50 +971,50 @@
 
         <!-- PAGE 6: CONTACT -->
         <section id="contact" class="hidden max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 space-y-12 sm:space-y-16 text-left">
-            <div class="border-b border-slate-800 pb-6 sm:pb-8">
-                <span id="txt-contactTag" class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">Contact Us</span>
-                <h2 id="txt-contactTitle" class="text-2xl sm:text-4xl font-extrabold text-white">글로벌 디벨로퍼의 새로운 파트너가 되어주세요</h2>
+            <div class="border-b border-swiss-line pb-6 sm:pb-8">
+                <span id="txt-contactTag" class="text-xs font-bold text-swiss-red uppercase tracking-widest block mb-2">Contact Us</span>
+                <h2 id="txt-contactTitle" class="text-2xl sm:text-4xl font-extrabold">글로벌 디벨로퍼의 새로운 파트너가 되어주세요</h2>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-                <div class="space-y-6 sm:space-y-8 text-slate-300">
-                    <p id="txt-contactDesc" class="text-xs sm:text-base leading-relaxed">
+                <div class="space-y-6 sm:space-y-8">
+                    <p id="txt-contactDesc" class="text-xs sm:text-base leading-relaxed font-medium">
                         H&H Investment는 부동산 개발 및 투자 제휴에 관한 모든 문의를 환영합니다. 혁신적인 아이디어와 비전을 가진 파트너들의 연락을 기다립니다.
                     </p>
                     <div class="space-y-4 text-xs sm:text-sm">
-                        <div class="flex items-center gap-4 bg-slate-900 p-4 rounded-2xl border border-slate-800">
+                        <div class="swiss-card p-4 flex items-center gap-4">
                             <span class="text-xl">📍</span>
                             <div>
-                                <strong id="txt-contactHqLabel" class="text-white block">본사 위치</strong>
-                                <span id="txt-contactHqVal" class="text-slate-400">서울특별시 영등포구 / 강남구 및 주요 거점 오피스</span>
+                                <strong id="txt-contactHqLabel" class="block">본사 위치</strong>
+                                <span id="txt-contactHqVal" class="text-gray-600">고양시 덕양구 청초로 66, RiverWork A2001</span>
                             </div>
                         </div>
-                        <div class="flex items-center gap-4 bg-slate-900 p-4 rounded-2xl border border-slate-800">
+                        <div class="swiss-card p-4 flex items-center gap-4">
                             <span class="text-xl">✉️</span>
                             <div>
-                                <strong id="txt-contactEmailLabel" class="text-white block">이메일 문의</strong>
-                                <span class="text-slate-400">contact@hhinvestment.com</span>
+                                <strong id="txt-contactEmailLabel" class="block">이메일 문의</strong>
+                                <span class="text-gray-600">donsong0911@gmail.com</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-6">
-                    <h3 id="txt-contactFormHeader" class="text-lg sm:text-xl font-bold text-white">온라인 문의하기</h3>
+                <div class="swiss-card p-6 sm:p-8 space-y-6">
+                    <h3 id="txt-contactFormHeader" class="text-lg sm:text-xl font-bold">온라인 문의하기</h3>
                     <form onsubmit="event.preventDefault(); showToast(currentLang==='ENG' ? 'Your inquiry has been submitted successfully.' : '문의가 성공적으로 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.'); this.reset();" class="space-y-4">
                         <div>
-                            <label id="txt-contactNameLabel" class="block text-xs font-bold text-slate-400 uppercase mb-2">성함 / 회사명</label>
-                            <input type="text" id="phContactName" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500 transition" placeholder="홍길동 / (주)파트너스">
+                            <label id="txt-contactNameLabel" class="block text-xs font-bold uppercase mb-2">성함 / 회사명</label>
+                            <input type="text" id="phContactName" required class="w-full bg-swiss-paper border border-swiss-ink px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-swiss-red transition" placeholder="홍길동 / (주)파트너스">
                         </div>
                         <div>
-                            <label id="txt-contactTelLabel" class="block text-xs font-bold text-slate-400 uppercase mb-2">연락처</label>
-                            <input type="tel" id="phContactTel" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500 transition" placeholder="010-0000-0000">
+                            <label id="txt-contactTelLabel" class="block text-xs font-bold uppercase mb-2">연락처</label>
+                            <input type="tel" id="phContactTel" required class="w-full bg-swiss-paper border border-swiss-ink px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-swiss-red transition" placeholder="010-0000-0000">
                         </div>
                         <div>
-                            <label id="txt-contactMsgLabel" class="block text-xs font-bold text-slate-400 uppercase mb-2">문의 내용</label>
-                            <textarea id="phContactMsg" rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500 transition" placeholder="투자 제휴 및 프로젝트 협력 문의 내용을 입력해주세요."></textarea>
+                            <label id="txt-contactMsgLabel" class="block text-xs font-bold uppercase mb-2">문의 내용</label>
+                            <textarea id="phContactMsg" rows="4" required class="w-full bg-swiss-paper border border-swiss-ink px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-swiss-red transition" placeholder="투자 제휴 및 프로젝트 협력 문의 내용을 입력해주세요."></textarea>
                         </div>
-                        <button type="submit" id="txt-contactSubmitBtn" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm transition shadow-lg cursor-pointer">
+                        <button type="submit" id="txt-contactSubmitBtn" class="w-full btn-swiss-red font-bold py-3.5 sm:py-4 text-xs sm:text-sm transition shadow-lg cursor-pointer">
                             문의 접수하기
                         </button>
                     </form>
@@ -785,97 +1025,97 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="border-t border-slate-800 bg-slate-950 py-8 sm:py-12 mt-16 sm:mt-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-xs text-slate-400">
+    <footer class="bg-swiss-ink text-white border-t border-swiss-ink py-8 sm:py-12 mt-16 sm:mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-xs text-gray-400">
             <div class="flex items-center gap-3">
-                <img src="HHI.png" alt="H&H Investment Logo" class="h-6 sm:h-8 w-auto object-contain" onerror="handleLogoError(this)">
+                <img src="HHI.png" alt="H&H Investment Logo" class="h-6 sm:h-8 w-auto object-contain brightness-0 invert" onerror="handleLogoError(this)">
                 <span>© H&H Investment All Rights Reserved.</span>
             </div>
             <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[11px] sm:text-xs">
-                <button type="button" onclick="showPage('company')" class="hover:text-white transition cursor-pointer">About Us</button>
-                <button type="button" onclick="showPage('business')" class="hover:text-white transition cursor-pointer">Business Area</button>
-                <button type="button" onclick="showPage('vision')" class="hover:text-white transition cursor-pointer">Philosophy</button>
-                <button type="button" onclick="showPage('pressPage')" class="hover:text-white transition cursor-pointer">Press</button>
-                <button type="button" onclick="showPage('contact')" class="hover:text-white transition cursor-pointer">Contact Us</button>
+                <button type="button" onclick="showPage('company')" class="hover:text-swiss-red transition cursor-pointer">About Us</button>
+                <button type="button" onclick="showPage('business')" class="hover:text-swiss-red transition cursor-pointer">Business Area</button>
+                <button type="button" onclick="showPage('vision')" class="hover:text-swiss-red transition cursor-pointer">Philosophy</button>
+                <button type="button" onclick="showPage('pressPage')" class="hover:text-swiss-red transition cursor-pointer">Press</button>
+                <button type="button" onclick="showPage('contact')" class="hover:text-swiss-red transition cursor-pointer">Contact Us</button>
             </div>
         </div>
     </footer>
 
     <!-- MODALS -->
-    <div id="projectModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
-            <div class="p-4 sm:p-6 border-b border-slate-800 flex items-center justify-between text-left">
-                <h3 id="modalTitle" class="text-base sm:text-xl font-bold text-white">프로젝트 상세</h3>
-                <button type="button" onclick="closeProjectModal()" class="text-slate-400 hover:text-white text-lg sm:text-xl font-bold px-3 py-1 rounded-xl bg-slate-800/60 cursor-pointer">✕</button>
+    <div id="projectModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-sm">
+        <div class="swiss-card bg-white w-full max-w-4xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
+            <div class="p-4 sm:p-6 border-b border-swiss-ink flex items-center justify-between text-left">
+                <h3 id="modalTitle" class="text-base sm:text-xl font-bold">프로젝트 상세</h3>
+                <button type="button" onclick="closeProjectModal()" class="text-swiss-ink hover:text-swiss-red text-lg sm:text-xl font-bold px-3 py-1 bg-swiss-paper border border-swiss-ink cursor-pointer">✕</button>
             </div>
             <div class="p-4 sm:p-6 overflow-y-auto space-y-4 sm:space-y-6 flex-grow text-left">
-                <div class="relative aspect-video sm:h-96 rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 group cursor-pointer" onclick="openLightbox()" title="이미지를 클릭하시면 크게 볼 수 있습니다">
+                <div class="relative aspect-video sm:h-96 overflow-hidden bg-swiss-paper border border-swiss-ink group cursor-pointer" onclick="openLightbox()" title="이미지를 클릭하시면 크게 볼 수 있습니다">
                     <img id="modalMainImg" src="" alt="Project Image" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" onerror="handleImageError(this, 'Project Preview')">
-                    <div class="absolute bottom-3 right-3 bg-slate-950/70 text-amber-400 text-[10px] sm:text-xs px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-slate-700 backdrop-blur pointer-events-none flex items-center gap-1 shadow">
+                    <div class="absolute bottom-3 right-3 bg-swiss-ink text-amber-400 text-[10px] sm:text-xs px-2.5 py-1 sm:px-3 sm:py-1.5 border border-swiss-ink pointer-events-none flex items-center gap-1 shadow">
                         🔍 클릭하여 크게 보기
                     </div>
                 </div>
                 <div id="modalThumbs" class="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-2"></div>
                 <div class="space-y-2">
-                    <h4 class="text-xs sm:text-sm font-bold text-amber-400 uppercase tracking-widest">프로젝트 개요</h4>
-                    <p id="modalDesc" class="text-slate-300 text-xs sm:text-sm leading-relaxed"></p>
+                    <h4 class="text-xs sm:text-sm font-bold text-swiss-red uppercase tracking-widest">프로젝트 개요</h4>
+                    <p id="modalDesc" class="text-xs sm:text-sm leading-relaxed"></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="imageLightbox" class="hidden fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-4 bg-slate-950/90 backdrop-blur-lg" onclick="closeLightbox()">
+    <div id="imageLightbox" class="hidden fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-4 bg-black/90" onclick="closeLightbox()">
         <div class="relative max-w-7xl max-h-[95vh] w-full h-full flex items-center justify-center p-1 sm:p-2" onclick="event.stopPropagation()">
-            <button type="button" onclick="closeLightbox()" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 text-slate-300 hover:text-white text-xs sm:text-base font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-slate-800/80 border border-slate-700 cursor-pointer shadow-2xl">✕ 닫기</button>
-            <img id="lightboxImg" src="" alt="Enlarged Project View" class="max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain rounded-2xl shadow-2xl border border-slate-800">
+            <button type="button" onclick="closeLightbox()" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 text-white font-bold px-4 py-2 bg-swiss-ink border border-white cursor-pointer">✕ 닫기</button>
+            <img id="lightboxImg" src="" alt="Enlarged Project View" class="max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain shadow-2xl border border-white">
         </div>
     </div>
 
     <!-- REPORT MODALS -->
-    <div id="dongjakReportModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/85 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
-            <div class="p-4 sm:p-6 border-b border-slate-800 flex items-center justify-between text-left">
-                <h3 class="text-base sm:text-lg font-bold text-white">동작구청 요약보고서</h3>
-                <button type="button" onclick="closeDongjakReportModal()" class="text-slate-400 hover:text-white text-base sm:text-lg font-bold px-3 py-1 rounded-xl bg-slate-800/60 cursor-pointer">✕</button>
+    <div id="dongjakReportModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70">
+        <div class="swiss-card bg-white w-full max-w-5xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
+            <div class="p-4 sm:p-6 border-b border-swiss-ink flex items-center justify-between text-left">
+                <h3 class="text-base sm:text-lg font-bold">동작구청 요약보고서</h3>
+                <button type="button" onclick="closeDongjakReportModal()" class="text-swiss-ink hover:text-swiss-red text-base font-bold px-3 py-1 bg-swiss-paper border border-swiss-ink cursor-pointer">✕</button>
             </div>
-            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-slate-950"><iframe src="dongjaksummary.pdf" class="w-full h-[450px] sm:h-[650px] border-0 rounded-2xl"></iframe></div>
+            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-swiss-paper"><iframe src="dongjaksummary.pdf" class="w-full h-[450px] sm:h-[650px] border border-swiss-ink"></iframe></div>
         </div>
     </div>
-    <div id="yuseongReportModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/85 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
-            <div class="p-4 sm:p-6 border-b border-slate-800 flex items-center justify-between text-left">
-                <h3 class="text-base sm:text-lg font-bold text-white">대전 유성 요약보고서</h3>
-                <button type="button" onclick="closeYuseongReportModal()" class="text-slate-400 hover:text-white text-base sm:text-lg font-bold px-3 py-1 rounded-xl bg-slate-800/60 cursor-pointer">✕</button>
+    <div id="yuseongReportModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70">
+        <div class="swiss-card bg-white w-full max-w-5xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
+            <div class="p-4 sm:p-6 border-b border-swiss-ink flex items-center justify-between text-left">
+                <h3 class="text-base sm:text-lg font-bold">대전 유성 요약보고서</h3>
+                <button type="button" onclick="closeYuseongReportModal()" class="text-swiss-ink hover:text-swiss-red text-base font-bold px-3 py-1 bg-swiss-paper border border-swiss-ink cursor-pointer">✕</button>
             </div>
-            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-slate-950"><iframe src="yusungsummary.pdf" class="w-full h-[450px] sm:h-[650px] border-0 rounded-2xl"></iframe></div>
+            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-swiss-paper"><iframe src="yusungsummary.pdf" class="w-full h-[450px] sm:h-[650px] border border-swiss-ink"></iframe></div>
         </div>
     </div>
-    <div id="anmyeondoReportModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/85 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
-            <div class="p-4 sm:p-6 border-b border-slate-800 flex items-center justify-between text-left">
-                <h3 class="text-base sm:text-lg font-bold text-white">안면도 요약보고서</h3>
-                <button type="button" onclick="closeAnmyeongdoReportModal()" class="text-slate-400 hover:text-white text-base sm:text-lg font-bold px-3 py-1 rounded-xl bg-slate-800/60 cursor-pointer">✕</button>
+    <div id="anmyeondoReportModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70">
+        <div class="swiss-card bg-white w-full max-w-5xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
+            <div class="p-4 sm:p-6 border-b border-swiss-ink flex items-center justify-between text-left">
+                <h3 class="text-base sm:text-lg font-bold">안면도 요약보고서</h3>
+                <button type="button" onclick="closeAnmyeongdoReportModal()" class="text-swiss-ink hover:text-swiss-red text-base font-bold px-3 py-1 bg-swiss-paper border border-swiss-ink cursor-pointer">✕</button>
             </div>
-            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-slate-950"><iframe src="anmyunsummary.pdf" class="w-full h-[450px] sm:h-[650px] border-0 rounded-2xl"></iframe></div>
+            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-swiss-paper"><iframe src="anmyunsummary.pdf" class="w-full h-[450px] sm:h-[650px] border border-swiss-ink"></iframe></div>
         </div>
     </div>
-    <div id="dmcReportModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/85 backdrop-blur-md">
-        <div class="bg-slate-900 border border-slate-800 w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
-            <div class="p-4 sm:p-6 border-b border-slate-800 flex items-center justify-between text-left">
-                <h3 class="text-base sm:text-lg font-bold text-white">상암 DMC 요약보고서</h3>
-                <button type="button" onclick="closeDmcReportModal()" class="text-slate-400 hover:text-white text-base sm:text-lg font-bold px-3 py-1 rounded-xl bg-slate-800/60 cursor-pointer">✕</button>
+    <div id="dmcReportModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70">
+        <div class="swiss-card bg-white w-full max-w-5xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
+            <div class="p-4 sm:p-6 border-b border-swiss-ink flex items-center justify-between text-left">
+                <h3 class="text-base sm:text-lg font-bold">상암 DMC 요약보고서</h3>
+                <button type="button" onclick="closeDmcReportModal()" class="text-swiss-ink hover:text-swiss-red text-base font-bold px-3 py-1 bg-swiss-paper border border-swiss-ink cursor-pointer">✕</button>
             </div>
-            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-slate-950"><iframe src="dmcbusinessplan.pdf" class="w-full h-[450px] sm:h-[650px] border-0 rounded-2xl"></iframe></div>
+            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-swiss-paper"><iframe src="dmcbusinessplan.pdf" class="w-full h-[450px] sm:h-[650px] border border-swiss-ink"></iframe></div>
         </div>
     </div>
 
-    <button id="backToTop" type="button" aria-label="맨 위로 이동" class="fixed bottom-6 right-6 z-30 w-11 h-11 rounded-full bg-amber-400 text-slate-950 font-black shadow-xl hover:bg-amber-300">↑</button>
+    <button id="backToTop" type="button" aria-label="맨 위로 이동" class="fixed bottom-6 right-6 z-30 w-11 h-11 bg-swiss-ink text-white font-black shadow-xl hover:bg-swiss-red transition">↑</button>
 
     <script>
         (function () {
             const header = document.querySelector('header');
             const backToTop = document.getElementById('backToTop');
-            const revealTargets = document.querySelectorAll('.glass-card, section > div');
+            const revealTargets = document.querySelectorAll('.swiss-card, section > div');
 
             function updateScrollState() {
                 const hasScrolled = window.scrollY > 12;
@@ -911,5 +1151,4 @@
         }());
     </script>
 </body>
-</html>
 </html>
