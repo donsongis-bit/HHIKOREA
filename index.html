@@ -46,21 +46,6 @@
         #backToTop.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
         :focus-visible { outline: 2px solid var(--swiss-red); outline-offset: 3px; }
 
-        /* --- 완벽하게 작동하는 JS + CSS 반복형 타입라이터 효과 --- */
-        .typewriter-cursor::after {
-            content: '|';
-            display: inline-block;
-            color: var(--swiss-red);
-            font-weight: 800;
-            animation: blink-caret 0.7s infinite;
-            margin-left: 2px;
-        }
-
-        @keyframes blink-caret {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
         @keyframes infiniteSlide {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -68,23 +53,27 @@
         .animate-infinite-slide { display: flex; width: max-content; animation: infiniteSlide 25s linear infinite; }
         .animate-infinite-slide:hover { animation-play-state: paused; }
 
-        #home { min-height: calc(100vh - 5.5rem); background: #07111f; border-bottom: 1px solid var(--swiss-ink); position: relative; overflow: hidden; padding-top: 6rem; color: #fff; }
+        #home { min-height: calc(100vh - 6rem); background: var(--swiss-paper); border-bottom: 1px solid var(--swiss-ink); position: relative; overflow: hidden; padding-top: 4.5rem; padding-bottom: 0.5rem; color: var(--swiss-ink); }
         
-        #hero-bg-video { position: absolute; inset: 0; opacity: .75 !important; filter: contrast(1.1) brightness(.9); mix-blend-mode: normal; z-index: 0 !important; width: 100%; height: 100%; object-fit: cover; }
-        .hero-overlay { position: absolute; inset: 0; z-index: 1 !important; background: linear-gradient(90deg, rgba(7,17,31,.85) 0%, rgba(7,17,31,.5) 50%, rgba(7,17,31,.2) 100%), linear-gradient(0deg, rgba(7,17,31,.6), transparent 50%) !important; }
+        #hero-bg-video { position: absolute; inset: 0; opacity: .85 !important; filter: grayscale(100%) contrast(1.3) brightness(1.1); mix-blend-mode: normal; z-index: 0 !important; width: 100%; height: 100%; object-fit: cover; }
+        .hero-overlay { position: absolute; inset: 0; z-index: 1 !important; background: rgba(255, 255, 255, 0.10) !important; }
         #home > .relative { z-index: 2 !important; }
         
-        #home h1 { font-size: clamp(2.5rem, 6vw, 6.5rem) !important; line-height: 1.15 !important; letter-spacing: -.05em !important; color: #fff; }
+        #home h1 { font-size: clamp(2.5rem, 6vw, 6.5rem) !important; line-height: 1.15 !important; letter-spacing: -.05em !important; color: #111 !important; }
         
+        #txt-heroTitle1 { opacity: 0.65 !important; color: #111 !important; border-right: none !important; }
+
         .swiss-typewriter-text { color: var(--swiss-red) !important; font-weight: 800; }
-        #txt-heroTitleSub { color: #f1f5f9 !important; }
-        #txt-heroDesc { color: #e2e8f0 !important; border-left: 2px solid var(--swiss-red); padding-left: 1.25rem; font-weight: 500; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
-        #txt-heroBadge { color: #fbbf24 !important; }
+        #txt-heroTitleSub { color: #111 !important; opacity: 0.85; text-shadow: 0 1px 3px rgba(255,255,255,0.8); }
+        #txt-heroDesc { color: #111 !important; border-left: 2px solid var(--swiss-red); padding-left: 1.25rem; font-weight: 600; text-shadow: 0 1px 3px rgba(255,255,255,0.8); }
+        #txt-heroBadge { color: var(--swiss-red) !important; font-weight: 800; }
 
         .btn-swiss-red { background: var(--swiss-red) !important; color: #fff !important; border-radius: 0 !important; }
         .btn-swiss-outline { background: transparent !important; color: var(--swiss-ink) !important; border: 1px solid var(--swiss-ink) !important; border-radius: 0 !important; }
         
         #wondangPage button, #cheolsanPage button { color: #ffffff !important; }
+        
+        footer { margin-top: 0 !important; }
     </style>
     <script>
         window.addEventListener('error', function(e) { console.warn('Caught runtime exception:', e.message); });
@@ -157,30 +146,46 @@
         const i18n = {
             KOR: {
                 navHome: "Home", navAbout: "About Us", navBusiness: "Business Area", navPhilosophy: "Philosophy", navPress: "Press", navContact: "Contact Us", navBtnProjects: "프로젝트 보기",
-                heroBadge: "Global Real Estate Developer & Investment", heroTitle1: "Shaping tomorrow", heroTitle2: "with vision and action.", heroTitleSub: "도시의 미래 가치를 창조하는 글로벌 디벨로퍼, H&H Investment", heroDesc: "H&H Investment는 서울 및 수도권 핵심 요충지의 대규모 복합단지 개발, 도시정비사업, 그리고 혁신적인 금융 구조화를 선도하는 대한민국 대표 종합 부동산 디벨로퍼입니다.", btnHeroProjects: "주요 프로젝트 바로가기", btnHeroCompany: "기업 비전 및 연혁 →", stat1Label: "Total Project Value", stat1Val: "₩ 3.0T+", stat2Label: "Active Flagships", stat2Val: "Wondang · Cheolsan", stat3Label: "Landmark Developments", stat3Val: "6 Major Sites", stat4Label: "Global Alliances", stat4Val: "Schools & Hotels",
+                heroBadge: "Global Real Estate Developer & Investment", heroTitle2: "with vision and action.", heroTitleSub: "도시의 미래 가치를 창조하는 글로벌 디벨로퍼, H&H Investment", heroDesc: "H&H Investment는 서울 및 수도권 핵심 요충지의 대규모 복합단지 개발, 도시정비사업, 그리고 혁신적인 금융 구조화를 선도하는 대한민국 대표 종합 부동산 디벨로퍼입니다.", btnHeroProjects: "주요 프로젝트 바로가기", btnHeroCompany: "기업 비전 및 연혁 →", stat1Label: "Total Project Value", stat1Val: "₩ 3.0T+", stat2Label: "Active Flagships", stat2Val: "Wondang · Cheolsan", stat3Label: "Landmark Developments", stat3Val: "6 Major Sites", stat4Label: "Global Alliances", stat4Val: "Schools & Hotels",
                 companyTag: "Company Overview", companyTitle: "최고의 전문성과 신뢰로 가치를 만듭니다", companyP1: "H&H Investment는 부동산 개발의 기획부터 인허가, 토지 매입, PF 금융 조달, 시공 관리 및 사후 운영에 이르기까지 전 과정을 아우르는 통합 솔루션을 제공합니다.", companyP2: "당사는 단순한 건축물 시공을 넘어, 해당 지역의 문화와 인프라를 혁신적으로 탈바꿈시키는 대규모 복합 랜드마크 개발에 주력하고 있으며, 철저한 리스크 관리와 압도적인 수익성을 동시에 실현하고 있습니다.", compFeat1Title: "철저한 리스크 관리", compFeat1Desc: "대형 금융사 및 HUG 보증을 통한 확실한 자금 안정성", compFeat2Title: "랜드마크 기획력", compFeat2Desc: "지역 사회가 열광하는 특화 디자인 및 복합 인프라", compCoreHeader: "핵심 역량 (Core Competencies)", compCore1Title: "프로젝트 파이낸싱 (PF) 구조화", compCore1Desc: "다수의 금융기관과 신디케이트론 및 비소구 PF를 성공적으로 성사시킨 풍부한 경험", compCore2Title: "앵커 테넌트 유치", compCore2Desc: "글로벌 명문 학교(Wycombe Abbey), 호텔 브랜드(Banyan Tree / Marriott) 등 제휴", compCore3Title: "도시계획 및 용적률 극대화", compCore3Desc: "준주거지역 상향 및 복합용도 최적화를 통한 압도적인 사업성 확보", ceoTitle: "CEO Message & Profile", ceoHeader: "대표이사 인사말 및 프로필", ceoName: "대표이사 송동훈", ceoSubtitle: "CEO & Founder, H&H Investment", ceoCareerHeader: "주요 경력 사항", ceoCareer1: "1999년~ : KPMG Financial Service 부동산 자문 업무 수행", ceoCareer2: "2001년~ : 삼일회계법인 FAS 본부 부동산 개발, 금융, 프로젝트 모니터링 및 M&A 자문 수행", ceoCareer3: "2005년~ : 노무라종합연구소 부동산 타당성 검토 및 부동산 금융 업무 전문 수행", ceoCareer4: "2007년~ : KPIH, H&H Investment (외국인투자기업) 대표이사 부동산 개발 사업", ceoEduHeader: "학력 사항", ceoEdu: "뉴욕공과대학교 (NYIT) 회계학 학사 및 동 대학원 MBA 졸업",
-                bizTag: "Business Portfolio", bizTitle: "사업 영역 및 주요 프로젝트", bizBtnWondang: "현 진행중인 프로젝트 1 (원당)", bizBtnCheolsan: "현 진행중인 프로젝트 2 (철산)", div1Tag: "Division 01", div1Title: "공공부지 민간 복합개발사업", div1Desc: "지자체 및 공공기관 보유 핵심 부지를 대상으로 지구단위계획 변경 및 준주거지역 용적률 상향을 이끌어내며, 대규모 상업·업무·주거·문화시설이 융합된 복합 단지를 기획·조성합니다.", div1LinkWondang: "고양 원당 성사 사업 상세 보기 →", div1LinkCheolsan: "광명 철산동 사업 상세 보기 →", div2Tag: "Division 02", div2Title: "부동산 금융 및 프로젝트 파이낸싱 (PF)", div2Desc: "대형 증권사 및 금융기관과의 견고한 네트워크를 바탕으로 브릿지론부터 본 PF, ABCP 발행, 구조화 금융에 이르기까지 프로젝트 전반의 안정적 재원을 조달하며, 철저한 재무 타당성 검토를 통해 투자 안전성을 최우선으로 확보합니다.", div3Tag: "Division 03", div3Title: "글로벌 국제 교육시설 유치", div3Desc: "영국 Wycombe Abbey 등 세계적인 명문 국제학교 분교 및 교육연구시설을 독점 유치하여 주거 단지의 가치를 최고 수준으로 견인하며, 지역 사회에 글로벌 교육 인프라를 선사합니다.", div4Tag: "Division 04", div4Title: "하이엔드 주거 및 컨시어지 서비스", div4Desc: "반얀트리, 메리어트 등 최고급 호텔 브랜드의 주거 서비스 연계 및 차별화된 커뮤니티 어메니티를 기획하여 입주민의 삶의 품격을 완성하고 하이엔드 주거의 새로운 기준을 제시합니다.", portfolioHeader: "주요 프로젝트 포트폴리오", projDongjakTitle: "동작구청 현청사부지 개발사업 (노량진 DEGC)", projDongjakDesc: "지하 6층~지상 40층 규모의 복합 랜드마크 단지. 국제학교, 수영장, 아이스하키장 기부채납 복합 단지.", projDongjakBtn1: "상세 보기", projDongjakBtn2: "📄 요약보고서", projYuseongTitle: "대전 유성광역복합환승센터 (복합여객터미널)", projYuseongDesc: "연면적 243,680m², 지하 4층~지상 10층 규모. 여객터미널, 798호 오피스텔, 메가박스, 교보문고 융합 단지.", projYuseongBtn1: "상세 보기", projYuseongBtn2: "📄 요약보고서", projAnmyeondoTitle: "안면도 관광지 개발사업 (3지구 꽃지 씨사이드)", projAnmyeondoDesc: "대지면적 249,924m², 연면적 153,560m² 규모의 럭셔리 콘도미니엄 및 휴양 웰니스 테마 리조트 단지.", projAnmyeondoBtn1: "상세 보기", projAnmyeondoBtn2: "📄 요약보고서", projDmcTitle: "상암 DMC 미디어 복합단지 (DMC 랜드마크)", projDmcDesc: "지하 7층~지상 71층 최고높이 656m 연면적 591,855m² 규모의 글로벌 미디어 HQ, 컨벤션, 레지던스 타워.", projDmcBtn1: "상세 보기", projDmcBtn2: "📄 요약보고서", projWondangTitle: "고양 원당 성사 공공지원 민간임대주택 사업", projWondangDesc: "총 994세대의 대단지 주거 복합 랜드마크.", projWondangBtn: "현장 사업계획서 및 상세 페이지 →", projCheolsanTitle: "광명시 철산동 261 주거복합 개발사업", projCheolsanDesc: "지하 7층~지상 30층, 공동주택 299세대 및 상업시설 초역세권 주상복합 신축공사.", projCheolsanBtn: "현장 사업계획서 및 상세 페이지 →",
+                bizTag: "Business Portfolio", bizTitle: "사업 영역 및 주요 프로젝트", bizBtnWondang: "현 진행중인 프로젝트 1 (원당)", bizBtnCheolsan: "현 진행중인 프로젝트 2 (철산)", div1Tag: "Division 01", div1Title: "공공부지 민간 복합개발사업", div1Desc: "지자체 및 공공기관 보유 핵심 부지를 대상으로 지구단위계획 변경 및 준주거지역 용적률 상향을 이끌어내며, 대규모 상업·업무·주거·문화시설이 융합된 복합 단지를 기획·조성합니다.", div1LinkWondang: "고양 원당 성사 사업 상세 보기 →", div1LinkCheolsan: "광명 철산동 사업 상세 보기 →", div2Tag: "Division 02", div2Title: "부동산 금융 및 프로젝트 파이낸싱 (PF)", div2Desc: "대형 증권사 및 금융기관과의 견고한 네트워크를 바탕으로 브릿지론부터 본 PF, ABCP 발행, 구조화 금융에 이르기까지 프로젝트 전반의 안정적 재원을 조달하며, 철저한 재무 타당성 검토를 통해 투자 안전성을 최우선으로 확보합니다.", div3Tag: "Division 03", div3Title: "글로벌 국제 교육시설 유치", div3Desc: "영국 Wycombe Abbey 등 세계적인 명문 국제학교 분교 및 교육연구시설을 독점 유치하여 주거 단지의 가치를 최고 수준으로 견인하며, 지역 사회에 글로벌 교육 인프라를 선사합니다.", div4Tag: "Division 04", div4Title: "하이엔드 주거 및 컨시어지 서비스", div4Desc: "반얀트리, 메리어트 등 최고급 호텔 브랜드의 주거 서비스 연계 및 차별화된 커뮤니티 어메니티를 기획하여 입주민의 삶의 품격을 완성하고 하이엔드 주거의 새로운 기준을 제시합니다.", portfolioHeader: "주요 프로젝트 포트폴리오", 
+                badgeDongjak: "서울 동작구", projDongjakTitle: "동작구청 현청사부지 개발사업 (노량진 DEGC)", projDongjakDesc: "지하 6층~지상 40층 규모의 복합 랜드마크 단지. 국제학교, 수영장, 아이스하키장 기부채납 복합 단지.", projDongjakBtn1: "상세 보기", projDongjakBtn2: "📄 요약보고서", 
+                badgeYuseong: "대전 유성구", projYuseongTitle: "대전 유성광역복합환승센터 (복합여객터미널)", projYuseongDesc: "연면적 243,680m², 지하 4층~지상 10층 규모. 여객터미널, 798호 오피스텔, 메가박스, 교보문고 융합 단지.", projYuseongBtn1: "상세 보기", projYuseongBtn2: "📄 요약보고서", 
+                badgeAnmyeondo: "충남 태안군", projAnmyeondoTitle: "안면도 관광지 개발사업 (3지구 꽃지 씨사이드)", projAnmyeondoDesc: "대지면적 249,924m², 연면적 153,560m² 규모의 럭셔리 콘도미니엄 및 휴양 웰니스 테마 리조트 단지.", projAnmyeondoBtn1: "상세 보기", projAnmyeondoBtn2: "📄 요약보고서", 
+                badgeDmc: "서울 마포구", projDmcTitle: "상암 DMC 미디어 복합단지 (DMC 랜드마크)", projDmcDesc: "지하 7층~지상 71층 최고높이 656m 연면적 591,855m² 규모의 글로벌 미디어 HQ, 컨벤션, 레지던스 타워.", projDmcBtn1: "상세 보기", projDmcBtn2: "📄 요약보고서", 
+                badgeWondang: "현 진행중인 프로젝트 1", projWondangTitle: "고양 원당 성사 공공지원 민간임대주택 사업", projWondangDesc: "총 994세대의 대단지 주거 복합 랜드마크.", projWondangBtn: "현장 사업계획서 및 상세 페이지 →", 
+                badgeCheolsan: "현 진행중인 프로젝트 2", projCheolsanTitle: "광명시 철산동 261 주거복합 개발사업", projCheolsanDesc: "지하 7층~지상 30층, 공동주택 299세대 및 상업시설 초역세권 주상복합 신축공사.", projCheolsanBtn: "현장 사업계획서 및 상세 페이지 →",
                 pressTag: "Press & Media Links", pressTitle: "주요 개발사업 관련 언론 보도 링크", pressDesc: "동작구청, 대전 유성복합환승센터, 안면도 관광지 개발사업 관련 언론 기사 링크입니다.", pressCat1: "동작구청 관련 보도", pressCat2: "대전 유성복합환승센터 관련 보도", pressCat3: "안면도 관광지 개발사업 관련 보도", pressItemDongjak1: "e대한경제 보도 기사", pressItemDongjak2: "연합뉴스 보도 기사", pressItemDongjak3: "스카이데일리 보도 기사", pressItemYuseong1: "충청투데이 보도 기사", pressItemYuseong2: "TJB 대전방송 보도 기사 (뉴스 1)", pressItemYuseong3: "대전MBC 보도 기사", pressItemYuseong4: "TJB 대전방송 보도 기사 (뉴스 2)", pressItemYuseong5: "뉴스1 보도 기사", pressItemAnmyeondo1: "TJB 대전방송 보도 기사", pressItemAnmyeondo2: "충청타임즈 보도 기사", pressItemAnmyeondo3: "금강일보 보도 기사", pressItemAnmyeondo4: "충청투데이 보도 기사", pressItemAnmyeondo5: "아시아경제 보도 기사", pressBtnLabel: "기사 원문 바로가기 ↗",
                 wondangTag: "Current Flagship Project 1 (Division 01)", wondangTitle: "고양 원당 성사 공공지원 민간임대주택 사업", wondangBackBtn: "← 사업 영역으로 돌아가기", wondangSubBadge: "현 진행중인 대표 공공지원 민간임대 개발사업", wondangHead: "고양시 덕양구 원당역 역세권 대단지 프리미엄 주거 복합 랜드마크", wondangDesc: "본 프로젝트는 고양시 덕양구 성사동 일원에 지하 3층~지상 35층, 총 8개동 994세대의 대단지 공공지원 민간임대주택을 구축하는 대규모 사업입니다. 준주거지역 상향 용적률(379.63%)을 적용하여 사업성을 극대화하였습니다.", wondangStat1Label: "세대 규모", wondangStat1Val: "총 994 세대", wondangStat2Label: "건축 규모", wondangStat2Val: "지하3층~지상35층", wondangPdfHeader: "📄 원당 사업계획서 원본 문서 (PDF)", wondangPdfSub: "원당 성사 공공지원 민간임대주택 사업의 상세 정보 및 재무 구조를 PDF 뷰어로 확인하실 수 있습니다.", wondangPdfOpenBtn: "새 창에서 전체 PDF 열기 ↗",
                 cheolsanTag: "Current Flagship Project 2 (Division 01)", cheolsanTitle: "광명시 철산동 261 주거복합 개발사업", cheolsanBackBtn: "← 사업 영역으로 돌아가기", cheolsanSubBadge: "현 진행중인 대표 주상복합 개발사업", cheolsanHead: "7호선 철산역 2번 출구 초역세권 프리미엄 주상복합 랜드마크", cheolsanDesc: "경기도 광명시 철산동 261번지 일원에 조성되는 지하 7층~지상 30층, 연면적 75,566.85㎡ 규모의 주상복합 신축공사입니다. 공동주택 299세대 및 상업시설로 구성되어 총매출액 5,512억 원, 세전이익 590억 원(수익률 10.71%)을 달성하는 고수익 프로젝트입니다.", cheolsanStat1Label: "세대 규모", cheolsanStat1Val: "공동주택 299세대", cheolsanStat2Label: "건축 규모", cheolsanStat2Label: "지하7층 ~ 지상30층", cheolsanStat3Label: "총 매출액", cheolsanStat3Val: "5,512 억원", cheolsanVideoLabel: "🎥 철산 현장 시공 타임랩스 시뮬레이션 영상", cheolsanPdfHeader: "📄 철산 사업계획서 원본 문서 (PDF)", cheolsanPdfSub: "광명 철산동 261 주거복합 개발사업의 상세 수지 분석 및 건축계획을 PDF 뷰어로 확인하실 수 있습니다.", cheolsanPdfOpenBtn: "새 창에서 전체 PDF 열기 ↗",
-                contactTag: "Contact Us", contactTitle: "글로벌 디벨로퍼의 새로운 파트너가 되어주세요", contactDesc: "H&H Investment는 부동산 개발 및 투자 제휴에 관한 모든 문의를 환영합니다. 혁신적인 아이디어와 비전을 가진 파트너들의 연락을 기다립니다.", contactHqLabel: "본사 위치", contactHqVal: "고양시 덕양구 청초로 66, RiverWork A2001", contactEmailLabel: "이메일 문의", contactFormHeader: "온라인 문의하기", contactNameLabel: "성함 / 회사명", phContactName: "홍길동 / (주)파트너스", contactTelLabel: "연락처", phContactTel: "010-0000-0000", contactMsgLabel: "문의 내용", phContactMsg: "투자 제휴 및 프로젝트 협력 문의 내용을 입력해주세요.", contactSubmitBtn: "문의 접수하기"
+                contactTag: "Contact Us", contactTitle: "글로벌 디벨로퍼의 새로운 파트너가 되어주세요", contactDesc: "H&H Investment는 부동산 개발 및 투자 제휴에 관한 모든 문의를 환영합니다. 혁신적인 아이디어와 비전을 가진 파트너들의 연락을 기다립니다.", contactHqLabel: "본사 위치", contactHqVal: "고양시 덕양구 청초로 66, RiverWork A2001", contactEmailLabel: "이메일 문의", contactFormHeader: "온라인 문의하기", contactNameLabel: "성함 / 회사명", phContactName: "홍길동 / (주)파트너스", contactTelLabel: "연락처", phContactTel: "010-0000-0000", contactMsgLabel: "문의 내용", phContactMsg: "투자 제휴 및 프로젝트 협력 문의 내용을 입력해주세요.", contactSubmitBtn: "문의 접수하기",
+                modalProjectOverview: "프로젝트 개요"
             },
             ENG: {
                 navHome: "Home", navAbout: "About Us", navBusiness: "Business Area", navPhilosophy: "Philosophy", navPress: "Press", navContact: "Contact Us", navBtnProjects: "View Projects",
-                heroBadge: "Global Real Estate Developer & Investment", heroTitle1: "Shaping tomorrow", heroTitle2: "with vision and action.", heroTitleSub: "Shaping Future Value of Cities Across the Globe, H&H Investment", heroDesc: "H&H Investment is Korea's premier real estate developer leading large-scale mixed-use developments, urban renewal projects, and innovative project financing in core metropolitan hubs.", btnHeroProjects: "Explore Portfolio", btnHeroCompany: "Vision & History →", stat1Label: "Total Project Value", stat1Val: "₩ 3.0T+", stat2Label: "Active Flagships", stat2Val: "Wondang · Cheolsan", stat3Label: "Landmark Developments", stat3Val: "6 Major Sites", stat4Label: "Global Alliances", stat4Val: "Schools & Hotels",
+                heroBadge: "Global Real Estate Developer & Investment", heroTitle2: "with vision and action.", heroTitleSub: "Shaping Future Value of Cities Across the Globe, H&H Investment", heroDesc: "H&H Investment is Korea's premier real estate developer leading large-scale mixed-use developments, urban renewal projects, and innovative project financing in core metropolitan hubs.", btnHeroProjects: "Explore Portfolio", btnHeroCompany: "Vision & History →", stat1Label: "Total Project Value", stat1Val: "₩ 3.0T+", stat2Label: "Active Flagships", stat2Val: "Wondang · Cheolsan", stat3Label: "Landmark Developments", stat3Val: "6 Major Sites", stat4Label: "Global Alliances", stat4Val: "Schools & Hotels",
                 companyTag: "Company Overview", companyTitle: "Creating Value Through Excellence and Trust", companyP1: "H&H Investment provides comprehensive end-to-end solutions encompassing project planning, licensing, land acquisition, PF structuring, construction management, and post-operation.", companyP2: "Beyond mere construction, we focus on developing iconic mixed-use landmarks that revitalize regional culture and infrastructure, delivering rock-solid risk management and outstanding profitability.", compFeat1Title: "Rigorous Risk Management", compFeat1Desc: "Rock-solid financial stability secured through top-tier financial institutions and HUG guarantees.", compFeat2Title: "Landmark Planning Capability", compFeat2Desc: "Specialized architectural design and mixed-use infrastructure driving local regional momentum.", compCoreHeader: "Core Competencies", compCore1Title: "Project Financing (PF) Structuring", compCore1Desc: "Extensive track record executing non-recourse PF and syndicated loans with premier financial institutions.", compCore2Title: "Anchor Tenant Attraction", compCore2Desc: "Strategic partnerships with elite global schools (Wycombe Abbey) and luxury hospitality brands (Banyan Tree / Marriott).", compCore3Title: "Urban Planning & FAR Maximization", compCore3Desc: "Maximizing project profitability through rezoning to semi-residential areas and mixed-use optimization.", ceoTitle: "CEO Message & Profile", ceoHeader: "CEO Message & Professional Profile", ceoName: "Don Song", ceoSubtitle: "CEO & Founder, H&H Investment", ceoCareerHeader: "Professional Experience", ceoCareer1: "1999 ~ : KPMG Financial Service - Real Estate Advisory Services", ceoCareer2: "2001 ~ : Samil PricewaterhouseCoopers (PwC) FAS - Real Estate Development, Finance, Project Monitoring & M&A Advisory", ceoCareer3: "2005 ~ : Nomura Research Institute (NRI) - Real Estate Feasibility & Real Estate Finance Specialist", ceoCareer4: "2007 ~ : CEO & Founder, KPIH & H&H Investment (FDI Enterprise) - Real Estate Development Projects", ceoEduHeader: "Education", ceoEdu: "B.S. in Accounting & MBA, New York Institute of Technology (NYIT)",
-                bizTag: "Business Portfolio", bizTitle: "Business Divisions & Key Projects", bizBtnWondang: "Active Flagship Project 1 (Wondang)", bizBtnCheolsan: "Active Flagship Project 2 (Cheolsan)", div1Tag: "Division 01", div1Title: "Public-Private Mixed-Use Development", div1Desc: "Targeting prime public site opportunities to secure rezoning and FAR increases, planning and creating mixed-use landmarks that seamlessly integrate commercial, office, residential, and cultural spaces.", div1LinkWondang: "View Wondang Project Details →", div1LinkCheolsan: "View Cheolsan Project Details →", div2Tag: "Division 02", div2Title: "Real Estate Finance & Project Financing (PF)", div2Desc: "Securing stable financing across bridge loans, main PF, ABCP issuance, and structured finance in robust partnership with top-tier financial institutions.", div3Tag: "Division 03", div3Title: "Global Educational Institution Attraction", div3Desc: "Exclusively attracting world-class global schools such as Wycombe Abbey to elevate property values and provide premium educational infrastructure to local communities.", div4Tag: "Division 04", div4Title: "High-End Residential & Hospitality Services", div4Desc: "Integrating luxury residential services and premium concierge amenities in collaboration with top hospitality brands like Banyan Tree and Marriott.", portfolioHeader: "Key Project Portfolio", projDongjakTitle: "Dongjak-gu Office Site Mixed-Use Landmark (Noryangjin DEGC)", projDongjakDesc: "A 40-story landmark complex featuring Wycombe Abbey International School, Banyan Tree concierge, and donated public sports facilities.", projDongjakBtn1: "View Details", projDongjakBtn2: "📄 Summary Report", projYuseongTitle: "Daejeon Yuseong Multi-Transit Center (Terminal Complex)", projYuseongDesc: "A 243,680m² regional transit hub integrating passenger terminals, 798 office units, MEGABOX cinema, and Kyobo Book Centre.", projYuseongBtn1: "View Details", projYuseongBtn2: "📄 Summary Report", projAnmyeondoTitle: "Anmyeondo Tourist Resort Development (Sector 3 Gkotji)", projAnmyeondoDesc: "A 249,924m² luxury seaside condominium and wellness resort complex in 태안, Chungnam.", projAnmyeondoBtn1: "View Details", projAnmyeondoBtn2: "📄 Summary Report", projDmcTitle: "Sangam DMC Media Mixed-Use Complex (DMC Landmark Tower)", projDmcDesc: "A 71-story, 656m ultra-tall landmark tower integrating global media HQ, convention center, department store, and luxury residences.", projDmcBtn1: "View Details", projDmcBtn2: "📄 Summary Report", projWondangTitle: "Goyang Wondang Public-Support Private Rental Housing", projWondangDesc: "A 994-unit prime residential landmark complex in Wondang.", projWondangBtn: "View Business Plan & Site Details →", projCheolsanTitle: "Gwangmyeong Cheolsan-dong 261 Mixed-Use Project", projCheolsanDesc: "A 30-story prime transit-oriented residential & commercial complex near Cheolsan Station Line 7.", projCheolsanBtn: "View Business Plan & Site Details →",
-                pressTag: "Press & Media Links", pressTitle: "Media Coverage Links for Key Developments", pressDesc: "Collection of official news links regarding Dongjak-gu Office, Daejeon Yuseong Center, and Anmyeondo Development.", pressCat1: "Dongjak-gu Office Project Press", pressCat2: "Daejeon Yuseong Transit Center Press", pressCat3: "Anmyeondo Resort Development Press", pressItemDongjak1: "E-Daehan Economy News Article", pressItemDongjak2: "Yonhap News Article", pressItemDongjak3: "Skyedaily News Article", pressItemYuseong1: "Chungcheong Today News Article", pressItemYuseong2: "TJB Daejeon Broadcasting Article (News 1)", pressItemYuseong3: "Daejeon MBC News Article", pressItemYuseong4: "TJB Daejeon Broadcasting Article (News 2)", pressItemYuseong5: "News1 Article", pressItemAnmyeondo1: "TJB Daejeon Broadcasting Article", pressItemAnmyeondo2: "Chungcheong Times Article", pressItemAnmyeondo3: "Geumgang Ilbo Article", pressItemAnmyeondo4: "Chungcheong Today Article", pressItemAnmyeondo5: "Asia Economy Article", pressBtnLabel: "View Original Article ↗",
+                bizTag: "Business Portfolio", bizTitle: "Business Divisions & Key Projects", bizBtnWondang: "Active Flagship Project 1 (Wondang)", bizBtnCheolsan: "Active Flagship Project 2 (Cheolsan)", div1Tag: "Division 01", div1Title: "Public-Private Mixed-Use Development", div1Desc: "Targeting prime public site opportunities to secure rezoning and FAR increases, planning and creating mixed-use landmarks that seamlessly integrate commercial, office, residential, and cultural spaces.", div1LinkWondang: "View Wondang Project Details →", div1LinkCheolsan: "View Cheolsan Project Details →", div2Tag: "Division 02", div2Title: "Real Estate Finance & Project Financing (PF)", div2Desc: "Securing stable financing across bridge loans, main PF, ABCP issuance, and structured finance in robust partnership with top-tier financial institutions.", div3Tag: "Division 03", div3Title: "Global Educational Institution Attraction", div3Desc: "Exclusively attracting world-class global schools such as Wycombe Abbey to elevate property values and provide premium educational infrastructure to local communities.", div4Tag: "Division 04", div4Title: "High-End Residential & Hospitality Services", div4Desc: "Integrating luxury residential services and premium concierge amenities in collaboration with top hospitality brands like Banyan Tree and Marriott.", portfolioHeader: "Key Project Portfolio", 
+                badgeDongjak: "Dongjak-gu, Seoul", projDongjakTitle: "Dongjak-gu Office Site Mixed-Use Landmark (Noryangjin DEGC)", projDongjakDesc: "A 40-story landmark complex featuring Wycombe Abbey International School, Banyan Tree concierge, and donated public sports facilities.", projDongjakBtn1: "View Details", projDongjakBtn2: "Summary Report", 
+                badgeYuseong: "Yuseong-gu, Daejeon", projYuseongTitle: "Daejeon Yuseong Multi-Transit Center (Terminal Complex)", projYuseongDesc: "A 243,680m² regional transit hub integrating passenger terminals, 798 office units, MEGABOX cinema, and Kyobo Book Centre.", projYuseongBtn1: "View Details", projYuseongBtn2: "Summary Report", 
+                badgeAnmyeondo: "Taean-gun, Chungnam", projAnmyeondoTitle: "Anmyeondo Tourist Resort Development (Sector 3 Gkotji)", projAnmyeondoDesc: "A 249,924m² luxury seaside condominium and wellness resort complex in Taean, Chungnam.", projAnmyeondoBtn1: "View Details", projAnmyeondoBtn2: "Summary Report", 
+                badgeDmc: "Mapo-gu, Seoul", projDmcTitle: "Sangam DMC Media Mixed-Use Complex (DMC Landmark Tower)", projDmcDesc: "A 71-story, 656m ultra-tall landmark tower integrating global media HQ, convention center, department store, and luxury residences.", projDmcBtn1: "View Details", projDmcBtn2: "Summary Report", 
+                badgeWondang: "Active Flagship Project 1", projWondangTitle: "Goyang Wondang Public-Support Private Rental Housing", projWondangDesc: "A 994-unit prime residential landmark complex in Wondang.", projWondangBtn: "View Business Plan & Site Details →", 
+                badgeCheolsan: "Active Flagship Project 2", projCheolsanTitle: "Gwangmyeong Cheolsan-dong 261 Mixed-Use Project", projCheolsanDesc: "A 30-story prime transit-oriented residential & commercial complex near Cheolsan Station Line 7.", projCheolsanBtn: "View Business Plan & Site Details →",
+                pressTag: "Press & Media Links", pressTitle: "Media Coverage Links for Key Developments", pressDesc: "Collection of official news links regarding Dongjak-gu Office, Daejeon Yuseong Center, and Anmyeondo Development.", pressCat1: "Dongjak-gu Office Project Press", pressCat2: "Daejeon Yuseong Transit Center Press", pressCat3: "Anmyeondo Resort Development Press", pressItemDongjak1: "E-Daehan Economy News Article", pressItemDongjak2: "Yonhap News Article", pressItemDongjak3: "Skyedaily News Article", pressItemYuseong1: "Chungcheong Today News Article", pressItemYuseong2: "TJB Daejeon Broadcasting Article (News 1)", pressItemYuseong3: "Deajeon MBC News Article", pressItemYuseong4: "TJB Daejeon Broadcasting Article (News 2)", pressItemYuseong5: "News1 Article", pressItemAnmyeondo1: "TJB Daejeon Broadcasting Article", pressItemAnmyeondo2: "Chungcheong Times Article", pressItemAnmyeondo3: "Geumgang Ilbo Article", pressItemAnmyeondo4: "Chungcheong Today Article", pressItemAnmyeondo5: "Asia Economy Article", pressBtnLabel: "View Original Article ↗",
                 wondangTag: "Current Flagship Project 1 (Division 01)", wondangTitle: "Goyang Wondang Public-Support Private Rental Housing Project", wondangBackBtn: "← Back to Business Area", wondangSubBadge: "Active Flagship Public-Support Private Housing Project", wondangHead: "Prime Station-Area Residential Landmark in Wondang, Goyang", wondangDesc: "Developing 994 residential units across 8 buildings (B3-35F) in Seongsa-dong, Goyang. Applied semi-residential rezoning to maximize FAR (379.63%).", wondangStat1Label: "Scale", wondangStat1Val: "994 Units Total", wondangStat2Label: "Building Scale", wondangStat2Val: "B3F - 35F", wondangPdfHeader: "📄 Wondang Business Plan Official Document (PDF)", wondangPdfSub: "Examine financial structures and architectural plans via the PDF viewer below.", wondangPdfOpenBtn: "Open Full PDF in New Window ↗",
-                cheolsanTag: "Current Flagship Project 2 (Division 01)", cheolsanTitle: "Gwangmyeong Cheolsan-dong 261 Mixed-Use Project", cheolsanBackBtn: "← Back to Business Area", cheolsanSubBadge: "Active Flagship Mixed-Use Development Project", cheolsanHead: "Prime Transit-Oriented Landmark at Line 7 Cheolsan Station", cheolsanDesc: "A 30-story transit-oriented development featuring 299 residential units and retail facilities in Cheolsan-dong, Gwangmyeong. Total revenue of ₩551.2B with a pre-tax profit of ₩59.0B (10.71% margin).", cheolsanStat1Label: "Scale", cheolsanStat1Val: "299 Residential Units", cheolsanStat2Label: "Building Scale", cheolsanStat2Label: "B7F - 30F", cheolsanStat3Label: "Total Revenue", cheolsanStat3Val: "₩ 551.2 B", cheolsanVideoLabel: "🎥 Cheolsan Construction Simulation Video", cheolsanPdfHeader: "📄 Cheolsan Business Plan Official Document (PDF)", cheolsanPdfSub: "View financial balance analysis and architectural plans via the PDF viewer below.", cheolsanPdfOpenBtn: "Open Full PDF in New Window ↗",
-                contactTag: "Contact Us", contactTitle: "Partner with a Premier Global Developer", contactDesc: "H&H Investment welcomes all inquiries regarding real estate development and investment partnerships. We look forward to connecting with visionary partners.", contactHqLabel: "Headquarters Location", contactHqVal: "Goyang-si Deokyang-gu 청초로 66, RiverWork A2001", contactEmailLabel: "Email Inquiry", contactFormHeader: "Online Inquiry Form", contactNameLabel: "Name / Company", phContactName: "John Doe / Partner Corp.", contactTelLabel: "Contact Number", phContactTel: "+82 10-0000-0000", contactMsgLabel: "Message", phContactMsg: "Please specify your inquiry regarding investment or project partnership.", contactSubmitBtn: "Submit Inquiry"
+                cheolsanTag: "Current Flagship Project 2 (Division 01)", cheolsanTitle: "Gwangmyeong Cheolsan-dong 261 Mixed-Use Project", cheolsanBackBtn: "← Back to Business Area", cheolsanSubBadge: "Active Flagship Mixed-Use Development Project", cheolsanHead: "Prime Transit-Oriented Landmark at Line 7 Cheolsan Station", cheolsanDesc: "A 30-story transit-oriented development featuring 299 residential units and retail facilities in Cheolsan-dong, Gwangmyeong. Total revenue of ₩551.2B with a pre-tax profit of ₩59.0B (10.71% margin).", cheolsanStat1Label: "Scale", cheolsanStat1Val: "299 Residential Units", 
+                cheolsanStat2Label: "Building Scale", cheolsanStat2Val: "B7F - 30F", 
+                cheolsanStat3Label: "Total Revenue", cheolsanStat3Val: "₩ 551.2 B", cheolsanVideoLabel: "🎥 Cheolsan Construction Simulation Video", cheolsanPdfHeader: "📄 Cheolsan Business Plan Official Document (PDF)", cheolsanPdfSub: "View financial balance analysis and architectural plans via the PDF viewer below.", cheolsanPdfOpenBtn: "Open Full PDF in New Window ↗",
+                contactTag: "Contact Us", contactTitle: "Partner with a Premier Global Developer", contactDesc: "H&H Investment welcomes all inquiries regarding real estate development and investment partnerships. We look forward to connecting with visionary partners.", contactHqLabel: "Headquarters Location", contactHqVal: "66 Cheongcho-ro, Deokyang-gu, Goyang-si, RiverWork A2001", contactEmailLabel: "Email Inquiry", contactFormHeader: "Online Inquiry Form", contactNameLabel: "Name / Company", phContactName: "John Doe / Partner Corp.", contactTelLabel: "Contact Number", phContactTel: "+82 10-0000-0000", contactMsgLabel: "Message", phContactMsg: "Please specify your inquiry regarding investment or project partnership.", contactSubmitBtn: "Submit Inquiry",
+                modalProjectOverview: "Project Summary"
             }
         };
 
         function toggleLanguage() {
             currentLang = (currentLang === 'KOR') ? 'ENG' : 'KOR';
             const langBtn = document.getElementById('langToggleBtn');
-            if (langBtn) { langBtn.innerText = (currentLang === 'KOR') ? '🌐 ENG' : '🌐 KOR'; }
+            if (langBtn) { langBtn.innerText = (currentLang === 'KOR') ? 'ENG' : 'KOR'; }
 
             const langData = i18n[currentLang];
             for (let key in langData) {
@@ -193,6 +198,19 @@
                 }
             }
 
+            const badgeKeys = ['Dongjak', 'Yuseong', 'Anmyeondo', 'Dmc', 'Wondang', 'Cheolsan'];
+            badgeKeys.forEach(k => {
+                const badgeEl = document.getElementById('txt-badge' + k);
+                if (badgeEl && langData['badge' + k]) {
+                    badgeEl.innerText = langData['badge' + k];
+                }
+            });
+
+            const modalOverviewEl = document.getElementById('txt-modalOverview');
+            if (modalOverviewEl && langData['modalProjectOverview']) {
+                modalOverviewEl.innerText = langData['modalProjectOverview'];
+            }
+
             const philoImg = document.getElementById('philoVisionImg');
             if (philoImg) {
                 philoImg.src = (currentLang === 'KOR') ? 'philosophyvisionkor.jpg' : 'philosophyvisioneng_2.jpg';
@@ -200,6 +218,11 @@
 
             const pressBtns = document.querySelectorAll('.txt-pressBtnLabel');
             pressBtns.forEach(btn => { btn.innerText = langData.pressBtnLabel; });
+
+            const reportBtns = document.querySelectorAll('#txt-projDongjakBtn2, #txt-projYuseongBtn2, #txt-projAnmyeondoBtn2, #txt-dmcBtn2');
+            reportBtns.forEach(btn => {
+                btn.innerHTML = (currentLang === 'ENG') ? 'Summary Report' : '📄 요약보고서';
+            });
 
             showToast(currentLang === 'ENG' ? 'Switched to English Language Mode' : '한국어 모드로 전환되었습니다.');
         }
@@ -211,19 +234,47 @@
         if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initializeVideoAutoplay); } else { initializeVideoAutoplay(); }
 
         const projectsData = {
-            dongjak: { title: '동작구청 현청사부지 개발사업 (노량진 DEGC)', images: ['dongjak1_2.jpg', 'dongjakmain.jpg', 'dongjakmain2.jpg', 'dongjak1.jpg', 'dongjak2.jpg'], desc: '서울특별시 동작구 노량진동 47-2 일원에 위치한 지하 6층~지상 40층 규모의 복합 랜드마크 단지입니다.' },
-            yuseong: { title: '대전 유성광역복합환승센터 (복합여객터미널)', images: ['yuseongmain_3.jpg', 'yusung2_3.jpg', 'yuseongmain2_3.jpg', 'yusung3_3.jpg'], desc: '대전광역시 유성구 구암동 119-5 일원의 대형 광역복합환승 거점입니다.' },
-            anmyeondo: { title: '안면도 관광지 개발사업 (3지구 꽃지 씨사이드)', images: ['anmyunmain.jpg', 'anmyun2.jpg', 'anmyun3.jpg', 'anmyunlobby.jpg'], desc: '충남 태안군 안면도 꽃지지구 대규모 명품 리조트 단지 개발 프로젝트입니다.' },
-            dmc: { title: '상암 DMC 미디어 복합단지 (DMC 랜드마크)', images: ['dmcmain.jpg', 'dmccommercial.jpg', 'dmcsub1.jpg', 'dmc4.jpg', 'dmc2.jpg', 'dmc3.jpg', 'dmcsub2.jpg', 'dmcsite.jpg', 'dmc5.jpg', 'dmc169.jpg'], desc: '서울 마포구 상암동 초고층 타워 프로젝트입니다.' }
+            dongjak: { 
+                title: { KOR: '동작구청 현청사부지 개발사업 (노량진 DEGC)', ENG: 'Dongjak-gu Office Site Mixed-Use Landmark Development (Noryangjin DEGC)' }, 
+                images: ['dongjak1_2.jpg', 'dongjakmain.jpg', 'dongjakmain2.jpg', 'dongjak1.jpg', 'dongjak2.jpg'], 
+                desc: { 
+                    KOR: '서울특별시 동작구 노량진동 47-2 일원에 위치한 지하 6층~지상 40층 규모의 복합 랜드마크 단지입니다.', 
+                    ENG: 'A mixed-use landmark complex located at 47-2 Noryangjin-dong, Dongjak-gu, Seoul, featuring B6 to 40 floors.' 
+                } 
+            },
+            yuseong: { 
+                title: { KOR: '대전 유성광역복합환승센터 (복합여객터미널)', ENG: 'Daejeon Yuseong Multi-Transit Center (Terminal Complex)' }, 
+                images: ['yuseongmain_3.jpg', 'yusung2_3.jpg', 'yuseongmain2_3.jpg', 'yusung3_3.jpg'], 
+                desc: { 
+                    KOR: '대전광역시 유성구 구암동 119-5 일원의 대형 광역복합환승 거점입니다.', 
+                    ENG: 'A large-scale multi-transit hub located at 119-5 Guam-dong, Yuseong-gu, Daejeon.' 
+                } 
+            },
+            anmyeondo: { 
+                title: { KOR: '안면도 관광지 개발사업 (3지구 꽃지 씨사이드)', ENG: 'Anmyeondo Tourist Resort Development (Sector 3 Gkotji Seaside)' }, 
+                images: ['anmyunmain.jpg', 'anmyun2.jpg', 'anmyun3.jpg', 'anmyunlobby.jpg'], 
+                desc: { 
+                    KOR: '충남 태안군 안면도 꽃지지구 대규모 명품 리조트 단지 개발 프로젝트입니다.', 
+                    ENG: 'A large-scale luxury resort development project in the Gkotji area of Anmyeondo, Taean-gun, Chungnam.' 
+                } 
+            },
+            dmc: { 
+                title: { KOR: '상암 DMC 미디어 복합단지 (DMC 랜드마크)', ENG: 'Sangam DMC Media Mixed-Use Complex (DMC Landmark Tower)' }, 
+                images: ['dmcmain.jpg', 'dmccommercial.jpg', 'dmcsub1.jpg', 'dmc4.jpg', 'dmc2.jpg', 'dmc3.jpg', 'dmcsub2.jpg', 'dmcsite.jpg', 'dmc5.jpg', 'dmc169.jpg'], 
+                desc: { 
+                    KOR: '서울 마포구 상암동 초고층 타워 프로젝트입니다.', 
+                    ENG: 'An ultra-tall skyscraper tower and mixed-use complex project located in Sangam-dong, Mapo-gu, Seoul.' 
+                } 
+            }
         };
 
         function openProjectModal(key) {
             const p = projectsData[key];
             if (!p) return;
-            document.getElementById('modalTitle').innerText = p.title;
-            document.getElementById('modalDesc').innerText = p.desc;
+            document.getElementById('modalTitle').innerText = p.title[currentLang] || p.title['KOR'];
+            document.getElementById('modalDesc').innerText = p.desc[currentLang] || p.desc['KOR'];
             const mainImg = document.getElementById('modalMainImg');
-            mainImg.onerror = function() { handleImageError(this, p.title); };
+            mainImg.onerror = function() { handleImageError(this, p.title['ENG']); };
             mainImg.src = p.images[0];
             const thumbs = document.getElementById('modalThumbs');
             thumbs.innerHTML = '';
@@ -233,7 +284,7 @@
                 thumb.src = imgSrc;
                 thumb.className = `w-16 h-12 sm:w-20 sm:h-16 object-cover rounded-xl border-2 cursor-pointer transition-all ${idx === 0 ? 'border-swiss-red scale-105' : 'border-swiss-ink opacity-60 hover:opacity-100'}`;
                 thumb.onclick = function() {
-                    mainImg.onerror = function() { handleImageError(this, p.title); };
+                    mainImg.onerror = function() { handleImageError(this, p.title['ENG']); };
                     mainImg.src = imgSrc;
                     const children = thumbs.children;
                     for (let i = 0; i < children.length; i++) { children[i].classList.remove('border-swiss-red', 'scale-105', 'opacity-100'); }
@@ -256,11 +307,10 @@
         function openDmcReportModal() { document.getElementById('dmcReportModal').classList.remove('hidden'); }
         function closeDmcReportModal() { document.getElementById('dmcReportModal').classList.add('hidden'); }
 
-        // 자바스크립트 기반 무한 순환 타이핑 효과 구현
+        // 자바스크립트 기반 무한 순환 타이핑 효과 구현 (Shaping tomorrow, Innovating spaces, Building landmarks)
         document.addEventListener("DOMContentLoaded", function() {
             const words = ["Shaping tomorrow", "Innovating spaces", "Building landmarks"];
             let i = 0;
-            let timer;
             
             function typingEffect() {
                 const word = words[i].split("");
@@ -275,7 +325,7 @@
                         setTimeout(deletingEffect, 2000);
                         return;
                     }
-                    timer = setTimeout(loopTyping, 100);
+                    setTimeout(loopTyping, 100);
                 };
                 loopTyping();
             }
@@ -294,12 +344,11 @@
                         setTimeout(typingEffect, 500);
                         return;
                     }
-                    timer = setTimeout(loopDeleting, 50);
+                    setTimeout(loopDeleting, 50);
                 };
                 loopDeleting();
             }
             
-            // 타입라이터 실행
             setTimeout(typingEffect, 1000);
         });
     </script>
@@ -325,7 +374,7 @@
 
             <div class="flex items-center gap-2 sm:gap-3">
                 <button type="button" onclick="toggleLanguage()" id="langToggleBtn" class="bg-transparent hover:text-swiss-red font-bold px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs border border-swiss-ink transition cursor-pointer">
-                    🌐 ENG
+                    ENG
                 </button>
                 <button type="button" onclick="showPage('business')" id="txt-navBtnProjects" class="hidden sm:inline-block bg-swiss-red text-white font-bold px-4 sm:px-5 py-2 sm:py-2.5 text-xs transition transform hover:scale-105 cursor-pointer">
                     프로젝트 보기
@@ -366,12 +415,12 @@
                     </div>
                     
                     <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight text-left">
-                        <span id="txt-heroTitle1" class="inline-block font-black text-white drop-shadow-md typewriter-text">Shaping tomorrow</span><br>
+                        <span id="txt-heroTitle1" class="inline-block font-black drop-shadow-md typewriter-text" style="opacity: 0.65 !important; color: var(--swiss-ink) !important;">Shaping tomorrow</span><br>
                         <span id="txt-heroTitle2" class="inline-block swiss-typewriter-text mt-1 drop-shadow-lg">with vision and action.</span><br>
-                        <span id="txt-heroTitleSub" class="inline-block text-base sm:text-2xl lg:text-3xl font-bold mt-3 text-slate-100 drop-shadow-md">도시의 미래 가치를 창조하는 글로벌 디벨로퍼, H&H Investment</span>
+                        <span id="txt-heroTitleSub" class="inline-block text-base sm:text-2xl lg:text-3xl font-bold mt-3 drop-shadow-md">도시의 미래 가치를 창조하는 글로벌 디벨로퍼, H&H Investment</span>
                     </h1>
                     
-                    <p id="txt-heroDesc" class="text-xs sm:text-base max-w-2xl leading-relaxed text-left font-medium text-slate-200 drop-shadow-sm border-l-2 border-swiss-red pl-4">
+                    <p id="txt-heroDesc" class="text-xs sm:text-base max-w-2xl leading-relaxed text-left font-medium drop-shadow-sm border-l-2 border-swiss-red pl-4">
                         H&H Investment는 서울 및 수도권 핵심 요충지의 대규모 복합단지 개발, 도시정비사업, 그리고 혁신적인 금융 구조화를 선도하는 대한민국 대표 종합 부동산 디벨로퍼입니다.
                     </p>
                 </div>
@@ -380,26 +429,26 @@
                     <button type="button" onclick="showPage('business')" id="txt-btnHeroProjects" class="bg-swiss-red hover:bg-red-700 text-white font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-xs sm:text-sm shadow-xl transition transform hover:scale-105 cursor-pointer flex items-center gap-2">
                         주요 프로젝트 바로가기
                     </button>
-                    <button type="button" onclick="showPage('company')" id="txt-btnHeroCompany" class="text-white hover:text-swiss-red bg-slate-900/80 backdrop-blur-md px-4 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold rounded-xl transition cursor-pointer shadow-lg border border-slate-700">
+                    <button type="button" onclick="showPage('company')" id="txt-btnHeroCompany" class="text-swiss-ink hover:text-swiss-red bg-white/80 backdrop-blur-md px-4 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold rounded-xl transition cursor-pointer shadow-lg border border-swiss-ink">
                         기업 비전 및 연혁 →
                     </button>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-8 sm:pt-10 border-t border-white/20">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-8 sm:pt-10 border-t border-swiss-line">
                     <div class="p-1 sm:p-2 text-left">
-                        <span id="txt-stat1Label" class="text-[10px] sm:text-xs font-medium text-slate-200 block mb-1 drop-shadow-md">Total Project Value</span>
+                        <span id="txt-stat1Label" class="text-[10px] sm:text-xs font-medium block mb-1">Total Project Value</span>
                         <span id="txt-stat1Val" class="text-xl sm:text-3xl font-extrabold text-swiss-red drop-shadow-lg">₩ 3.0T+</span>
                     </div>
                     <div class="p-1 sm:p-2 text-left">
-                        <span id="txt-stat2Label" class="text-[10px] sm:text-xs font-medium text-slate-200 block mb-1 drop-shadow-md">Active Flagships</span>
+                        <span id="txt-stat2Label" class="text-[10px] sm:text-xs font-medium block mb-1">Active Flagships</span>
                         <span id="txt-stat2Val" class="text-xl sm:text-3xl font-extrabold text-swiss-red drop-shadow-lg">Wondang · Cheolsan</span>
                     </div>
                     <div class="p-1 sm:p-2 text-left">
-                        <span id="txt-stat3Label" class="text-[10px] sm:text-xs font-medium text-slate-200 block mb-1 drop-shadow-md">Landmark Developments</span>
+                        <span id="txt-stat3Label" class="text-[10px] sm:text-xs font-medium block mb-1">Landmark Developments</span>
                         <span id="txt-stat3Val" class="text-xl sm:text-3xl font-extrabold text-swiss-red drop-shadow-lg">6 Major Sites</span>
                     </div>
                     <div class="p-1 sm:p-2 text-left">
-                        <span id="txt-stat4Label" class="text-[10px] sm:text-xs font-medium text-slate-200 block mb-1 drop-shadow-md">Global Alliances</span>
+                        <span id="txt-stat4Label" class="text-[10px] sm:text-xs font-medium block mb-1">Global Alliances</span>
                         <span id="txt-stat4Val" class="text-xl sm:text-3xl font-extrabold text-swiss-red drop-shadow-lg">Schools & Hotels</span>
                     </div>
                 </div>
@@ -566,7 +615,7 @@
                         <div>
                             <div class="relative aspect-video sm:h-60 overflow-hidden bg-swiss-paper">
                                 <img src="dongjak1_2.jpg" alt="동작구청" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '동작구청')">
-                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-ink text-swiss-red text-xs font-bold px-2.5 py-1">서울 동작구</div>
+                                <div id="txt-badgeDongjak" class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-ink text-swiss-red text-xs font-bold px-2.5 py-1">서울 동작구</div>
                             </div>
                             <div class="p-5 sm:p-6 space-y-2 sm:space-y-3">
                                 <h4 id="txt-projDongjakTitle" class="text-base sm:text-lg font-bold">동작구청 현청사부지 개발사업 (노량진 DEGC)</h4>
@@ -584,7 +633,7 @@
                         <div>
                             <div class="relative aspect-video sm:h-60 overflow-hidden bg-swiss-paper">
                                 <img src="yuseongmain_3.jpg" alt="대전유성" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '대전유성')">
-                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-ink text-swiss-red text-xs font-bold px-2.5 py-1">대전 유성구</div>
+                                <div id="txt-badgeYuseong" class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-ink text-swiss-red text-xs font-bold px-2.5 py-1">대전 유성구</div>
                             </div>
                             <div class="p-5 sm:p-6 space-y-2 sm:space-y-3">
                                 <h4 id="txt-projYuseongTitle" class="text-base sm:text-lg font-bold">대전 유성광역복합환승센터 (복합여객터미널)</h4>
@@ -602,7 +651,7 @@
                         <div>
                             <div class="relative aspect-video sm:h-60 overflow-hidden bg-swiss-paper">
                                 <img src="anmyunmain.jpg" alt="안면도" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '안면도관광지')">
-                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-ink text-swiss-red text-xs font-bold px-2.5 py-1">충남 태안군</div>
+                                <div id="txt-badgeAnmyeondo" class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-ink text-swiss-red text-xs font-bold px-2.5 py-1">충남 태안군</div>
                             </div>
                             <div class="p-5 sm:p-6 space-y-2 sm:space-y-3">
                                 <h4 id="txt-projAnmyeondoTitle" class="text-base sm:text-lg font-bold">안면도 관광지 개발사업 (3지구 꽃지 씨사이드)</h4>
@@ -620,7 +669,7 @@
                         <div>
                             <div class="relative aspect-video sm:h-60 overflow-hidden bg-swiss-paper">
                                 <img src="dmcmain.jpg" alt="상암DMC" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '상암DMC')">
-                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-ink text-swiss-red text-xs font-bold px-2.5 py-1">서울 마포구</div>
+                                <div id="txt-badgeDmc" class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-ink text-swiss-red text-xs font-bold px-2.5 py-1">서울 마포구</div>
                             </div>
                             <div class="p-5 sm:p-6 space-y-2 sm:space-y-3">
                                 <h4 id="txt-projDmcTitle" class="text-base sm:text-lg font-bold">상암 DMC 미디어 복합단지 (DMC 랜드마크)</h4>
@@ -638,7 +687,7 @@
                         <div>
                             <div class="relative aspect-video sm:h-60 overflow-hidden bg-swiss-paper">
                                 <img src="wondangmain.jpg" alt="고양원당" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '고양원당')">
-                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-red text-white text-xs font-bold px-2.5 py-1">현 진행중인 프로젝트 1</div>
+                                <div id="txt-badgeWondang" class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-red text-white text-xs font-bold px-2.5 py-1">현 진행중인 프로젝트 1</div>
                             </div>
                             <div class="p-5 sm:p-6 space-y-2 sm:space-y-3">
                                 <h4 id="txt-projWondangTitle" class="text-base sm:text-lg font-bold">고양 원당 성사 공공지원 민간임대주택 사업</h4>
@@ -655,7 +704,7 @@
                         <div>
                             <div class="relative aspect-video sm:h-60 overflow-hidden bg-swiss-paper">
                                 <img src="chulsan1.jpg" alt="광명철산" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="handleImageError(this, '광명철산')">
-                                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-red text-white text-xs font-bold px-2.5 py-1">현 진행중인 프로젝트 2</div>
+                                <div id="txt-badgeCheolsan" class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-swiss-red text-white text-xs font-bold px-2.5 py-1">현 진행중인 프로젝트 2</div>
                             </div>
                             <div class="p-5 sm:p-6 space-y-2 sm:space-y-3">
                                 <h4 id="txt-projCheolsanTitle" class="text-base sm:text-lg font-bold">광명시 철산동 261 주거복합 개발사업</h4>
@@ -710,10 +759,12 @@
                         <h3 id="txt-wondangPdfHeader" class="text-lg sm:text-xl font-bold">📄 원당 사업계획서 원본 문서 (PDF)</h3>
                         <p id="txt-wondangPdfSub" class="text-xs mt-1">원당 성사 공공지원 민간임대주택 사업의 상세 정보 및 재무 구조를 PDF 뷰어로 확인하실 수 있습니다.</p>
                     </div>
-                    <a href="wondangbusinessplan.pdf" target="_blank" id="txt-wondangPdfOpenBtn" class="btn-swiss-red font-bold px-4 py-2 sm:px-5 sm:py-2.5 text-xs transition cursor-pointer inline-block">새 창에서 전체 PDF 열기 ↗</a>
+                    <a href="wondangbusinessplan.pdf#toolbar=0&view=FitH" target="_blank" id="txt-wondangPdfOpenBtn" class="btn-swiss-red font-bold px-4 py-2 sm:px-5 sm:py-2.5 text-xs transition cursor-pointer inline-block">새 창에서 전체 PDF 열기 ↗</a>
                 </div>
                 <div class="w-full h-[400px] sm:h-[650px] bg-swiss-paper overflow-hidden border border-swiss-line">
-                    <iframe src="wondangbusinessplan.pdf" class="w-full h-full border-0"></iframe>
+                    <object data="wondangbusinessplan.pdf#toolbar=0&view=FitH" type="application/pdf" class="w-full h-full">
+                        <iframe src="wondangbusinessplan.pdf#toolbar=0&view=FitH" class="w-full h-full border-0"></iframe>
+                    </object>
                 </div>
             </div>
         </section>
@@ -783,10 +834,12 @@
                         <h3 id="txt-cheolsanPdfHeader" class="text-lg sm:text-xl font-bold">📄 철산 사업계획서 원본 문서 (PDF)</h3>
                         <p id="txt-cheolsanPdfSub" class="text-xs mt-1">광명 철산동 261 주거복합 개발사업의 상세 수지 분석 및 건축계획을 PDF 뷰어로 확인하실 수 있습니다.</p>
                     </div>
-                    <a href="chulsanbusinessplan.pdf" target="_blank" id="txt-cheolsanPdfOpenBtn" class="btn-swiss-red font-bold px-4 py-2 sm:px-5 sm:py-2.5 text-xs transition cursor-pointer inline-block">새 창에서 전체 PDF 열기 ↗</a>
+                    <a href="chulsanbusinessplan.pdf#toolbar=0&view=FitH" target="_blank" id="txt-cheolsanPdfOpenBtn" class="btn-swiss-red font-bold px-4 py-2 sm:px-5 sm:py-2.5 text-xs transition cursor-pointer inline-block">새 창에서 전체 PDF 열기 ↗</a>
                 </div>
                 <div class="w-full h-[400px] sm:h-[650px] bg-swiss-paper overflow-hidden border border-swiss-line">
-                    <iframe src="chulsanbusinessplan.pdf" class="w-full h-full border-0"></iframe>
+                    <object data="chulsanbusinessplan.pdf#toolbar=0&view=FitH" type="application/pdf" class="w-full h-full">
+                        <iframe src="chulsanbusinessplan.pdf#toolbar=0&view=FitH" class="w-full h-full border-0"></iframe>
+                    </object>
                 </div>
             </div>
         </section>
@@ -1025,7 +1078,7 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-swiss-ink text-white border-t border-swiss-ink py-8 sm:py-12 mt-16 sm:mt-24">
+    <footer class="bg-swiss-ink text-white border-t border-swiss-ink py-6 sm:py-8 mt-6 sm:mt-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-xs text-gray-400">
             <div class="flex items-center gap-3">
                 <img src="HHI.png" alt="H&H Investment Logo" class="h-6 sm:h-8 w-auto object-contain brightness-0 invert" onerror="handleLogoError(this)">
@@ -1057,7 +1110,7 @@
                 </div>
                 <div id="modalThumbs" class="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-2"></div>
                 <div class="space-y-2">
-                    <h4 class="text-xs sm:text-sm font-bold text-swiss-red uppercase tracking-widest">프로젝트 개요</h4>
+                    <h4 id="txt-modalOverview" class="text-xs sm:text-sm font-bold text-swiss-red uppercase tracking-widest">프로젝트 개요</h4>
                     <p id="modalDesc" class="text-xs sm:text-sm leading-relaxed"></p>
                 </div>
             </div>
@@ -1078,7 +1131,11 @@
                 <h3 class="text-base sm:text-lg font-bold">동작구청 요약보고서</h3>
                 <button type="button" onclick="closeDongjakReportModal()" class="text-swiss-ink hover:text-swiss-red text-base font-bold px-3 py-1 bg-swiss-paper border border-swiss-ink cursor-pointer">✕</button>
             </div>
-            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-swiss-paper"><iframe src="dongjaksummary.pdf" class="w-full h-[450px] sm:h-[650px] border border-swiss-ink"></iframe></div>
+            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-swiss-paper">
+                <object data="dongjaksummary.pdf#toolbar=0&view=FitH" type="application/pdf" class="w-full h-[450px] sm:h-[650px]">
+                    <iframe src="dongjaksummary.pdf#toolbar=0&view=FitH" class="w-full h-full border-0"></iframe>
+                </object>
+            </div>
         </div>
     </div>
     <div id="yuseongReportModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70">
@@ -1087,7 +1144,11 @@
                 <h3 class="text-base sm:text-lg font-bold">대전 유성 요약보고서</h3>
                 <button type="button" onclick="closeYuseongReportModal()" class="text-swiss-ink hover:text-swiss-red text-base font-bold px-3 py-1 bg-swiss-paper border border-swiss-ink cursor-pointer">✕</button>
             </div>
-            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-swiss-paper"><iframe src="yusungsummary.pdf" class="w-full h-[450px] sm:h-[650px] border border-swiss-ink"></iframe></div>
+            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-swiss-paper">
+                <object data="yusungsummary.pdf#toolbar=0&view=FitH" type="application/pdf" class="w-full h-[450px] sm:h-[650px]">
+                    <iframe src="yusungsummary.pdf#toolbar=0&view=FitH" class="w-full h-full border-0"></iframe>
+                </object>
+            </div>
         </div>
     </div>
     <div id="anmyeondoReportModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70">
@@ -1096,7 +1157,11 @@
                 <h3 class="text-base sm:text-lg font-bold">안면도 요약보고서</h3>
                 <button type="button" onclick="closeAnmyeongdoReportModal()" class="text-swiss-ink hover:text-swiss-red text-base font-bold px-3 py-1 bg-swiss-paper border border-swiss-ink cursor-pointer">✕</button>
             </div>
-            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-swiss-paper"><iframe src="anmyunsummary.pdf" class="w-full h-[450px] sm:h-[650px] border border-swiss-ink"></iframe></div>
+            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-swiss-paper">
+                <object data="anmyunsummary.pdf#toolbar=0&view=FitH" type="application/pdf" class="w-full h-[450px] sm:h-[650px]">
+                    <iframe src="anmyunsummary.pdf#toolbar=0&view=FitH" class="w-full h-full border-0"></iframe>
+                </object>
+            </div>
         </div>
     </div>
     <div id="dmcReportModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70">
@@ -1105,7 +1170,11 @@
                 <h3 class="text-base sm:text-lg font-bold">상암 DMC 요약보고서</h3>
                 <button type="button" onclick="closeDmcReportModal()" class="text-swiss-ink hover:text-swiss-red text-base font-bold px-3 py-1 bg-swiss-paper border border-swiss-ink cursor-pointer">✕</button>
             </div>
-            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-swiss-paper"><iframe src="dmcbusinessplan.pdf" class="w-full h-[450px] sm:h-[650px] border border-swiss-ink"></iframe></div>
+            <div class="p-3 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-swiss-paper">
+                <object data="dmcbusinessplan.pdf#toolbar=0&view=FitH" type="application/pdf" class="w-full h-[450px] sm:h-[650px]">
+                    <iframe src="dmcbusinessplan.pdf#toolbar=0&view=FitH" class="w-full h-full border-0"></iframe>
+                </object>
+            </div>
         </div>
     </div>
 
